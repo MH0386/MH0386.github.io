@@ -1,6 +1,8 @@
-body {
+body
+{
     background-color: #000000;
 }
+
 div
 {
     width: 99%;
@@ -14,12 +16,14 @@ div
     font-weight: 900;
     overflow: hidden;
 }
+
 video
 {
     position: absolute;
     mix-blend-mode: multiply;
     width: 100%;
 }
+
 p
 {
     font-size: 50%;
