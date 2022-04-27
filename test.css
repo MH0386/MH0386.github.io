@@ -1,0 +1,29 @@
+body {
+    background-color: #000000;
+}
+div
+{
+    width: 99%;
+    height: 99%;
+    color: #fff;
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    font-size: 400px;
+    font-weight: 900;
+    overflow: hidden;
+}
+video
+{
+    position: absolute;
+    mix-blend-mode: multiply;
+    width: 100%;
+}
+p
+{
+    font-size: 50%;
+    font-weight: 900;
+    text-transform: capitalize;
+    font-family: 'Roboto', sans-serif;
+}
