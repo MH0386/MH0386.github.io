@@ -17,7 +17,7 @@ div
     overflow: hidden;
 }
 
-video
+img
 {
     position: absolute;
     mix-blend-mode: multiply;
@@ -26,6 +26,7 @@ video
 
 p
 {
+
     font-size: 50%;
     font-weight: 900;
     text-transform: capitalize;
