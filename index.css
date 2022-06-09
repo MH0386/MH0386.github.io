@@ -3,6 +3,31 @@ body
     background-color: #000000;
 }
 
+.Description
+{
+    width: 99%;
+    height: 99%;
+    color: #fff;
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    font-size: 400px;
+    font-weight: 900;
+    overflow: hidden;
+}
+
+.Hi 
+{
+    position: relative;
+    font-family: 'JetBrains Mono';
+    font-weight: 400;
+    top: -30%;
+    left: auto;
+    font-size: 20%;
+    text-transform: capitalize;
+}
+
 .main
 {
     width: 99%;
@@ -17,27 +42,34 @@ body
     overflow: hidden;
 }
 
-img
-{
-    position: absolute;
-    mix-blend-mode: multiply;
-    width: 100%;
-    height: 100%;
-}
-
 .NyName
 {
+    top: auto;
+    left: auto;
     font-size: 50%;
     font-weight: 900;
     text-transform: capitalize;
     font-family: 'jetbrains mono','Roboto', sans-serif;
 }
 
-.Description
+.MyGitHub
 {
-    position: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
-    font-size: 5%;
-    font-family: 'jetbrains mono','Roboto', sans-serif;
+    position: relative;
+    font-family: 'JetBrains Mono';
+    font-weight: 400;
+    top: 30%;
+    left: -26%;
+    font-size: 20%;
+    text-transform: capitalize;
+}
+
+.MyFacebook
+{
+    position: relative;
+    font-family: 'JetBrains Mono';
+    font-weight: 400;
+    top: 30%;
+    left: -24%;
+    font-size: 20%;
+    text-transform: capitalize;
 }
