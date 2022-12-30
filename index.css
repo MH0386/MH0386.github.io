@@ -17,7 +17,7 @@ body {
 
 .Hi {
     position: relative;
-    font-family: 'JetBrains Mono';
+    font-family: 'JetBrains Mono', serif;
     font-weight: 400;
     top: -30%;
     left: auto;
@@ -44,7 +44,7 @@ body {
     font-size: 50%;
     font-weight: 900;
     text-transform: capitalize;
-    font-family: 'jetbrains mono';
+    font-family: 'JetBrains Mono', serif;
 }
 
 .MyGitHub {
