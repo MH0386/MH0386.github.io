@@ -17,7 +17,7 @@ body {
 
 .Hi {
     position: relative;
-    font-family: 'JetBrains Mono', serif;
+    font-family: monospace;
     font-weight: 400;
     top: -30%;
     left: auto;
@@ -44,12 +44,12 @@ body {
     font-size: 50%;
     font-weight: 900;
     text-transform: capitalize;
-    font-family:  serif;
+    font-family: monospace;
 }
 
 .MyGitHub {
     position: relative;
-    font-family: 'JetBrains Mono', serif;
+    font-family: monospace;
     font-weight: 400;
     top: 30%;
     left: -6%;
@@ -59,7 +59,7 @@ body {
 
 .MyFacebook {
     position: relative;
-    font-family: 'JetBrains Mono', serif;
+    font-family: monospace;
     font-weight: 400;
     top: 30%;
     left: -2%;
@@ -69,7 +69,7 @@ body {
 
 .MyLinkedin {
     position: relative;
-    font-family: 'JetBrains Mono', serif;
+    font-family: monospace;
     font-weight: 400;
     top: 30%;
     left: 2%;
@@ -79,7 +79,7 @@ body {
 
 .MyTwitter {
     position: relative;
-    font-family: 'JetBrains Mono', serif;
+    font-family: monospace;
     font-weight: 400;
     top: 30%;
     left: 6%;
@@ -89,7 +89,7 @@ body {
 .MyKaggle
 {
     position: relative;
-    font-family: 'JetBrains Mono', serif;
+    font-family: monospace;
     font-weight: 400;
     top: 30%;
     left: 10%;
