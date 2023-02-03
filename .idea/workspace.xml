@@ -5,34 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4c80dc1e-a9c0-4bb0-ad2c-6d0e783dd736" name="Changes" comment="gj">
-      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/fc3f89418783ecfa6df3b35e04d5b971/.filecache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/fc3f89418783ecfa6df3b35e04d5b971/app.dill" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/fc3f89418783ecfa6df3b35e04d5b971/app.dill.deps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/fc3f89418783ecfa6df3b35e04d5b971/dart2js.d" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/fc3f89418783ecfa6df3b35e04d5b971/dart2js.stamp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/fc3f89418783ecfa6df3b35e04d5b971/flutter_assets.d" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/fc3f89418783ecfa6df3b35e04d5b971/gen_localizations.stamp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/fc3f89418783ecfa6df3b35e04d5b971/main.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/fc3f89418783ecfa6df3b35e04d5b971/main.dart.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/fc3f89418783ecfa6df3b35e04d5b971/main.dart.js.deps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/fc3f89418783ecfa6df3b35e04d5b971/outputs.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/fc3f89418783ecfa6df3b35e04d5b971/service_worker.d" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/fc3f89418783ecfa6df3b35e04d5b971/web_entrypoint.stamp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/fc3f89418783ecfa6df3b35e04d5b971/web_plugin_registrant.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/fc3f89418783ecfa6df3b35e04d5b971/web_release_bundle.stamp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/fc3f89418783ecfa6df3b35e04d5b971/web_resources.d" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/fc3f89418783ecfa6df3b35e04d5b971/web_service_worker.stamp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/fc3f89418783ecfa6df3b35e04d5b971/web_static_assets.stamp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/8/a8ea5273939a12e805641671b79e5eaeaab1e231" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/3/c35774685cffc620de767cda8fa01675e8685378" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/web/.last_build_id" beforeDir="false" afterPath="$PROJECT_DIR$/build/web/.last_build_id" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/web/assets/NOTICES" beforeDir="false" afterPath="$PROJECT_DIR$/build/web/assets/NOTICES" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/web/canvaskit/canvaskit.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/web/canvaskit/canvaskit.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/web/canvaskit/profiling/canvaskit.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/web/canvaskit/profiling/canvaskit.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/web/flutter.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/web/flutter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/web/flutter_service_worker.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/web/flutter_service_worker.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/web/main.dart.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/web/main.dart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +60,7 @@
       <updated>1675442280620</updated>
       <workItem from="1675442280621" duration="159000" />
       <workItem from="1675442500168" duration="2044000" />
-      <workItem from="1675447087573" duration="366000" />
+      <workItem from="1675447087573" duration="720000" />
     </task>
     <task id="LOCAL-00001" summary="g">
       <created>1675442573637</created>
@@ -145,7 +118,21 @@
       <option name="project" value="LOCAL" />
       <updated>1675447445871</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="gj">
+      <created>1675447504573</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1675447504573</updated>
+    </task>
+    <task id="LOCAL-00010" summary="gj">
+      <created>1675447665295</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1675447665295</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="ToolWindowManager">
