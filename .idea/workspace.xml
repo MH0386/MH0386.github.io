@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4c80dc1e-a9c0-4bb0-ad2c-6d0e783dd736" name="Changes" comment="gjggggggg">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/main.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/main.yml" afterDir="false" />
-    </list>
+    <list default="true" id="4c80dc1e-a9c0-4bb0-ad2c-6d0e783dd736" name="Changes" comment="gjggggggg" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -60,7 +58,7 @@
       <updated>1675442280620</updated>
       <workItem from="1675442280621" duration="159000" />
       <workItem from="1675442500168" duration="2044000" />
-      <workItem from="1675447087573" duration="2105000" />
+      <workItem from="1675447087573" duration="2794000" />
     </task>
     <task id="LOCAL-00001" summary="g">
       <created>1675442573637</created>
@@ -160,7 +158,21 @@
       <option name="project" value="LOCAL" />
       <updated>1675448574418</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="gjggggggg">
+      <created>1675449690609</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1675449690609</updated>
+    </task>
+    <task id="LOCAL-00016" summary="gjggggggg">
+      <created>1675449790729</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1675449790729</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -174,6 +186,17 @@
   </component>
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="main.yml" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="g" />
