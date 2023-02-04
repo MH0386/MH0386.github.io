@@ -1,0 +1,98 @@
+body {
+    background-color: #000000;
+}
+
+.Description {
+    width: 99%;
+    height: 99%;
+    color: #fff;
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    font-size: 400px;
+    font-weight: 900;
+    overflow: hidden;
+}
+
+.Hi {
+    position: relative;
+    font-family: monospace;
+    font-weight: 400;
+    top: -30%;
+    left: auto;
+    font-size: 25%;
+    text-transform: capitalize;
+}
+
+.main {
+    width: 99%;
+    height: 99%;
+    color: #fff;
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    font-size: 300px;
+    font-weight: 900;
+    overflow: hidden;
+}
+
+.NyName {
+    top: auto;
+    left: auto;
+    font-size: 50%;
+    font-weight: 900;
+    text-transform: capitalize;
+    font-family: monospace;
+}
+
+.MyGitHub {
+    position: relative;
+    font-family: monospace;
+    font-weight: 400;
+    top: 30%;
+    left: -6%;
+    font-size: 20%;
+    text-transform: capitalize;
+}
+
+.MyFacebook {
+    position: relative;
+    font-family: monospace;
+    font-weight: 400;
+    top: 30%;
+    left: -2%;
+    font-size: 20%;
+    text-transform: capitalize;
+}
+
+.MyLinkedin {
+    position: relative;
+    font-family: monospace;
+    font-weight: 400;
+    top: 30%;
+    left: 2%;
+    font-size: 20%;
+    text-transform: capitalize;
+}
+
+.MyTwitter {
+    position: relative;
+    font-family: monospace;
+    font-weight: 400;
+    top: 30%;
+    left: 6%;
+    font-size: 20%;
+    text-transform: capitalize;
+}
+
+.MyKaggle {
+    position: relative;
+    font-family: monospace;
+    font-weight: 400;
+    top: 30%;
+    left: 10%;
+    font-size: 20%;
+    text-transform: capitalize;
+}
