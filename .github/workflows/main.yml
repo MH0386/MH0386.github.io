@@ -13,5 +13,4 @@ jobs:
       - uses: subosito/flutter-action@v2
       - uses: bluefireteam/flutter-gh-pages@v7
         with:
-            workingDir: web
             baseHref: /MH0386.github.io/
