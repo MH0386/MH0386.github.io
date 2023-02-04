@@ -15,3 +15,5 @@ jobs:
       - uses: bluefireteam/flutter-gh-pages@v7
         with:
             baseHref: /MH0386.github.io/build/web/
+      - name: Flutter Deployment
+        uses: jeanluc243/Flutter-Deployment@0.1
