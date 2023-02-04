@@ -58,7 +58,7 @@ class MyApp extends StatelessWidget {
               ),
               Link(
                   target: LinkTarget.blank,
-                  uri: Uri.parse('https://flowcv.com/resume/is9tktrcqi'),
+                  uri: Uri.parse('https://rxresu.me/mohammedhisham053/mh0386'),
                   builder: (context, followLink) => OutlinedButton(
                         onPressed: followLink,
                         child: const Text(
