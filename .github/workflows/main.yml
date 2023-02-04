@@ -2,7 +2,8 @@ name: personal_website
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "master", "gh-pages" ]
+    
   workflow_dispatch:
 
 jobs:
