@@ -5,10 +5,17 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/link.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   var facebookSVG = '''
 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
      viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
@@ -18,6 +25,7 @@ class MyApp extends StatelessWidget {
 	v176h96V336h48L432,256z"/>
 </svg>
                               ''';
+
   var kaggleSVG = '''
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
     <path d="M18.825 23.859c-.022.092-.117.141-.281.141h-3.139c-.187 0-.351-.082-.492-.248l-5.178-6.589l-1.448 1.374v5.111c0 .235-.117.352-.351.352H5.505c-.236 0-.354-.117-.354-.352V.353c0-.233.118-.353.354-.353h2.431c.234 0 .351.12.351.353v14.343l6.203-6.272c.165-.165.33-.246.495-.246h3.239c.144 0 .236.06.285.18c.046.149.034.255-.036.315l-6.555 6.344l6.836 8.507c.095.104.117.208.07.358"
@@ -25,6 +33,7 @@ class MyApp extends StatelessWidget {
     <rect x="0" y="0" width="24" height="24" fill="rgba(0, 0, 0, 0)"/>
 </svg>
 ''';
+
   var githubSVG = '''
 <svg width="98" height="96" xmlns="http://www.w3.org/2000/svg">
     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -32,6 +41,7 @@ class MyApp extends StatelessWidget {
           fill="#fff"/>
 </svg>
 ''';
+
   var linkedinSVG = '''
 <svg viewBox="0 0 128 128">
     <g id="original">
@@ -41,6 +51,7 @@ class MyApp extends StatelessWidget {
     </g>
 </svg>
                               ''';
+
   var twitterSVG = '''
 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
      viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
@@ -55,6 +66,7 @@ class MyApp extends StatelessWidget {
 </svg>
 
                               ''';
+
   var codewarsSVG = '''
 <svg xmlns="http://www.w3.org/2000/svg" width="660" height="660">
   <path fill="#b1361e" d="M321.7 550.8a21 21 0 0112.2-3.6 21 21 0 0117.7 10.5 24.1 24.1 0 0117.8-7.2 24 24 0 0115.7 6.3 26.6 26.6 0 0126.3-19.7 26.5 26.5 0 019.7 2.1v.6c.4-15.7 13-28.2 28.4-28.7a35.5 35.5 0 01-3.3-19.7c1.5-12.3 9.1-22.4 19.4-27.7l.1.1c-5.3-5.5-8.5-13-8.3-21.3a29.6 29.6 0 016.2-17.5 27.3 27.3 0 01-12.1-33.5 24.5 24.5 0 01-22-25 24.7 24.7 0 01.3-3.8 19.8 19.8 0 01-4.2.4 19.8 19.8 0 01-18.7-15.3 17.7 17.7 0 01-10.3 3c-8.2-.3-15-6-16.8-13.7a11.2 11.2 0 01-5.8 1.4 11.2 11.2 0 01-4.8-1.2v-.2a36.4 36.4 0 01-9.7 16 11.2 11.2 0 015.2 5 11.3 11.3 0 01-.2 10.6 17.8 17.8 0 018.8 29.8 19.7 19.7 0 019.6 9c5 9.7 1.1 21.6-8.6 26.6a24.5 24.5 0 015.3 7c6.2 12.1 1.5 27-10.6 33a24.6 24.6 0 01-6 2.2v.1a27.3 27.3 0 01-11.8 36.8 27.1 27.1 0 01-14.7 2.9 29.7 29.7 0 01-17.7 29 17.2 17.2 0 013 5.6.7.7 0 01-.1 0z"/>
@@ -64,8 +76,6 @@ class MyApp extends StatelessWidget {
   <path fill="#b1361e" d="M300.4 339.5a11.2 11.2 0 01-6.7 2 11.3 11.3 0 01-9.2-5.1 17.8 17.8 0 01-30.3-6.5 19.7 19.7 0 01-12.6 4c-10.9-.2-19.5-9.3-19.2-20.2a24.5 24.5 0 01-8.8 1.3 24.5 24.5 0 01-22.9-31.5h-.1c-15-.3-27-12.8-26.6-27.9a27.1 27.1 0 014.5-14.3 29.7 29.7 0 01-17.1-27.7 29.7 29.7 0 011.8-9.6 17.4 17.4 0 01-2.7-.5 21 21 0 01-3.3 12.3 21 21 0 01-18.2 9.7c1.6 6.3.7 13.1-3 19a24 24 0 01-13.4 10.1c8.3 8.7 10 22.2 3.2 32.8a26.5 26.5 0 01-6.8 7.2 29.4 29.4 0 019.4 38.8 35.5 35.5 0 0118.5 7.4 35.7 35.7 0 0113.7 30.9c7.5-1.7 15.5-.5 22.5 4a29.6 29.6 0 0111.7 14.2 27.3 27.3 0 0128.1.8 27.2 27.2 0 016.9 6.2c7.6-10.2 22-13 32.8-6a24.6 24.6 0 013 2.3 19.8 19.8 0 011.9-3.8c5-7.8 14.4-10.9 22.8-8.2A17.7 17.7 0 01283 371c4.5-7 13-9.7 20.4-7.3a11.2 11.2 0 016.6-10 36.4 36.4 0 01-9.6-14z"/>
 </svg>
 ''';
-
-  MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
