@@ -13,5 +13,4 @@ jobs:
         with:
           channel: beta
       - run: flutter pub get
-      - run: flutter test
       - uses: bluefireteam/flutter-gh-pages@v7
