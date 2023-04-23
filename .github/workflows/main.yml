@@ -14,4 +14,3 @@ jobs:
           channel: beta
       - run: flutter pub get
       - uses: bluefireteam/flutter-gh-pages@v7
-      - uses: jeanluc243/Flutter-Deployment@0.1
