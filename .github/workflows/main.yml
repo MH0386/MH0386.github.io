@@ -1,4 +1,4 @@
-name: GitHub_Pages
+name: gh-pages
 
 on:
   push:
