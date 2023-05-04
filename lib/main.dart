@@ -63,36 +63,13 @@ class _MyAppState extends State<MyApp> {
               ),
               Link(
                 target: LinkTarget.blank,
-                uri: Uri.parse('MAILTO:mohammedhisham053@gmail.com'),
+                uri: Uri.parse('MAILTO:mohamed.hisham.abdelzaher@gmail.com'),
                 builder: (context, followLink) => OutlinedButton(
                   onPressed: followLink,
                   child: AnimatedTextKit(
                     animatedTexts: [
                       TypewriterAnimatedText(
-                        'mohammedhisham053@gmail.com',
-                        textStyle: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                          fontSize: 20,
-                          fontFamily: GoogleFonts.jetBrainsMono().fontFamily,
-                        ),
-                        speed: const Duration(milliseconds: 100),
-                      ),
-                    ],
-                    repeatForever: false,
-                    isRepeatingAnimation: false,
-                  ),
-                ),
-              ),
-              Link(
-                target: LinkTarget.blank,
-                uri: Uri.parse('MAILTO:mohammedhisham60@outlook.com'),
-                builder: (context, followLink) => OutlinedButton(
-                  onPressed: followLink,
-                  child: AnimatedTextKit(
-                    animatedTexts: [
-                      TypewriterAnimatedText(
-                        'mohammedhisham60@outlook.com',
+                        'mohamed.hisham.abdelzaher@gmail.com',
                         textStyle: TextStyle(
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
