@@ -67,6 +67,7 @@ class _MyAppState extends State<MyApp> {
                 builder: (context, followLink) => OutlinedButton(
                   onPressed: followLink,
                   child: AnimatedTextKit(
+                    onTap: followLink,
                     animatedTexts: [
                       TypewriterAnimatedText(
                         'mohamed.hisham.abdelzaher@gmail.com',
@@ -89,10 +90,12 @@ class _MyAppState extends State<MyApp> {
               ),
               Link(
                 target: LinkTarget.blank,
-                uri: Uri.parse('https://rxresu.me/mohamed.hisham.abdelzaher/mh0386'),
+                uri: Uri.parse(
+                    'https://rxresu.me/mohamed.hisham.abdelzaher/mh0386'),
                 builder: (context, followLink) => OutlinedButton(
                   onPressed: followLink,
                   child: AnimatedTextKit(
+                    onTap: followLink,
                     animatedTexts: [
                       TypewriterAnimatedText(
                         'My Resume',
