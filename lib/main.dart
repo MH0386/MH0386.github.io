@@ -132,7 +132,7 @@ class _MyAppState extends State<MyApp> {
                 children: [
                   Link(
                     target: LinkTarget.blank,
-                    uri: Uri.parse('https://www.facebook.com/MH0386'),
+                    uri: Uri.parse('https://www.facebook.com/Mohamed.Hisham.Abdelzaher'),
                     builder: (context, followLink) => IconButton(
                       color: Colors.white,
                       iconSize: (MediaQuery.of(context).size.width * 0.05 <
