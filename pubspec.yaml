@@ -40,6 +40,7 @@ dependencies:
   google_fonts: ^4.0.3
   url_launcher: ^6.1.10
   font_awesome_flutter: ^10.4.0
+  flutter_inappwebview: ^5.7.2+3
 
 dev_dependencies:
   flutter_test:
