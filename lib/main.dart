@@ -192,7 +192,7 @@ class _MyAppState extends State<MyApp> {
                               MediaQuery.of(context).size.height * 0.05)
                           ? MediaQuery.of(context).size.width * 0.05
                           : MediaQuery.of(context).size.height * 0.05,
-                      hoverColor: const Color(0xff6fb4f7),
+                      hoverColor: const Color(0xff0a66c1),
                       icon: const FaIcon(FontAwesomeIcons.linkedinIn),
                       onPressed: followLink,
                     ),
