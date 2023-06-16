@@ -74,10 +74,10 @@ class _MyAppState extends State<MyApp> {
                     'Undergraduate Student',
                     textStyle: TextStyle(
                       color: Colors.white,
-                      fontSize: (MediaQuery.of(context).size.width * 0.03 <
-                          MediaQuery.of(context).size.height * 0.03)
-                          ? MediaQuery.of(context).size.width * 0.03
-                          : MediaQuery.of(context).size.height * 0.03,
+                      fontSize: (MediaQuery.of(context).size.width * 0.04 <
+                          MediaQuery.of(context).size.height * 0.04)
+                          ? MediaQuery.of(context).size.width * 0.04
+                          : MediaQuery.of(context).size.height * 0.04,
                       fontFamily: GoogleFonts.jetBrainsMono().fontFamily,
                     ),
                     speed: const Duration(milliseconds: 100),
