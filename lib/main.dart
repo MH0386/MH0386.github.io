@@ -56,7 +56,10 @@ class _MyAppState extends State<MyApp> {
                     textStyle: TextStyle(
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
-                      fontSize: 60,
+                      fontSize: (MediaQuery.of(context).size.width * 0.1 <
+                          MediaQuery.of(context).size.height * 0.1)
+                          ? MediaQuery.of(context).size.width * 0.1
+                          : MediaQuery.of(context).size.height * 0.1,
                       fontFamily: GoogleFonts.jetBrainsMono().fontFamily,
                     ),
                     speed: const Duration(milliseconds: 100),
@@ -71,7 +74,10 @@ class _MyAppState extends State<MyApp> {
                     'Undergraduate Student',
                     textStyle: TextStyle(
                       color: Colors.white,
-                      fontSize: 40,
+                      fontSize: (MediaQuery.of(context).size.width * 0.03 <
+                          MediaQuery.of(context).size.height * 0.03)
+                          ? MediaQuery.of(context).size.width * 0.03
+                          : MediaQuery.of(context).size.height * 0.03,
                       fontFamily: GoogleFonts.jetBrainsMono().fontFamily,
                     ),
                     speed: const Duration(milliseconds: 100),
@@ -96,7 +102,10 @@ class _MyAppState extends State<MyApp> {
                         textStyle: TextStyle(
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
-                          fontSize: 20,
+                          fontSize: (MediaQuery.of(context).size.width * 0.04 <
+                              MediaQuery.of(context).size.height * 0.04)
+                              ? MediaQuery.of(context).size.width * 0.04
+                              : MediaQuery.of(context).size.height * 0.04,
                           fontFamily: GoogleFonts.jetBrainsMono().fontFamily,
                         ),
                         speed: const Duration(milliseconds: 100),
