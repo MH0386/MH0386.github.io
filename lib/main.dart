@@ -129,7 +129,7 @@ class _MyAppState extends State<MyApp> {
                     onTap: followLink,
                     animatedTexts: [
                       TypewriterAnimatedText(
-                        'My Resume',
+                        'My CV',
                         textStyle: TextStyle(
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
