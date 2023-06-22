@@ -17,7 +17,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  String  courseraLogo = """
+  String courseraLogo = """
   <svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1000" viewBox="0 0 1000 1000" xml:space="preserve">
   <desc>Created with Fabric.js 3.5.0</desc>
   <rect x="0" y="0" fill="#ffffff"/>
@@ -37,6 +37,12 @@ class _MyAppState extends State<MyApp> {
 </g>
 </svg>
 """;
+  String freelancerLogo = """
+  <svg fill="#ffffff" width="1000px" height="1000px" viewBox="0 0 32 32">
+<g id="SVGRepo_iconCarrier"> <title>freelancer</title>
+<path d="M9.832 16.769l4.128 4.434 4.552-4.461 1.412-8.313-5.547-0.285zM9.323 16.254l4.37-8.15-12.689-0.689zM6.158 4.849l1.071 2.199 5.916 0.367zM17.772 4.848l-2.988 2.692 5.026 0.187zM7.881 27.152l5.591-5.466-3.364-3.611zM18.619 4.848l2.042 2.864 10.334-2.864z"/> </g>
+</svg>
+  """;
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +63,7 @@ class _MyAppState extends State<MyApp> {
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
                       fontSize: (MediaQuery.of(context).size.width * 0.1 <
-                          MediaQuery.of(context).size.height * 0.1)
+                              MediaQuery.of(context).size.height * 0.1)
                           ? MediaQuery.of(context).size.width * 0.1
                           : MediaQuery.of(context).size.height * 0.1,
                       fontFamily: GoogleFonts.jetBrainsMono().fontFamily,
@@ -75,7 +81,7 @@ class _MyAppState extends State<MyApp> {
                     textStyle: TextStyle(
                       color: Colors.white,
                       fontSize: (MediaQuery.of(context).size.width * 0.04 <
-                          MediaQuery.of(context).size.height * 0.04)
+                              MediaQuery.of(context).size.height * 0.04)
                           ? MediaQuery.of(context).size.width * 0.04
                           : MediaQuery.of(context).size.height * 0.04,
                       fontFamily: GoogleFonts.jetBrainsMono().fontFamily,
@@ -102,10 +108,10 @@ class _MyAppState extends State<MyApp> {
                         textStyle: TextStyle(
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
-                          fontSize: (MediaQuery.of(context).size.width * 0.04 <
-                              MediaQuery.of(context).size.height * 0.04)
-                              ? MediaQuery.of(context).size.width * 0.04
-                              : MediaQuery.of(context).size.height * 0.04,
+                          fontSize: (MediaQuery.of(context).size.width * 0.03 <
+                                  MediaQuery.of(context).size.height * 0.03)
+                              ? MediaQuery.of(context).size.width * 0.03
+                              : MediaQuery.of(context).size.height * 0.03,
                           fontFamily: GoogleFonts.jetBrainsMono().fontFamily,
                         ),
                         speed: const Duration(milliseconds: 100),
@@ -133,7 +139,7 @@ class _MyAppState extends State<MyApp> {
                         textStyle: TextStyle(
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
-                          fontSize: 20,
+                          fontSize: 30,
                           fontFamily: GoogleFonts.jetBrainsMono().fontFamily,
                         ),
                         speed: const Duration(milliseconds: 200),
@@ -152,7 +158,8 @@ class _MyAppState extends State<MyApp> {
                 children: [
                   Link(
                     target: LinkTarget.blank,
-                    uri: Uri.parse('https://www.facebook.com/Mohamed.Hisham.Abdelzaher'),
+                    uri: Uri.parse(
+                        'https://www.facebook.com/Mohamed.Hisham.Abdelzaher'),
                     builder: (context, followLink) => IconButton(
                       color: Colors.white,
                       iconSize: (MediaQuery.of(context).size.width * 0.05 <
@@ -222,7 +229,8 @@ class _MyAppState extends State<MyApp> {
                   ),
                   Link(
                     target: LinkTarget.blank,
-                    uri: Uri.parse('https://www.Coursera.org/user/985b071f3a43961f7fc46f8061c7377e'),
+                    uri: Uri.parse(
+                        'https://www.Coursera.org/user/985b071f3a43961f7fc46f8061c7377e'),
                     builder: (context, followLink) => IconButton(
                       color: Colors.white,
                       iconSize: (MediaQuery.of(context).size.width * 0.05 <
@@ -245,6 +253,20 @@ class _MyAppState extends State<MyApp> {
                           : MediaQuery.of(context).size.height * 0.05,
                       hoverColor: const Color(0xff03ed62),
                       icon: SvgPicture.string(dataCampLogo),
+                      onPressed: followLink,
+                    ),
+                  ),
+                  Link(
+                    target: LinkTarget.blank,
+                    uri: Uri.parse('https://www.freelancer.com/u/MH0386'),
+                    builder: (context, followLink) => IconButton(
+                      color: Colors.white,
+                      iconSize: (MediaQuery.of(context).size.width * 0.05 <
+                              MediaQuery.of(context).size.height * 0.05)
+                          ? MediaQuery.of(context).size.width * 0.05
+                          : MediaQuery.of(context).size.height * 0.05,
+                      hoverColor: const Color(0xff2ec866),
+                      icon: SvgPicture.string(freelancerLogo),
                       onPressed: followLink,
                     ),
                   ),
