@@ -122,7 +122,7 @@ class _MyAppState extends State<MyApp> {
               Link(
                 target: LinkTarget.blank,
                 uri: Uri.parse(
-                    'https://rxresu.me/mohamed.hisham.abdelzaher/my-resume'),
+                    'https://rxresu.me/mohamed.hisham.abdelzaher/my-cv'),
                 builder: (context, followLink) => OutlinedButton(
                   onPressed: followLink,
                   child: AnimatedTextKit(
