@@ -38,10 +38,9 @@ class _MyAppState extends State<MyApp> {
 </svg>
 """;
   String freelancerLogo = """
-  <svg fill="#ffffff" width="1000px" height="1000px" viewBox="0 0 32 32">
-<g id="SVGRepo_iconCarrier"> <title>freelancer</title>
-<path d="M9.832 16.769l4.128 4.434 4.552-4.461 1.412-8.313-5.547-0.285zM9.323 16.254l4.37-8.15-12.689-0.689zM6.158 4.849l1.071 2.199 5.916 0.367zM17.772 4.848l-2.988 2.692 5.026 0.187zM7.881 27.152l5.591-5.466-3.364-3.611zM18.619 4.848l2.042 2.864 10.334-2.864z"/> </g>
-</svg>
+  <svg xmlns="http://www.w3.org/2000/svg" width="60" height="55">
+  <path d="M37.6 8.203l4.36 6.113L64 8.203M14.676 55.797l11.93-11.663-7.18-7.705M35.783 8.203l-6.376 5.75 10.724.4m-29.134-6.15l2.3 4.693 12.62.786M17.753 32.54l9.324-17.393L0 13.683m18.838 19.96l8.807 9.46 9.715-9.523 3.015-17.737-11.84-.604" fill="#ffffff"/>
+  </svg>
   """;
 
   @override
@@ -265,7 +264,7 @@ class _MyAppState extends State<MyApp> {
                               MediaQuery.of(context).size.height * 0.05)
                           ? MediaQuery.of(context).size.width * 0.05
                           : MediaQuery.of(context).size.height * 0.05,
-                      hoverColor: const Color(0xff2ec866),
+                      hoverColor: const Color(0xff29b2fe),
                       icon: SvgPicture.string(freelancerLogo),
                       onPressed: followLink,
                     ),
