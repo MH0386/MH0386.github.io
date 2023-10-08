@@ -274,7 +274,7 @@ class _MyAppState extends State<MyApp> {
                               MediaQuery.of(context).size.height * 0.05)
                           ? MediaQuery.of(context).size.width * 0.05
                           : MediaQuery.of(context).size.height * 0.05,
-                      hoverColor: const Color(0xff29b2fe),
+                      hoverColor: const Color(0xffffd21e),
                       icon: SvgPicture.string(huggingFaceLogo),
                       onPressed: followLink,
                     ),
