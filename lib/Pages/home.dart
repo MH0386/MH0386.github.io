@@ -20,10 +20,7 @@ class Home extends StatelessWidget {
           color: const Color(0xFF000000),
           child: IconButton.outlined(
             color: const Color(0xFF000000),
-            icon: const Icon(
-              Icons.menu,
-              color: Colors.white,
-            ),
+            icon: const Icon(Icons.menu, color: Colors.white),
             onPressed: () {
               Get.bottomSheet(
                 SingleChildScrollView(
@@ -32,31 +29,31 @@ class Home extends StatelessWidget {
                       Link(
                         target: LinkTarget.blank,
                         uri: Uri.parse(
-                            'MAILTO:mohamed.hisham.abdelzaher@gmail.com'),
+                          'MAILTO:mohamed.hisham.abdelzaher@gmail.com',
+                        ),
                         builder: (context, followLink) => Card(
-                          // onPressed: followLink,
                           child: ListTile(
                             onTap: followLink,
                             title: const Text('Email'),
                             leading: const FaIcon(FontAwesomeIcons.envelope),
                             subtitle: const Text(
-                                'mohamed.hisham.abdelzaher@gmail.com'),
+                              'mohamed.hisham.abdelzaher@gmail.com',
+                            ),
                           ),
                         ),
                       ),
                       Card(
-                        // onPressed: followLink,
                         child: ListTile(
-                          onTap: () => Get.to(() =>  Resume()),
+                          onTap: () => Get.to(() => Resume()),
                           title: const Text('Resume'),
                         ),
                       ),
                       Link(
                         target: LinkTarget.blank,
                         uri: Uri.parse(
-                            'https://www.facebook.com/Mohamed.Hisham.Abdelzaher'),
+                          'https://www.facebook.com/Mohamed.Hisham.Abdelzaher',
+                        ),
                         builder: (context, followLink) => Card(
-                          // onPressed: followLink,
                           child: ListTile(
                             onTap: followLink,
                             title: const Text('Facebook'),
@@ -66,9 +63,10 @@ class Home extends StatelessWidget {
                       ),
                       Link(
                         target: LinkTarget.blank,
-                        uri: Uri.parse('https://www.Kaggle.com/MH0386'),
+                        uri: Uri.parse(
+                          'https://www.Kaggle.com/MH0386',
+                        ),
                         builder: (context, followLink) => Card(
-                          // onPressed: followLink,
                           child: ListTile(
                             onTap: followLink,
                             title: const Text('Kaggle'),
@@ -78,9 +76,10 @@ class Home extends StatelessWidget {
                       ),
                       Link(
                         target: LinkTarget.blank,
-                        uri: Uri.parse('https://www.GitHub.com/MH0386'),
+                        uri: Uri.parse(
+                          'https://www.GitHub.com/MH0386',
+                        ),
                         builder: (context, followLink) => Card(
-                          // onPressed: followLink,
                           child: ListTile(
                             onTap: followLink,
                             title: const Text('GitHub'),
@@ -90,9 +89,10 @@ class Home extends StatelessWidget {
                       ),
                       Link(
                         target: LinkTarget.blank,
-                        uri: Uri.parse('https://www.LinkedIn.com/in/MH0386'),
+                        uri: Uri.parse(
+                          'https://www.LinkedIn.com/in/MH0386',
+                        ),
                         builder: (context, followLink) => Card(
-                          // onPressed: followLink,
                           child: ListTile(
                             onTap: followLink,
                             title: const Text('LinkedIn'),
@@ -102,9 +102,10 @@ class Home extends StatelessWidget {
                       ),
                       Link(
                         target: LinkTarget.blank,
-                        uri: Uri.parse('https://www.x.com/MH0386'),
+                        uri: Uri.parse(
+                          'https://www.x.com/MH0386',
+                        ),
                         builder: (context, followLink) => Card(
-                          // onPressed: followLink,
                           child: ListTile(
                             onTap: followLink,
                             title: const Text('X'),
@@ -115,9 +116,9 @@ class Home extends StatelessWidget {
                       Link(
                         target: LinkTarget.blank,
                         uri: Uri.parse(
-                            'https://www.Coursera.org/user/985b071f3a43961f7fc46f8061c7377e'),
+                          'https://www.Coursera.org/user/985b071f3a43961f7fc46f8061c7377e',
+                        ),
                         builder: (context, followLink) => Card(
-                          // onPressed: followLink,
                           child: ListTile(
                             onTap: followLink,
                             title: const Text('Coursera'),
@@ -127,9 +128,9 @@ class Home extends StatelessWidget {
                       Link(
                         target: LinkTarget.blank,
                         uri: Uri.parse(
-                            'https://www.datacamp.com/profile/MH0386'),
+                          'https://www.datacamp.com/profile/MH0386',
+                        ),
                         builder: (context, followLink) => Card(
-                          // onPressed: followLink,
                           child: ListTile(
                             onTap: followLink,
                             title: const Text('DataCamp'),
@@ -138,9 +139,10 @@ class Home extends StatelessWidget {
                       ),
                       Link(
                         target: LinkTarget.blank,
-                        uri: Uri.parse('https://www.huggingface.co/MH0386'),
+                        uri: Uri.parse(
+                          'https://www.huggingface.co/MH0386',
+                        ),
                         builder: (context, followLink) => Card(
-                          // onPressed: followLink,
                           child: ListTile(
                             onTap: followLink,
                             title: const Text('Hugging Face'),
