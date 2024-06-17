@@ -44,7 +44,7 @@ class Home extends StatelessWidget {
                       ),
                       Card(
                         child: ListTile(
-                          onTap: () => Get.to(() => Resume()),
+                          onTap: () => Get.to(() => const Resume()),
                           title: const Text('Resume'),
                         ),
                       ),

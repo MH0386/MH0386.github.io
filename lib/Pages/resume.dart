@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 
 class Resume extends StatelessWidget {
-  Resume({super.key});
+  const Resume({super.key});
 
   @override
   Widget build(BuildContext context) {
