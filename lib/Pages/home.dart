@@ -1,3 +1,4 @@
+import 'package:MH0386/Pages/resume.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -7,6 +8,7 @@ import 'package:url_launcher/link.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -29,31 +31,30 @@ class Home extends StatelessWidget {
                     children: [
                       Link(
                         target: LinkTarget.blank,
-                        uri: Uri.parse('MAILTO:mohamed.hisham.abdelzaher@gmail.com'),
+                        uri: Uri.parse(
+                            'MAILTO:mohamed.hisham.abdelzaher@gmail.com'),
                         builder: (context, followLink) => Card(
                           // onPressed: followLink,
                           child: ListTile(
                             onTap: followLink,
                             title: const Text('Email'),
                             leading: const FaIcon(FontAwesomeIcons.envelope),
-                            subtitle: const Text('mohamed.hisham.abdelzaher@gmail.com'),
+                            subtitle: const Text(
+                                'mohamed.hisham.abdelzaher@gmail.com'),
                           ),
+                        ),
+                      ),
+                      Card(
+                        // onPressed: followLink,
+                        child: ListTile(
+                          onTap: () => Get.to(() =>  Resume()),
+                          title: const Text('Resume'),
                         ),
                       ),
                       Link(
                         target: LinkTarget.blank,
-                        uri: Uri.parse('https://github.com/MH0386/MH0386/blob/main/resume.pdf'),
-                        builder: (context, followLink) => Card(
-                          // onPressed: followLink,
-                          child: ListTile(
-                            onTap: followLink,
-                            title: const Text('Resume'),
-                          ),
-                        ),
-                      ),
-                      Link(
-                        target: LinkTarget.blank,
-                        uri: Uri.parse('https://www.facebook.com/Mohamed.Hisham.Abdelzaher'),
+                        uri: Uri.parse(
+                            'https://www.facebook.com/Mohamed.Hisham.Abdelzaher'),
                         builder: (context, followLink) => Card(
                           // onPressed: followLink,
                           child: ListTile(
@@ -113,7 +114,8 @@ class Home extends StatelessWidget {
                       ),
                       Link(
                         target: LinkTarget.blank,
-                        uri: Uri.parse('https://www.Coursera.org/user/985b071f3a43961f7fc46f8061c7377e'),
+                        uri: Uri.parse(
+                            'https://www.Coursera.org/user/985b071f3a43961f7fc46f8061c7377e'),
                         builder: (context, followLink) => Card(
                           // onPressed: followLink,
                           child: ListTile(
@@ -124,7 +126,8 @@ class Home extends StatelessWidget {
                       ),
                       Link(
                         target: LinkTarget.blank,
-                        uri: Uri.parse('https://www.datacamp.com/profile/MH0386'),
+                        uri: Uri.parse(
+                            'https://www.datacamp.com/profile/MH0386'),
                         builder: (context, followLink) => Card(
                           // onPressed: followLink,
                           child: ListTile(
@@ -163,8 +166,10 @@ class Home extends StatelessWidget {
                     textStyle: TextStyle(
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
-                      fontSize:
-                          (MediaQuery.of(context).size.width * 0.1 < MediaQuery.of(context).size.height * 0.1) ? MediaQuery.of(context).size.width * 0.1 : MediaQuery.of(context).size.height * 0.1,
+                      fontSize: (MediaQuery.of(context).size.width * 0.1 <
+                              MediaQuery.of(context).size.height * 0.1)
+                          ? MediaQuery.of(context).size.width * 0.1
+                          : MediaQuery.of(context).size.height * 0.1,
                       fontFamily: GoogleFonts.jetBrainsMono().fontFamily,
                     ),
                     speed: const Duration(milliseconds: 100),
@@ -179,8 +184,10 @@ class Home extends StatelessWidget {
                     'Undergraduate Student',
                     textStyle: TextStyle(
                       color: Colors.white,
-                      fontSize:
-                          (MediaQuery.of(context).size.width * 0.04 < MediaQuery.of(context).size.height * 0.04) ? MediaQuery.of(context).size.width * 0.04 : MediaQuery.of(context).size.height * 0.04,
+                      fontSize: (MediaQuery.of(context).size.width * 0.04 <
+                              MediaQuery.of(context).size.height * 0.04)
+                          ? MediaQuery.of(context).size.width * 0.04
+                          : MediaQuery.of(context).size.height * 0.04,
                       fontFamily: GoogleFonts.jetBrainsMono().fontFamily,
                     ),
                     speed: const Duration(milliseconds: 100),

@@ -1,7 +1,9 @@
-import 'package:MH0386.github.io/Pages/home.dart';
-import 'package:MH0386.github.io/Pages/resume.dart';
+import 'dart:io';
+import 'package:MH0386/Pages/home.dart';
+import 'package:MH0386/Pages/resume.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:http/http.dart' as http;
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -11,7 +13,7 @@ Future<void> main() async {
       initialRoute: '/',
       getPages: [
         GetPage(name: '/', page: () => const Home()),
-        GetPage(name: '/resume', page: () => const Resume()),
+        GetPage(name: '/resume', page: () => Resume()),
       ],
     ),
   );
