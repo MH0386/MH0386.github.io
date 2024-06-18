@@ -3,7 +3,7 @@ description: A new Flutter project.
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.3.4 <4.0.0'
+  sdk: '>=3.4.1 <4.0.0'
 
 dependencies:
   flutter:
@@ -15,7 +15,6 @@ dependencies:
   url_launcher: ^6.1.10
   font_awesome_flutter: ^10.4.0
   get: ^4.6.6
-  http: ^1.2.1
   syncfusion_flutter_pdfviewer: ^26.1.35
 
 dev_dependencies:
@@ -27,8 +26,8 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  #  assets:
-  #     - assets/resume.pdf
+  assets:
+     - assets/resume.pdf
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
