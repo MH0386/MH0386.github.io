@@ -22,10 +22,10 @@ class Resume extends StatelessWidget {
             Link(
               target: LinkTarget.blank,
               uri: Uri.parse(
-                'https://github.com/MH0386/MH0386/blob/main/resume.pdf',
+                'https://mh0386.github.io/resume.pdf',
               ),
               builder: (context, followLink) => IconButton(
-                icon: const FaIcon(FontAwesomeIcons.github),
+                icon: const FaIcon(FontAwesomeIcons.eye),
                 onPressed: followLink,
               ),
             ),
