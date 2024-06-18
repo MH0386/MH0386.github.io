@@ -18,4 +18,5 @@ jobs:
           restore-keys: ${{ runner.os }}-pub-
       - uses: subosito/flutter-action@v2
       - run: flutter pub get
+      - run: git clone https://github.com/MH0386/MH0386.git
       - uses: bluefireteam/flutter-gh-pages@v7
