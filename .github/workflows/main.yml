@@ -8,7 +8,19 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.pub-cache
+          key: ${{ runner.os }}-pub-${{ hashFiles('**/pubspec.lock') }}
+          restore-keys: ${{ runner.os }}-pub-
       - uses: subosito/flutter-action@v2
       - run: flutter pub get
       - uses: bluefireteam/flutter-gh-pages@v7
+      - run: wget https://raw.githubusercontent.com/MH0386/MH0386/main/resume.pdf
+      - run: git checkout gh-pages
+      - run: git add resume.pdf
+      - run: git commit -m "Add My Resume"
+      - run: git push
