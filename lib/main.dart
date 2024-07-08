@@ -1,5 +1,5 @@
-import 'package:MH0386/Pages/home.dart';
-import 'package:MH0386/Pages/resume.dart';
+import 'package:mh0386/Pages/home.dart';
+import 'package:mh0386/Pages/resume.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

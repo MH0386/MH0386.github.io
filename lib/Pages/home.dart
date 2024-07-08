@@ -1,4 +1,4 @@
-import 'package:MH0386/Pages/resume.dart';
+import 'package:mh0386/Pages/resume.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -46,6 +46,8 @@ class Home extends StatelessWidget {
                         child: ListTile(
                           onTap: () => Get.to(() => const Resume()),
                           title: const Text('Resume'),
+                          leading:
+                              const FaIcon(FontAwesomeIcons.solidFileLines),
                         ),
                       ),
                       Link(
@@ -96,7 +98,7 @@ class Home extends StatelessWidget {
                           child: ListTile(
                             onTap: followLink,
                             title: const Text('LinkedIn'),
-                            leading: const FaIcon(FontAwesomeIcons.linkedin),
+                            leading: const FaIcon(FontAwesomeIcons.linkedinIn),
                           ),
                         ),
                       ),
@@ -122,6 +124,10 @@ class Home extends StatelessWidget {
                           child: ListTile(
                             onTap: followLink,
                             title: const Text('Coursera'),
+                            leading: Image.network(
+                              'https://play-lh.googleusercontent.com/qq5__wITsoCx2kUK8TqVW2-8UDRuxET9kCzPzAPHad8umXiHRF2N0tZKuLezd0tiBQg=w480-h960-rw',
+                              height: 30,
+                            ),
                           ),
                         ),
                       ),
@@ -134,6 +140,10 @@ class Home extends StatelessWidget {
                           child: ListTile(
                             onTap: followLink,
                             title: const Text('DataCamp'),
+                            leading: Image.network(
+                              'https://play-lh.googleusercontent.com/zIO-uuTBjFigUIswv_h9S0-wVIkno_obwannvzr7NrXbh_MXL_khqV7gEqBly6KXEi4=w480-h960-rw',
+                              height: 30,
+                            ),
                           ),
                         ),
                       ),
@@ -146,6 +156,10 @@ class Home extends StatelessWidget {
                           child: ListTile(
                             onTap: followLink,
                             title: const Text('Hugging Face'),
+                            leading: Image.network(
+                              'https://cdn-lfs.huggingface.co/repos/96/a2/96a2c8468c1546e660ac2609e49404b8588fcf5a748761fa72c154b2836b4c83/9cf16f4f32604eaf76dabbdf47701eea5a768ebcc7296acc1d1758181f71db73?response-content-disposition=inline%3B+filename*%3DUTF-8%27%27hf-logo.png%3B+filename%3D%22hf-logo.png%22%3B&response-content-type=image%2Fpng&Expires=1720705472&Policy=eyJTdGF0ZW1lbnQiOlt7IkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTcyMDcwNTQ3Mn19LCJSZXNvdXJjZSI6Imh0dHBzOi8vY2RuLWxmcy5odWdnaW5nZmFjZS5jby9yZXBvcy85Ni9hMi85NmEyYzg0NjhjMTU0NmU2NjBhYzI2MDllNDk0MDRiODU4OGZjZjVhNzQ4NzYxZmE3MmMxNTRiMjgzNmI0YzgzLzljZjE2ZjRmMzI2MDRlYWY3NmRhYmJkZjQ3NzAxZWVhNWE3NjhlYmNjNzI5NmFjYzFkMTc1ODE4MWY3MWRiNzM%7EcmVzcG9uc2UtY29udGVudC1kaXNwb3NpdGlvbj0qJnJlc3BvbnNlLWNvbnRlbnQtdHlwZT0qIn1dfQ__&Signature=RQlGxsEJ3CiYnIiqpbx%7ELNAOB08G7etS8x6cC5Hjj1Fq3hNzv3jnFdnK5KbK9W%7EfEdHu1lTk69Yr3suLy6nM1hvRecMk9FCchkmNgiU-sN1FR2IPdRU4dF8hi2FiZ7AR9UE5EHrVCHLYaIjGfSkwIt71GYogguKyO7-E2ITwEfhodO4mQrx5uv92bMUYbt-p2TDOsBY%7ExxInx1JBT4l21NtR-JoMEjaVIaaIDih%7E9HpY52jJveJfdj219nppCVjtfVdCI-z1i02TCAttLHNimIJ4W8s8UWCGIzKFOVykDpfwqH3QqqilHaIaNpRxoB2Ky1Tggc2X-jpfLyQqjFIDZQ__&Key-Pair-Id=K3ESJI6DHPFC7',
+                              height: 30,
+                            ),
                           ),
                         ),
                       ),
