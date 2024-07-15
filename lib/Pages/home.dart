@@ -179,10 +179,9 @@ class Home extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Animate(
-                onPlay: (controller) => controller.repeat(),
+                // onPlay: (controller) => controller.repeat(),
                 effects: const [
-                  ShimmerEffect(
-                    color: Colors.red,
+                  FadeEffect(
                     duration: Duration(seconds: 5),
                   ),
                 ],
@@ -200,10 +199,9 @@ class Home extends StatelessWidget {
                 ),
               ),
               Animate(
-                onPlay: (controller) => controller.repeat(),
                 effects: const [
-                  ShimmerEffect(
-                    color: Colors.red,
+                  FadeEffect(
+                    delay: Duration(seconds: 1),
                     duration: Duration(seconds: 5),
                   ),
                 ],
