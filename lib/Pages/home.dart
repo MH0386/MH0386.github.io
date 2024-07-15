@@ -1,4 +1,5 @@
 import 'package:mh0386/Pages/resume.dart';
+import 'package:mh0386/controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -10,6 +11,7 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final textController = Get.put(TextController());
     return MaterialApp(
       title: 'Mohamed Hisham Abdelzaher',
       debugShowCheckedModeBanner: false,
@@ -198,22 +200,25 @@ class Home extends StatelessWidget {
                   ),
                 ),
               ),
-              Animate(
-                effects: const [
-                  FadeEffect(
-                    delay: Duration(seconds: 1),
-                    duration: Duration(seconds: 5),
-                  ),
-                ],
-                child: Text(
-                  'I am an Undergraduate Student',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: (MediaQuery.of(context).size.width * 0.04 <
-                            MediaQuery.of(context).size.height * 0.04)
-                        ? MediaQuery.of(context).size.width * 0.04
-                        : MediaQuery.of(context).size.height * 0.04,
-                    fontFamily: GoogleFonts.jetBrainsMono().fontFamily,
+              Obx(
+                () => Animate(
+                  effects: const [
+                    FadeEffect(
+                      delay: Duration(seconds: 1),
+                      duration: Duration(seconds: 3),
+                    ),
+                  ],
+                  child: Text(
+                    textController.texts[textController.currentIndex.value],
+                    key: ValueKey<int>(textController.currentIndex.value),
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: (MediaQuery.of(context).size.width * 0.04 <
+                              MediaQuery.of(context).size.height * 0.04)
+                          ? MediaQuery.of(context).size.width * 0.04
+                          : MediaQuery.of(context).size.height * 0.04,
+                      fontFamily: GoogleFonts.jetBrainsMono().fontFamily,
+                    ),
                   ),
                 ),
               ),
