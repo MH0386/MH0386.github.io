@@ -9,6 +9,7 @@ class Resume extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final pdfViewerController = PdfViewerController();
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(scaffoldBackgroundColor: Colors.black),
@@ -16,7 +17,37 @@ class Resume extends StatelessWidget {
         appBar: AppBar(
           backgroundColor: Colors.black,
           foregroundColor: Colors.white,
-          title: const Text('Resume'),
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              IconButton(
+                icon: const Icon(
+                  Icons.zoom_in,
+                  color: Colors.white,
+                ),
+                onPressed: () {
+                  pdfViewerController.zoomLevel += 0.5;
+                },
+              ),
+              SizedBox(
+                width: MediaQuery.of(context).size.width * 0.1,
+              ),
+              const Text('Resume'),
+              SizedBox(
+                width: MediaQuery.of(context).size.width * 0.1,
+              ),
+              IconButton(
+                icon: const Icon(
+                  Icons.zoom_out,
+                  color: Colors.white,
+                ),
+                onPressed: () {
+                  pdfViewerController.zoomLevel -= 0.5;
+                },
+              ),
+            ],
+          ),
+          centerTitle: true,
           leading: IconButton(
             icon: const Icon(Icons.arrow_back),
             onPressed: () => Get.back(),
@@ -44,8 +75,15 @@ class Resume extends StatelessWidget {
             ),
           ],
         ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () => pdfViewerController.zoomLevel = 1.5,
+          child: const Icon(Icons.refresh),
+        ),
         body: SfPdfViewer.network(
           'https://mh0386.github.io/resume.pdf',
+          pageLayoutMode: PdfPageLayoutMode.single,
+          initialZoomLevel: 1.5,
+          controller: pdfViewerController,
         ),
       ),
     );

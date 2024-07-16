@@ -3,7 +3,6 @@ import 'package:mh0386/controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 import 'package:url_launcher/link.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
@@ -52,17 +51,6 @@ class Home extends StatelessWidget {
                             fontSize: 20,
                           ),
                         ),
-                        onHover: (isHovering) {
-                          if (isHovering) {
-                            textController.socialMediaTitle.value =
-                                'Go to Facebook';
-                            print(textController.socialMediaTitle.value);
-                          } else {
-                            textController.socialMediaTitle.value =
-                                'Social Media';
-                            print(textController.socialMediaTitle.value);
-                          }
-                        },
                       ),
                     ),
                     const SizedBox(height: 10),
@@ -84,13 +72,6 @@ class Home extends StatelessWidget {
                             fontSize: 20,
                           ),
                         ),
-                        onHover: (isHovering) {
-                          if (isHovering) {
-                            print('Mouse is over button');
-                          } else {
-                            print('Mouse is not over button');
-                          }
-                        },
                       ),
                     ),
                     const SizedBox(height: 10),
@@ -112,13 +93,6 @@ class Home extends StatelessWidget {
                             fontSize: 20,
                           ),
                         ),
-                        onHover: (isHovering) {
-                          if (isHovering) {
-                            print('Mouse is over button');
-                          } else {
-                            print('Mouse is not over button');
-                          }
-                        },
                       ),
                     ),
                     const SizedBox(height: 10),
@@ -140,13 +114,6 @@ class Home extends StatelessWidget {
                             fontSize: 20,
                           ),
                         ),
-                        onHover: (isHovering) {
-                          if (isHovering) {
-                            print('Mouse is over button');
-                          } else {
-                            print('Mouse is not over button');
-                          }
-                        },
                       ),
                     ),
                     const SizedBox(height: 10),
@@ -168,13 +135,6 @@ class Home extends StatelessWidget {
                             fontSize: 20,
                           ),
                         ),
-                        onHover: (isHovering) {
-                          if (isHovering) {
-                            print('Mouse is over button');
-                          } else {
-                            print('Mouse is not over button');
-                          }
-                        },
                       ),
                     ),
                     const SizedBox(height: 10),
@@ -196,13 +156,6 @@ class Home extends StatelessWidget {
                             fontSize: 20,
                           ),
                         ),
-                        onHover: (isHovering) {
-                          if (isHovering) {
-                            print('Mouse is over button');
-                          } else {
-                            print('Mouse is not over button');
-                          }
-                        },
                       ),
                     ),
                     const SizedBox(height: 10),
@@ -224,13 +177,6 @@ class Home extends StatelessWidget {
                             fontSize: 20,
                           ),
                         ),
-                        onHover: (isHovering) {
-                          if (isHovering) {
-                            print('Mouse is over button');
-                          } else {
-                            print('Mouse is not over button');
-                          }
-                        },
                       ),
                     ),
                     const SizedBox(height: 10),
@@ -252,13 +198,6 @@ class Home extends StatelessWidget {
                             fontSize: 20,
                           ),
                         ),
-                        onHover: (isHovering) {
-                          if (isHovering) {
-                            print('Mouse is over button');
-                          } else {
-                            print('Mouse is not over button');
-                          }
-                        },
                       ),
                     ),
                     const SizedBox(height: 10),
@@ -285,12 +224,7 @@ class Home extends StatelessWidget {
               child: const Text('Social Media'),
             ),
             ElevatedButton(
-              onPressed: () => Get.defaultDialog(
-                title: 'Resume',
-                content: SfPdfViewer.network(
-                  'https://mh0386.github.io/resume.pdf',
-                ),
-              ),
+              onPressed: () => Get.to(() => const Resume()),
               style: ElevatedButton.styleFrom(
                 foregroundColor: Colors.white,
                 backgroundColor: Colors.black,
