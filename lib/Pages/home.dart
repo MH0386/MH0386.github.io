@@ -11,7 +11,7 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textController = Get.put(TextController());
+    final textController = Get.find<TextController>();
     return MaterialApp(
       title: 'Mohamed Hisham Abdelzaher',
       debugShowCheckedModeBanner: false,
