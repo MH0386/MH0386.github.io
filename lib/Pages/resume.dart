@@ -10,9 +10,12 @@ class Resume extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(scaffoldBackgroundColor: const Color(0xFF000000)),
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(scaffoldBackgroundColor: Colors.black),
       home: Scaffold(
         appBar: AppBar(
+          backgroundColor: Colors.black,
+          foregroundColor: Colors.white,
           title: const Text('Resume'),
           leading: IconButton(
             icon: const Icon(Icons.arrow_back),

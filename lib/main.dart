@@ -11,7 +11,7 @@ Future<void> main() async {
       initialRoute: '/',
       getPages: [
         GetPage(name: '/', page: () => const Home()),
-        GetPage(name: '/Resume', page: () => const Resume()),
+        GetPage(name: '/resume', page: () => const Resume()),
       ],
     ),
   );

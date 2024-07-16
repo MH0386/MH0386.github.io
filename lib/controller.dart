@@ -3,7 +3,8 @@ import 'dart:async';
 
 class TextController extends GetxController {
   var currentIndex = 0.obs;
-  List<String> texts = [
+  var socialMediaTitle = "Social Media".obs;
+  List<String> welcomeTexts = [
     "Welcome to My Portfolio",
     "I am an Undergraduate Student",
     "I love coding",
@@ -15,7 +16,7 @@ class TextController extends GetxController {
     Timer.periodic(
       const Duration(seconds: 5),
       (timer) {
-        if (currentIndex.value < texts.length - 1) {
+        if (currentIndex.value < welcomeTexts.length - 1) {
           currentIndex.value++;
         } else {
           currentIndex.value = 0;

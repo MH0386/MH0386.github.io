@@ -3,6 +3,7 @@ import 'package:mh0386/controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 import 'package:url_launcher/link.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
@@ -26,117 +27,270 @@ class Home extends StatelessWidget {
                 foregroundColor: Colors.white,
                 backgroundColor: Colors.black,
               ),
-              onPressed: () {
-                Get.bottomSheet(
-                  SingleChildScrollView(
-                    child: Wrap(
-                      children: [
-                        Link(
-                          target: LinkTarget.blank,
-                          uri: Uri.parse(
-                            'https://www.facebook.com/Mohamed.Hisham.Abdelzaher',
-                          ),
-                          builder: (context, followLink) => Card(
-                            child: ListTile(
-                              onTap: followLink,
-                              title: const Text('Facebook'),
-                            ),
+              onPressed: () => Get.defaultDialog(
+                title: textController.socialMediaTitle.value,
+                titlePadding: const EdgeInsets.all(10),
+                content: Wrap(
+                  direction: Axis.vertical,
+                  children: [
+                    const SizedBox(height: 10),
+                    Link(
+                      target: LinkTarget.blank,
+                      uri: Uri.parse(
+                        'https://www.facebook.com/Mohamed.Hisham.Abdelzaher',
+                      ),
+                      builder: (context, followLink) => ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          foregroundColor: Colors.white,
+                          backgroundColor: Colors.black,
+                        ),
+                        onPressed: followLink,
+                        child: const Text(
+                          'Facebook',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
                           ),
                         ),
-                        Link(
-                          target: LinkTarget.blank,
-                          uri: Uri.parse(
-                            'https://www.Kaggle.com/MH0386',
-                          ),
-                          builder: (context, followLink) => Card(
-                            child: ListTile(
-                              onTap: followLink,
-                              title: const Text('Kaggle'),
-                            ),
+                        onHover: (isHovering) {
+                          if (isHovering) {
+                            textController.socialMediaTitle.value =
+                                'Go to Facebook';
+                            print(textController.socialMediaTitle.value);
+                          } else {
+                            textController.socialMediaTitle.value =
+                                'Social Media';
+                            print(textController.socialMediaTitle.value);
+                          }
+                        },
+                      ),
+                    ),
+                    const SizedBox(height: 10),
+                    Link(
+                      target: LinkTarget.blank,
+                      uri: Uri.parse(
+                        'https://www.Kaggle.com/MH0386',
+                      ),
+                      builder: (context, followLink) => ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          foregroundColor: Colors.white,
+                          backgroundColor: Colors.black,
+                        ),
+                        onPressed: followLink,
+                        child: const Text(
+                          'Kaggle',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
                           ),
                         ),
-                        Link(
-                          target: LinkTarget.blank,
-                          uri: Uri.parse(
-                            'https://www.GitHub.com/MH0386',
-                          ),
-                          builder: (context, followLink) => Card(
-                            child: ListTile(
-                              onTap: followLink,
-                              title: const Text('GitHub'),
-                            ),
+                        onHover: (isHovering) {
+                          if (isHovering) {
+                            print('Mouse is over button');
+                          } else {
+                            print('Mouse is not over button');
+                          }
+                        },
+                      ),
+                    ),
+                    const SizedBox(height: 10),
+                    Link(
+                      target: LinkTarget.blank,
+                      uri: Uri.parse(
+                        'https://www.GitHub.com/MH0386',
+                      ),
+                      builder: (context, followLink) => ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          foregroundColor: Colors.white,
+                          backgroundColor: Colors.black,
+                        ),
+                        onPressed: followLink,
+                        child: const Text(
+                          'GitHub',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
                           ),
                         ),
-                        Link(
-                          target: LinkTarget.blank,
-                          uri: Uri.parse(
-                            'https://www.LinkedIn.com/in/MH0386',
-                          ),
-                          builder: (context, followLink) => Card(
-                            child: ListTile(
-                              onTap: followLink,
-                              title: const Text('LinkedIn'),
-                            ),
+                        onHover: (isHovering) {
+                          if (isHovering) {
+                            print('Mouse is over button');
+                          } else {
+                            print('Mouse is not over button');
+                          }
+                        },
+                      ),
+                    ),
+                    const SizedBox(height: 10),
+                    Link(
+                      target: LinkTarget.blank,
+                      uri: Uri.parse(
+                        'https://www.LinkedIn.com/in/MH0386',
+                      ),
+                      builder: (context, followLink) => ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          foregroundColor: Colors.white,
+                          backgroundColor: Colors.black,
+                        ),
+                        onPressed: followLink,
+                        child: const Text(
+                          'LinkedIn',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
                           ),
                         ),
-                        Link(
-                          target: LinkTarget.blank,
-                          uri: Uri.parse(
-                            'https://www.x.com/MH0386',
-                          ),
-                          builder: (context, followLink) => Card(
-                            child: ListTile(
-                              onTap: followLink,
-                              title: const Text('X'),
-                            ),
+                        onHover: (isHovering) {
+                          if (isHovering) {
+                            print('Mouse is over button');
+                          } else {
+                            print('Mouse is not over button');
+                          }
+                        },
+                      ),
+                    ),
+                    const SizedBox(height: 10),
+                    Link(
+                      target: LinkTarget.blank,
+                      uri: Uri.parse(
+                        'https://www.x.com/MH0386',
+                      ),
+                      builder: (context, followLink) => ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          foregroundColor: Colors.white,
+                          backgroundColor: Colors.black,
+                        ),
+                        onPressed: followLink,
+                        child: const Text(
+                          'X',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
                           ),
                         ),
-                        Link(
-                          target: LinkTarget.blank,
-                          uri: Uri.parse(
-                            'https://www.Coursera.org/user/985b071f3a43961f7fc46f8061c7377e',
-                          ),
-                          builder: (context, followLink) => Card(
-                            child: ListTile(
-                              onTap: followLink,
-                              title: const Text('Coursera'),
-                            ),
+                        onHover: (isHovering) {
+                          if (isHovering) {
+                            print('Mouse is over button');
+                          } else {
+                            print('Mouse is not over button');
+                          }
+                        },
+                      ),
+                    ),
+                    const SizedBox(height: 10),
+                    Link(
+                      target: LinkTarget.blank,
+                      uri: Uri.parse(
+                        'https://www.Coursera.org/user/985b071f3a43961f7fc46f8061c7377e',
+                      ),
+                      builder: (context, followLink) => ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          foregroundColor: Colors.white,
+                          backgroundColor: Colors.black,
+                        ),
+                        onPressed: followLink,
+                        child: const Text(
+                          'Coursera',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
                           ),
                         ),
-                        Link(
-                          target: LinkTarget.blank,
-                          uri: Uri.parse(
-                            'https://www.datacamp.com/profile/MH0386',
-                          ),
-                          builder: (context, followLink) => Card(
-                            child: ListTile(
-                              onTap: followLink,
-                              title: const Text('DataCamp'),
-                            ),
+                        onHover: (isHovering) {
+                          if (isHovering) {
+                            print('Mouse is over button');
+                          } else {
+                            print('Mouse is not over button');
+                          }
+                        },
+                      ),
+                    ),
+                    const SizedBox(height: 10),
+                    Link(
+                      target: LinkTarget.blank,
+                      uri: Uri.parse(
+                        'https://www.datacamp.com/profile/MH0386',
+                      ),
+                      builder: (context, followLink) => ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          foregroundColor: Colors.white,
+                          backgroundColor: Colors.black,
+                        ),
+                        onPressed: followLink,
+                        child: const Text(
+                          'DataCamp',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
                           ),
                         ),
-                        Link(
-                          target: LinkTarget.blank,
-                          uri: Uri.parse(
-                            'https://www.huggingface.co/MH0386',
-                          ),
-                          builder: (context, followLink) => Card(
-                            child: ListTile(
-                              onTap: followLink,
-                              title: const Text('Hugging Face'),
-                            ),
+                        onHover: (isHovering) {
+                          if (isHovering) {
+                            print('Mouse is over button');
+                          } else {
+                            print('Mouse is not over button');
+                          }
+                        },
+                      ),
+                    ),
+                    const SizedBox(height: 10),
+                    Link(
+                      target: LinkTarget.blank,
+                      uri: Uri.parse(
+                        'https://www.huggingface.co/MH0386',
+                      ),
+                      builder: (context, followLink) => ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          foregroundColor: Colors.white,
+                          backgroundColor: Colors.black,
+                        ),
+                        onPressed: followLink,
+                        child: const Text(
+                          'Hugging Face',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
                           ),
                         ),
-                      ],
+                        onHover: (isHovering) {
+                          if (isHovering) {
+                            print('Mouse is over button');
+                          } else {
+                            print('Mouse is not over button');
+                          }
+                        },
+                      ),
+                    ),
+                    const SizedBox(height: 10),
+                  ],
+                ),
+                actions: [
+                  ElevatedButton(
+                    onPressed: () => Get.back(),
+                    child: Text(
+                      'Close',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontFamily: GoogleFonts.jetBrainsMono().fontFamily,
+                      ),
                     ),
                   ),
-                  isScrollControlled: true,
-                );
-              },
+                ],
+                backgroundColor: Colors.black,
+                titleStyle: TextStyle(
+                  color: Colors.white,
+                  fontFamily: GoogleFonts.jetBrainsMono().fontFamily,
+                ),
+              ),
               child: const Text('Social Media'),
             ),
             ElevatedButton(
-              onPressed: () => Get.to(() => const Resume()),
+              onPressed: () => Get.defaultDialog(
+                title: 'Resume',
+                content: SfPdfViewer.network(
+                  'https://mh0386.github.io/resume.pdf',
+                ),
+              ),
               style: ElevatedButton.styleFrom(
                 foregroundColor: Colors.white,
                 backgroundColor: Colors.black,
@@ -144,30 +298,51 @@ class Home extends StatelessWidget {
               child: const Text('Resume'),
             ),
             ElevatedButton(
-              onPressed: () {
-                Get.defaultDialog(
-                  title: 'Email',
-                  content: const Text(
-                    'mohamed.hisham.abdelzaher@gmail.com',
+              onPressed: () => Get.defaultDialog(
+                title: 'Email',
+                content: Text(
+                  'mohamed.hisham.abdelzaher@gmail.com',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: GoogleFonts.jetBrainsMono().fontFamily,
                   ),
-                  actions: [
-                    ElevatedButton(
-                      onPressed: () => Get.back(),
-                      child: const Text('Close'),
-                    ),
-                    Link(
-                      target: LinkTarget.blank,
-                      uri: Uri.parse(
-                        'MAILTO:mohamed.hisham.abdelzaher@gmail.com',
-                      ),
-                      builder: (context, followLink) => ElevatedButton(
-                        onPressed: followLink,
-                        child: const Text('Send Email'),
+                ),
+                actions: [
+                  ElevatedButton(
+                    onPressed: () => Get.back(),
+                    child: Text(
+                      'Close',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontFamily: GoogleFonts.jetBrainsMono().fontFamily,
                       ),
                     ),
-                  ],
-                );
-              },
+                  ),
+                  Link(
+                    target: LinkTarget.blank,
+                    uri: Uri.parse(
+                      'MAILTO:mohamed.hisham.abdelzaher@gmail.com',
+                    ),
+                    builder: (context, followLink) => ElevatedButton(
+                      onPressed: followLink,
+                      child: Text(
+                        'Send Email',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontFamily: GoogleFonts.jetBrainsMono().fontFamily,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+                backgroundColor: Colors.black,
+                titleStyle: TextStyle(
+                  color: Colors.white,
+                  fontFamily: GoogleFonts.jetBrainsMono().fontFamily,
+                ),
+              ),
               style: ElevatedButton.styleFrom(
                 foregroundColor: Colors.white,
                 backgroundColor: Colors.black,
@@ -209,7 +384,8 @@ class Home extends StatelessWidget {
                     ),
                   ],
                   child: Text(
-                    textController.texts[textController.currentIndex.value],
+                    textController
+                        .welcomeTexts[textController.currentIndex.value],
                     key: ValueKey<int>(textController.currentIndex.value),
                     style: TextStyle(
                       color: Colors.white,
