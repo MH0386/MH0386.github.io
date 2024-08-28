@@ -293,7 +293,7 @@ class Home extends StatelessWidget {
                 // onPlay: (controller) => controller.repeat(),
                 effects: const [
                   FadeEffect(
-                    duration: Duration(seconds: 5),
+                    duration: Duration(seconds: 1),
                   ),
                 ],
                 child: Text(
@@ -313,8 +313,8 @@ class Home extends StatelessWidget {
                 () => Animate(
                   effects: const [
                     FadeEffect(
-                      delay: Duration(seconds: 1),
-                      duration: Duration(seconds: 3),
+                      // delay: Duration(seconds: 1),
+                      // duration: Duration(seconds: 3),
                     ),
                   ],
                   child: Text(
