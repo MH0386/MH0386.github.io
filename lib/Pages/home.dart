@@ -1,10 +1,11 @@
-import 'package:mh0386/Pages/resume.dart';
-import 'package:mh0386/controller.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mh0386/Pages/resume.dart';
+import 'package:mh0386/connector.dart';
+import 'package:mh0386/controller.dart';
 import 'package:url_launcher/link.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -12,6 +13,8 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final textController = Get.find<TextController>();
+    final conn = sendAlert();
+    print(conn);
     return MaterialApp(
       title: 'Mohamed Hisham Abdelzaher',
       debugShowCheckedModeBanner: false,
@@ -301,10 +304,7 @@ class Home extends StatelessWidget {
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
-                    fontSize: (MediaQuery.of(context).size.width * 0.1 <
-                            MediaQuery.of(context).size.height * 0.1)
-                        ? MediaQuery.of(context).size.width * 0.1
-                        : MediaQuery.of(context).size.height * 0.1,
+                    fontSize: (MediaQuery.of(context).size.width * 0.1 < MediaQuery.of(context).size.height * 0.1) ? MediaQuery.of(context).size.width * 0.1 : MediaQuery.of(context).size.height * 0.1,
                     fontFamily: GoogleFonts.jetBrainsMono().fontFamily,
                   ),
                 ),
@@ -313,20 +313,17 @@ class Home extends StatelessWidget {
                 () => Animate(
                   effects: const [
                     FadeEffect(
-                      // delay: Duration(seconds: 1),
-                      // duration: Duration(seconds: 3),
-                    ),
+                        // delay: Duration(seconds: 1),
+                        // duration: Duration(seconds: 3),
+                        ),
                   ],
                   child: Text(
-                    textController
-                        .welcomeTexts[textController.currentIndex.value],
+                    textController.welcomeTexts[textController.currentIndex.value],
                     key: ValueKey<int>(textController.currentIndex.value),
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: (MediaQuery.of(context).size.width * 0.04 <
-                              MediaQuery.of(context).size.height * 0.04)
-                          ? MediaQuery.of(context).size.width * 0.04
-                          : MediaQuery.of(context).size.height * 0.04,
+                      fontSize:
+                          (MediaQuery.of(context).size.width * 0.04 < MediaQuery.of(context).size.height * 0.04) ? MediaQuery.of(context).size.width * 0.04 : MediaQuery.of(context).size.height * 0.04,
                       fontFamily: GoogleFonts.jetBrainsMono().fontFamily,
                     ),
                   ),
