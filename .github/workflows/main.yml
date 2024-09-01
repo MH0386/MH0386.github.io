@@ -18,7 +18,7 @@ jobs:
           restore-keys: ${{ runner.os }}-pub-
       - uses: subosito/flutter-action@v2
       - run: flutter pub get
-      - uses: bluefireteam/flutter-gh-pages@v7
+      - uses: bluefireteam/flutter-gh-pages@v8
       - run: wget https://raw.githubusercontent.com/MH0386/MH0386/main/resume.pdf
       - run: git checkout gh-pages
       - run: git add resume.pdf
