@@ -6,8 +6,4 @@
   "lockFileMaintenance": {
     "enabled": true
   }
-  // ,
-  // "ignorePaths": [
-  //   "web/index.html"
-  // ]
 }
