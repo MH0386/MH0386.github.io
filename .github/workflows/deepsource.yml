@@ -18,26 +18,26 @@ jobs:
         uses: actions/checkout@v3
         with:
           ref: ${{ github.event.pull_request.head.sha }}
-
+      - name: Cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.pub-cache
+          key: ${{ runner.os }}-pub-${{ hashFiles('**/pubspec.lock') }}
+          restore-keys: ${{ runner.os }}-pub-
       - name: Setup Dart
         uses: dart-lang/setup-dart@v1
-
       - name: Run Dart Analyze
         run: dart analyze > dart_analyze.txt || true
-
       - name: Dart Analyze to SARIF
         uses: advanced-security/dart-analyzer-sarif@main
         with:
           input: dart_analyze.txt
           output: dart_analyze.sarif
-
       - name: Upload SARIF report to DeepSource
         run: |
           # Install the CLI
           curl https://deepsource.io/cli | sh
-
           # Send the report to DeepSource
           ./bin/deepsource report --analyzer dart-analyze --analyzer-type community --value-file ./dart_analyze.sarif
-
         env:
           DEEPSOURCE_DSN: ${{ secrets.DEEPSOURCE_DSN }}
