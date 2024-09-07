@@ -1,13 +1,13 @@
-import 'package:get/get.dart';
 import 'dart:async';
+
+import 'package:get/get.dart';
 
 class TextController extends GetxController {
   var currentIndex = 0.obs;
   var socialMediaTitle = "Social Media".obs;
   List<String> welcomeTexts = [
     "Welcome to My Portfolio",
-    "I am an Undergraduate Student",
-    "I love coding",
+    "I am AI Engineer",
   ];
 
   @override

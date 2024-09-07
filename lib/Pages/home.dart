@@ -1,10 +1,10 @@
-import 'package:mh0386/Pages/resume.dart';
-import 'package:mh0386/controller.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mh0386/Pages/resume.dart';
+import 'package:mh0386/controller.dart';
 import 'package:url_launcher/link.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -30,7 +30,7 @@ class Home extends StatelessWidget {
                 title: textController.socialMediaTitle.value,
                 titlePadding: const EdgeInsets.all(10),
                 content: Wrap(
-                  direction: Axis.vertical,
+                  // direction: Axis.vertical,
                   children: [
                     const SizedBox(height: 10),
                     Link(
@@ -38,17 +38,16 @@ class Home extends StatelessWidget {
                       uri: Uri.parse(
                         'https://www.facebook.com/Mohamed.Hisham.Abdelzaher',
                       ),
-                      builder: (context, followLink) => ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          foregroundColor: Colors.white,
-                          backgroundColor: Colors.black,
-                        ),
-                        onPressed: followLink,
-                        child: const Text(
-                          'Facebook',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 20,
+                      builder: (context, followLink) => Card(
+                        color: Colors.grey,
+                        child: ElevatedButton(
+                          onPressed: followLink,
+                          child: const Text(
+                            'Facebook',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20,
+                            ),
                           ),
                         ),
                       ),
@@ -59,17 +58,16 @@ class Home extends StatelessWidget {
                       uri: Uri.parse(
                         'https://www.Kaggle.com/MH0386',
                       ),
-                      builder: (context, followLink) => ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          foregroundColor: Colors.white,
-                          backgroundColor: Colors.black,
-                        ),
-                        onPressed: followLink,
-                        child: const Text(
-                          'Kaggle',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 20,
+                      builder: (context, followLink) => Card(
+                        color: Colors.grey,
+                        child: ElevatedButton(
+                          onPressed: followLink,
+                          child: const Text(
+                            'Kaggle',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20,
+                            ),
                           ),
                         ),
                       ),
@@ -80,17 +78,16 @@ class Home extends StatelessWidget {
                       uri: Uri.parse(
                         'https://www.GitHub.com/MH0386',
                       ),
-                      builder: (context, followLink) => ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          foregroundColor: Colors.white,
-                          backgroundColor: Colors.black,
-                        ),
-                        onPressed: followLink,
-                        child: const Text(
-                          'GitHub',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 20,
+                      builder: (context, followLink) => Card(
+                        color: Colors.grey,
+                        child: ElevatedButton(
+                          onPressed: followLink,
+                          child: const Text(
+                            'GitHub',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20,
+                            ),
                           ),
                         ),
                       ),
@@ -101,17 +98,16 @@ class Home extends StatelessWidget {
                       uri: Uri.parse(
                         'https://www.LinkedIn.com/in/MH0386',
                       ),
-                      builder: (context, followLink) => ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          foregroundColor: Colors.white,
-                          backgroundColor: Colors.black,
-                        ),
-                        onPressed: followLink,
-                        child: const Text(
-                          'LinkedIn',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 20,
+                      builder: (context, followLink) => Card(
+                        color: Colors.grey,
+                        child: ElevatedButton(
+                          onPressed: followLink,
+                          child: const Text(
+                            'LinkedIn',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20,
+                            ),
                           ),
                         ),
                       ),
@@ -122,17 +118,16 @@ class Home extends StatelessWidget {
                       uri: Uri.parse(
                         'https://www.x.com/MH0386',
                       ),
-                      builder: (context, followLink) => ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          foregroundColor: Colors.white,
-                          backgroundColor: Colors.black,
-                        ),
-                        onPressed: followLink,
-                        child: const Text(
-                          'X',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 20,
+                      builder: (context, followLink) => Card(
+                        color: Colors.grey,
+                        child: ElevatedButton(
+                          onPressed: followLink,
+                          child: const Text(
+                            'X',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20,
+                            ),
                           ),
                         ),
                       ),
@@ -143,17 +138,16 @@ class Home extends StatelessWidget {
                       uri: Uri.parse(
                         'https://www.Coursera.org/user/985b071f3a43961f7fc46f8061c7377e',
                       ),
-                      builder: (context, followLink) => ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          foregroundColor: Colors.white,
-                          backgroundColor: Colors.black,
-                        ),
-                        onPressed: followLink,
-                        child: const Text(
-                          'Coursera',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 20,
+                      builder: (context, followLink) => Card(
+                        color: Colors.grey,
+                        child: ElevatedButton(
+                          onPressed: followLink,
+                          child: const Text(
+                            'Coursera',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20,
+                            ),
                           ),
                         ),
                       ),
@@ -164,17 +158,16 @@ class Home extends StatelessWidget {
                       uri: Uri.parse(
                         'https://www.datacamp.com/profile/MH0386',
                       ),
-                      builder: (context, followLink) => ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          foregroundColor: Colors.white,
-                          backgroundColor: Colors.black,
-                        ),
-                        onPressed: followLink,
-                        child: const Text(
-                          'DataCamp',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 20,
+                      builder: (context, followLink) => Card(
+                        color: Colors.grey,
+                        child: ElevatedButton(
+                          onPressed: followLink,
+                          child: const Text(
+                            'DataCamp',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20,
+                            ),
                           ),
                         ),
                       ),
@@ -185,17 +178,16 @@ class Home extends StatelessWidget {
                       uri: Uri.parse(
                         'https://www.huggingface.co/MH0386',
                       ),
-                      builder: (context, followLink) => ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          foregroundColor: Colors.white,
-                          backgroundColor: Colors.black,
-                        ),
-                        onPressed: followLink,
-                        child: const Text(
-                          'Hugging Face',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 20,
+                      builder: (context, followLink) => Card(
+                        color: Colors.grey,
+                        child: ElevatedButton(
+                          onPressed: followLink,
+                          child: const Text(
+                            'HuggingFace',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20,
+                            ),
                           ),
                         ),
                       ),
