@@ -417,66 +417,66 @@ packages:
     dependency: transitive
     description:
       name: syncfusion_flutter_core
-      sha256: "877411504a07c874970c361762c447081e6e13219a6bea6fc88fbb31c2aff4a4"
+      sha256: efbc44bdef33bf8f469c5ac7830df9631972721e157021db14bd78cdb1047fe1
       url: "https://pub.dev"
     source: hosted
-    version: "26.2.13"
+    version: "27.1.50"
   syncfusion_flutter_pdf:
     dependency: transitive
     description:
       name: syncfusion_flutter_pdf
-      sha256: "3032b85ce3928acb2a7b8c75f407bc4aaf3bcbf5c96f770de82abf3b9907f789"
+      sha256: "65bb4b185380601ad7c7e1b55bcab4fd009898956c545809720a2f9abd087f62"
       url: "https://pub.dev"
     source: hosted
-    version: "26.2.13"
+    version: "27.1.50"
   syncfusion_flutter_pdfviewer:
     dependency: "direct main"
     description:
       name: syncfusion_flutter_pdfviewer
-      sha256: e63c6baf0d63f66a1cd846e6790afdf89803a9057cccee725799524f78de1883
+      sha256: e8e555ba38b7abe75c4b5eb83dbbd53fd30d78b4aea1e1ff7faedcf3b6298e50
       url: "https://pub.dev"
     source: hosted
-    version: "26.2.13"
+    version: "27.1.50"
   syncfusion_flutter_signaturepad:
     dependency: transitive
     description:
       name: syncfusion_flutter_signaturepad
-      sha256: "5cebe1454a6abf715008a0603f72ecc2e790afdb4b167f34ef6b96fe26bfd0a1"
+      sha256: "046b81d79547cde2d9d8106308e0ff539881868c98d54a2f901606c033dcb5af"
       url: "https://pub.dev"
     source: hosted
-    version: "26.2.13"
+    version: "27.1.50"
   syncfusion_pdfviewer_macos:
     dependency: transitive
     description:
       name: syncfusion_pdfviewer_macos
-      sha256: e8b47469c7c8446ab67c4fb842165a7052f181567e0e2a0d8ea64a6429126901
+      sha256: afb7b84494fc2d9fb43d304d8565a720d1d1633069dd08e939f5878cc144a230
       url: "https://pub.dev"
     source: hosted
-    version: "26.2.13"
+    version: "27.1.50"
   syncfusion_pdfviewer_platform_interface:
     dependency: transitive
     description:
       name: syncfusion_pdfviewer_platform_interface
-      sha256: "012c76cd0992b72433fde72193b83dba58675f6f235ca98bbc716479d5385709"
+      sha256: "94e2fade4d3bfc9ede234f91e16e25d99169943b39cab456b1542e106b3cf11e"
       url: "https://pub.dev"
     source: hosted
-    version: "26.2.13"
+    version: "27.1.50"
   syncfusion_pdfviewer_web:
     dependency: transitive
     description:
       name: syncfusion_pdfviewer_web
-      sha256: aa59d2fcbb373f9740e33191e86bc517bcc8909b5d840ffd1313a0853c02037a
+      sha256: e741c1fda2ccb88e2306dd9a75777d18a371a5e50a70c6b0c74393bebf0877e9
       url: "https://pub.dev"
     source: hosted
-    version: "26.2.13"
+    version: "27.1.50"
   syncfusion_pdfviewer_windows:
     dependency: transitive
     description:
       name: syncfusion_pdfviewer_windows
-      sha256: f83c5ce58c89ab98f479567698b2385a96f10c539931aacf1b193e8d5f980b79
+      sha256: "1220894afca2903fe2b8497b540574a923eaab7b1a5f2eb9590aaaa310776405"
       url: "https://pub.dev"
     source: hosted
-    version: "26.2.13"
+    version: "27.1.50"
   term_glyph:
     dependency: transitive
     description:
