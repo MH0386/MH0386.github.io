@@ -1,4 +1,4 @@
-name: Automatic merge when CI passes and reviews approve
+name: Automatic merge
 conditions:
   #- "#approved-reviews-by >= 1"
   #- author = renovate[bot]
