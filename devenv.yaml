@@ -1,8 +1,7 @@
 inputs:
-  nixpkgs:
-    url: github:cachix/devenv-nixpkgs/rolling
+    nixpkgs:
+        url: github:cachix/devenv-nixpkgs/rolling
 allowUnfree: true
-
 # If you're willing to use a package that's vulnerable
 # permittedInsecurePackages:
 #  - "openssl-1.1.1w"
