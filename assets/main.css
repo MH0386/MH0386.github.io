@@ -1,0 +1,81 @@
+body {
+    background-color: black;
+    margin: 0;
+    color: white;
+    font-family: 'monospace', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#about,
+#projects,
+#contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#resume {
+    height: 100vh;
+    width: 100vw;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+ul li {
+    padding: 10px;
+}
+
+#about_button,
+#projects_button,
+#contact_button,
+#resume_button {
+    padding: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+#about_text,
+#projects_text,
+#contact_text,
+#resume_text {
+    margin: 10px;
+    color: white;
+    font-size: medium;
+}
+
+#buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    text-align: right;
+    gap: 30px;
+}
+
+#about_button:hover,
+#projects_button:hover,
+#contact_button:hover,
+#resume_button:hover {
+    text-decoration: underline;
+}
+
+#myname {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+}
+
+#myname h1 {
+    font-size: 500%;
+    margin: 0;
+}
