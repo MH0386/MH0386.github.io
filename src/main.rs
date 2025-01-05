@@ -104,12 +104,21 @@ fn Contact() -> Element {
 #[component]
 fn Resume() -> Element {
     rsx! {
-        embed {
-            id: "resume",
-            src: "https://mh0386.github.io/resume.pdf",
-            width: "100%",
-            height: "100%",
-            r#type: "application/pdf",
+        div {
+            embed {
+                id: "resume",
+                src: "https://mh0386.github.io/resume.pdf",
+                width: "100%",
+                height: "100%",
+                r#type: "application/pdf",
+                p {
+                    "Your browser does not support PDF embedding. "
+                    a {
+                        href: "https://mh0386.github.io/resume.pdf",
+                        "Click here to download the PDF instead."
+                    }
+                }
+            }
         }
     }
 }
