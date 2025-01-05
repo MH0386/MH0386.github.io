@@ -1,7 +1,7 @@
 [application]
-
 # App (Project) Name
 name = "my_website"
+default_platform = "web"
 
 [web.app]
 
