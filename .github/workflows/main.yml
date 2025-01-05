@@ -8,18 +8,6 @@ jobs:
         env:
             CARGO_TARGET_DIR: ./target
         steps:
-            - name: Install Dependency
-              run: |
-                  sudo apt update
-                  sudo apt install libwebkit2gtk-4.1-dev \
-                      build-essential \
-                      curl \
-                      wget \
-                      file \
-                      libxdo-dev \
-                      libssl-dev \
-                      libayatana-appindicator3-dev \
-                      librsvg2-dev
             - name: Dioxus Deploy
               uses: DioxusLabs/deploy-action@v1
               id: deployment
