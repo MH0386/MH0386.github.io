@@ -21,7 +21,7 @@ jobs:
                       libayatana-appindicator3-dev \
                       librsvg2-dev
             - name: Dioxus Deploy
-              uses: DioxusLabs/deploy-action@0.1.1
+              uses: DioxusLabs/deploy-action@v1
               id: deployment
               continue-on-error: true
             - name: Check Deployment Status
