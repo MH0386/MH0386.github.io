@@ -6,12 +6,12 @@ jobs:
     build:
         runs-on: ubuntu-latest
         env:
-            CARGO_TARGET_DIR: ./target
+            CARGO_TARGET_DIR: /target
         steps:
             - name: Checkout
               uses: actions/checkout@v4
             - name: Dioxus Deploy
-              uses: DioxusLabs/deploy-action@0.1.2
+              uses: DioxusLabs/deploy-action@0.1.1
               id: deployment
               continue-on-error: true
             - name: Check Deployment Status
