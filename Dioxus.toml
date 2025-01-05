@@ -2,6 +2,10 @@
 # App (Project) Name
 name = "my_website"
 default_platform = "web"
+# `build` & `serve` dist path
+out_dir = "dist"
+# resource (assets) file folder
+asset_dir = "assets"
 
 [web.app]
 
