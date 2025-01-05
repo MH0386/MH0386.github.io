@@ -3,7 +3,7 @@
 name = "my_website"
 default_platform = "web"
 # `build` & `serve` dist path
-out_dir = "dist"
+out_dir = "target"
 # resource (assets) file folder
 asset_dir = "assets"
 
