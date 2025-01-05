@@ -16,6 +16,7 @@ body {
 }
 
 @media (max-width: 768px) {
+
     #about,
     #projects,
     #contact,
@@ -45,6 +46,31 @@ ul li {
     border: none;
     cursor: pointer;
     text-align: center;
+    position: relative;
+    color: var(--text-color);
+}
+
+#about_button:focus,
+#projects_button:focus,
+#contact_button:focus,
+#resume_button:focus {
+    outline: 2px solid white;
+    outline-offset: 2px;
+
+}
+
+#about_button[aria-current="page"]::after,
+#projects_button[aria-current="page"]::after,
+#contact_button[aria-current="page"]::after,
+#resume_button[aria-current="page"]::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 10px;
+    right: 10px;
+    height: 2px;
+    background: var(--text-color);
+
 }
 
 #about_text,
@@ -62,6 +88,7 @@ ul li {
     justify-content: end;
     text-align: right;
     gap: 30px;
+    justify-content: flex-end;
 }
 
 #about_button:hover,
