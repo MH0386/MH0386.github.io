@@ -10,14 +10,6 @@ jobs:
         steps:
             - name: Checkout
               uses: actions/checkout@v4
-            - name: Cache
-              uses: actions/cache@v4
-              with:
-                  path: |
-                      ~/.cargo
-                      ./target
-                  key: ${{ runner.os }}-pub-${{ hashFiles('**/Cargo.lock') }}
-                  restore-keys: ${{ runner.os }}-pub-
             - name: Dioxus Deploy
               uses: DioxusLabs/deploy-action@0.1.1
               id: deployment
