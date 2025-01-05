@@ -5,6 +5,8 @@ on:
 jobs:
     build:
         runs-on: ubuntu-latest
+        env:
+            CARGO_TARGET_DIR: ./target
         steps:
             - name: Checkout
               uses: actions/checkout@v4
