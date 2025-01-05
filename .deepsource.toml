@@ -1,8 +1,13 @@
 version = 1
 
 [[analyzers]]
-name = "dart-analyze"
-type = "community"
+name = "rust"
+
+[analyzers.meta]
+msrv = "stable"
 
 [[analyzers]]
 name = "secrets"
+
+[[transformers]]
+name = "rustfmt"

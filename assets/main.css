@@ -1,0 +1,112 @@
+body {
+    background-color: black;
+    margin: 0;
+    color: white;
+    font-family: 'monospace', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#about,
+#projects,
+#contact,
+#resume {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+
+    #about,
+    #projects,
+    #contact,
+    #resume {
+        padding: 1rem;
+    }
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+ul li {
+    padding: 10px;
+}
+
+#about_button,
+#projects_button,
+#contact_button,
+#resume_button {
+    padding: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    position: relative;
+    color: var(--text-color);
+}
+
+#about_button:focus,
+#projects_button:focus,
+#contact_button:focus,
+#resume_button:focus {
+    outline: 2px solid white;
+    outline-offset: 2px;
+
+}
+
+#about_button[aria-current="page"]::after,
+#projects_button[aria-current="page"]::after,
+#contact_button[aria-current="page"]::after,
+#resume_button[aria-current="page"]::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 10px;
+    right: 10px;
+    height: 2px;
+    background: var(--text-color);
+
+}
+
+#about_text,
+#projects_text,
+#contact_text,
+#resume_text {
+    margin: 10px;
+    color: white;
+    font-size: medium;
+}
+
+#buttons {
+    display: flex;
+    flex-direction: row;
+    text-align: right;
+    gap: 30px;
+    justify-content: flex-end;
+}
+
+#about_button:hover,
+#projects_button:hover,
+#contact_button:hover,
+#resume_button:hover {
+    text-decoration: underline;
+}
+
+#myname {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+}
+
+#myname h1 {
+    font-size: 500%;
+    margin: 0;
+}
