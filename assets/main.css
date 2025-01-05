@@ -85,7 +85,6 @@ ul li {
 #buttons {
     display: flex;
     flex-direction: row;
-    justify-content: end;
     text-align: right;
     gap: 30px;
     justify-content: flex-end;
