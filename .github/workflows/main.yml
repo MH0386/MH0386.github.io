@@ -1,9 +1,7 @@
 name: gh-pages
-
 on:
     push:
         branches: [main]
-
 jobs:
     build:
         runs-on: ubuntu-latest
@@ -13,13 +11,36 @@ jobs:
             - name: Cache
               uses: actions/cache@v4
               with:
-                  path: ~/.pub-cache
-                  key: ${{ runner.os }}-pub-${{ hashFiles('**/pubspec.lock') }}
+                  path: |
+                    ~/.cargo
+                    ./target
+                  key: ${{ runner.os }}-pub-${{ hashFiles('**/Cargo.lock') }}
                   restore-keys: ${{ runner.os }}-pub-
             - name: Dioxus Deploy
               uses: DioxusLabs/deploy-action@0.1.1
-            - run: wget https://raw.githubusercontent.com/MH0386/MH0386/main/resume.pdf
-            - run: git checkout gh-pages
-            - run: git add resume.pdf
-            - run: git commit -m "Add My Resume"
-            - run: git push
+              id: deployment
+              continue-on-error: true
+            - name: Check Deployment Status
+              if: steps.deployment.outcome != 'success'
+              run: |
+                echo "Deployment failed"
+                exit 1
+
+    deploy-resume:
+        needs: build
+        runs-on: ubuntu-latest
+        if: success()
+        steps:
+            - name: Download Resume
+              run: wget https://raw.githubusercontent.com/MH0386/MH0386/main/resume.pdf
+              continue-on-error: true
+            - name: Configure Git
+              run: |
+                git config --global user.name "GitHub Actions"
+                git config --global user.email "actions@github.com"
+            - name: Commit and Push Resume
+              run: |
+                git checkout gh-pages || (echo "Failed to checkout gh-pages branch" && exit 1)
+                git add resume.pdf
+                git commit -m "Add My Resume" || echo "No changes to commit"
+                git push || (echo "Failed to push changes" && exit 1)
