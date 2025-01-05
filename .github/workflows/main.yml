@@ -6,7 +6,7 @@ jobs:
     build:
         runs-on: ubuntu-latest
         env:
-            CARGO_TARGET_DIR: /target
+            CARGO_TARGET_DIR: ./target
         steps:
             - name: Dioxus Deploy
               uses: DioxusLabs/deploy-action@0.1.1
