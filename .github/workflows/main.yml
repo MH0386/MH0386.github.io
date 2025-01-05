@@ -11,7 +11,7 @@ jobs:
             - name: Checkout
               uses: actions/checkout@v4
             - name: Dioxus Deploy
-              uses: DioxusLabs/deploy-action@0.1.1
+              uses: DioxusLabs/deploy-action@0.1.2
               id: deployment
               continue-on-error: true
             - name: Check Deployment Status
