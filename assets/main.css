@@ -7,16 +7,21 @@ body {
 
 #about,
 #projects,
-#contact {
+#contact,
+#resume {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-#resume {
-    height: 100vh;
-    width: 100vw;
+@media (max-width: 768px) {
+    #about,
+    #projects,
+    #contact,
+    #resume {
+        padding: 1rem;
+    }
 }
 
 ul {
