@@ -17,7 +17,6 @@ jobs:
               run: |
                   echo "Deployment failed"
                   exit 1
-
     deploy-resume:
         needs: build
         runs-on: ubuntu-latest
