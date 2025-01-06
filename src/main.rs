@@ -99,7 +99,7 @@ fn Contact() -> Element {
     rsx! {
         section { id: "contact",
             h2 { "Contact" }
-            p { "Email: " } 
+            p { "Email: " }
             a { href: "mailto:mohamed.hisham.abdelzaher@gmail.com", "mohamed.hisham.abdelzaher@gmail.com" }
         }
     }
