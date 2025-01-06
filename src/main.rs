@@ -107,14 +107,13 @@ fn Resume() -> Element {
         div {
             embed {
                 id: "resume",
-                src: "https://mh0386.github.io/resume.pdf",
+                src: "https://github.com/MH0386/MH0386/blob/main/resume.pdf",
                 width: "100%",
                 height: "100%",
                 r#type: "application/pdf",
                 p {
                     "Your browser does not support PDF embedding. "
-                    a {
-                        href: "https://mh0386.github.io/resume.pdf",
+                    a { href: "https://mh0386.github.io/resume.pdf",
                         "Click here to download the PDF instead."
                     }
                 }
