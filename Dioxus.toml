@@ -3,9 +3,9 @@
 name = "MH0386.github.io"
 default_platform = "web"
 # `build` & `serve` dist path
-out_dir = "dist"
+# out_dir = "dist"
 # resource (assets) file folder
-asset_dir = "public"
+asset_dir = "assets"
 
 [web.app]
 
@@ -18,7 +18,7 @@ title = "my_website"
 reload_html = true
 
 # which files or dirs will be watcher monitoring
-watch_path = ["src", "public"]
+watch_path = ["src", "assets"]
 index_on_404 = true
 
 # include `assets` in web platform
