@@ -109,7 +109,7 @@ fn Resume() -> Element {
                 id: "resume",
                 src: "https://mh0386.github.io/resume.pdf",
                 width: "100%",
-                height: "100%",
+                height: "1500vh",
                 r#type: "application/pdf",
                 p {
                     "Your browser does not support PDF embedding. "
