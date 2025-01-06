@@ -17,13 +17,6 @@ jobs:
               run: |
                   echo "Deployment failed"
                   exit 1
-    deploy-resume:
-        needs: build
-        runs-on: ubuntu-latest
-        if: success()
-        steps:
-            - name: Checkout
-              uses: actions/checkout@v4
             - name: Download Resume
               run: |
                   curl -sSL -o resume.pdf https://raw.githubusercontent.com/MH0386/MH0386/main/resume.pdf 
