@@ -27,6 +27,7 @@ fn App() -> Element {
         Router::<Route> {}
     }
 }
+
 #[component]
 fn NavBar() -> Element {
     rsx! {
@@ -59,11 +60,13 @@ fn NavBar() -> Element {
         Outlet::<Route> {}
     }
 }
+
 #[component]
 fn Home() -> Element {
     rsx! {
         NavBar {}
         section { id: "myname",
+            p { "Hi, My name is" }
             h1 { "Mohamed Hisham Abdelzaher" }
             p { "Welcome to my personal website!" }
         }
@@ -76,7 +79,7 @@ fn About() -> Element {
     rsx! {
         section { id: "about",
             h2 { "About Me" }
-            p { "I am a software developer with a passion for Rust." }
+            p { "I am an AI engineer with a passion for Rust." }
         }
     }
 }
@@ -96,7 +99,8 @@ fn Contact() -> Element {
     rsx! {
         section { id: "contact",
             h2 { "Contact" }
-            p { "You can reach me at mohamed@example.com." }
+            p { "Email: " } 
+            a { href: "mailto:mohamed.hisham.abdelzaher@gmail.com", "mohamed.hisham.abdelzaher@gmail.com" }
         }
     }
 }
