@@ -107,7 +107,7 @@ fn Resume() -> Element {
         div {
             embed {
                 id: "resume",
-                src: "https://github.com/MH0386/MH0386/blob/main/resume.pdf",
+                src: "https://mh0386.github.io/resume.pdf",
                 width: "100%",
                 height: "100%",
                 r#type: "application/pdf",
