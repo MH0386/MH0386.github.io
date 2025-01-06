@@ -40,10 +40,6 @@ jobs:
               run: |
                   git fetch
                   git checkout gh-pages || (echo "Failed to checkout gh-pages branch" && exit 1)
-                  if [ ! -f resume.pdf ]; then  
-                    echo "Resume file not found"  
-                    exit 1  
-                  fi  
                   git add resume.pdf
                   git commit -m "Add My Resume" || echo "No changes to commit"
                   git push || (echo "Failed to push changes" && exit 1)
