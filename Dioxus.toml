@@ -1,16 +1,25 @@
 [application]
 # App (Project) Name
-name = "my_website"
+name = "MH0386.github.io"
 default_platform = "web"
 # `build` & `serve` dist path
-out_dir = "target/dx/my_website/debug/web/public"
+out_dir = "dist"
 # resource (assets) file folder
-asset_dir = "assets"
+asset_dir = "public"
 
 [web.app]
 
 # HTML title tag content
 title = "my_website"
+
+[web.watcher]
+
+# when watcher trigger, regenerate the `index.html`
+reload_html = true
+
+# which files or dirs will be watcher monitoring
+watch_path = ["src", "public"]
+index_on_404 = true
 
 # include `assets` in web platform
 [web.resource]

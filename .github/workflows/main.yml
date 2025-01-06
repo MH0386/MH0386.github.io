@@ -8,8 +8,6 @@ jobs:
         steps:
             - name: Dioxus Deploy
               uses: DioxusLabs/deploy-action@4f933485ec8f37a9dc1beec181f4eba58789523e
-              with:
-                  outDirectory: "target/dx/my_website/debug/web/public"
               id: deployment
               continue-on-error: true
             - name: Check Deployment Status
