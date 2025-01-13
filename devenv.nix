@@ -52,4 +52,8 @@
     enable = true;
     channel = "stable";
   };
+  languages.javascript.npm = {
+    enable = true;
+    install.enable = true;
+  };
 }
