@@ -1,6 +1,7 @@
 use dioxus::events::*;
 use dioxus::prelude::*;
 use dioxus_router::prelude::*;
+use global_attributes::class;
 
 const FAVICON: Asset = asset!("/assets/favicon.ico");
 const MAIN_CSS: Asset = asset!("/assets/main.css");
@@ -63,6 +64,7 @@ fn Home() -> Element {
 fn About() -> Element {
     rsx! {
         section { id: "about",
+            class: "flex flex-col items-center justify-center text-xl h-screen",
             h2 { "About Me" }
             p { "I am an AI engineer with a passion for Rust." }
         }
@@ -73,6 +75,7 @@ fn About() -> Element {
 fn Projects() -> Element {
     rsx! {
         section { id: "projects",
+            class: "flex flex-col items-center justify-center text-xl h-screen",
             h2 { "Projects" }
             p { "Here are some of my projects." }
         }
@@ -83,11 +86,10 @@ fn Projects() -> Element {
 fn Contact() -> Element {
     rsx! {
         section { id: "contact",
-            h2 { "Contact" }
+            class: "flex flex-col items-center justify-center text-xl h-screen",
+            h2 {class:"m-4", "Contact" }
             p { "Email: " }
-            a { href: "mailto:mohamed.hisham.abdelzaher@gmail.com",
-                "mohamed.hisham.abdelzaher@gmail.com"
-            }
+            Link {to: "mailto:mohamed.hisham.abdelzaher@gmail.com", "mohamed.hisham.abdelzaher@gmail.com"}
         }
     }
 }
