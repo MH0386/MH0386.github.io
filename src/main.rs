@@ -35,7 +35,7 @@ fn App() -> Element {
 #[component]
 fn NavBar() -> Element {
     rsx! {
-        div { id: "navbar",
+        div { id: "navbar", class: "flex justify-between items-center p-4",
             Link { to: Route::About {}, "About" }
             Link { to: Route::Projects {}, "Project" }
             Link { to: Route::Contact {}, "Contact" }
@@ -48,9 +48,11 @@ fn NavBar() -> Element {
 #[component]
 fn Home() -> Element {
     rsx! {
-        section { id: "myname",
+        section {
+            id: "myname",
+            class: "flex flex-col items-center justify-center text-xl h-screen",
             p { "Hi, My name is" }
-            h1 { class: "font-bold", "Mohamed Hisham Abdelzaher" }
+            h1 { class: "font-bold text-5xl", "Mohamed Hisham Abdelzaher" }
             p { "Welcome to my personal website!" }
         }
     }
