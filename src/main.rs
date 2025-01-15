@@ -36,10 +36,10 @@ fn App() -> Element {
 fn NavBar() -> Element {
     rsx! {
         div { id: "navbar",
-            Link { id: "about_link", to: Route::About {}, "About" }
-            Link { id: "projects_link", to: Route::Projects {}, "Project" }
-            Link { id: "contact_link", to: Route::Contact {}, "Contact" }
-            Link { id: "resume_link", to: Route::Resume {}, "Resume" }
+            Link { to: Route::About {}, "About" }
+            Link { to: Route::Projects {}, "Project" }
+            Link { to: Route::Contact {}, "Contact" }
+            Link { to: Route::Resume {}, "Resume" }
         }
         Outlet::<Route> {}
     }
@@ -48,10 +48,9 @@ fn NavBar() -> Element {
 #[component]
 fn Home() -> Element {
     rsx! {
-        NavBar {}
         section { id: "myname",
             p { "Hi, My name is" }
-            h1 { "Mohamed Hisham Abdelzaher" }
+            h1 { class: "font-bold", "Mohamed Hisham Abdelzaher" }
             p { "Welcome to my personal website!" }
         }
     }
