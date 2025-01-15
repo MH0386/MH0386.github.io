@@ -1,89 +1,72 @@
+/* App-wide styling */
 body {
-    background-color: black;
-    margin: 0;
-    color: white;
-    font-family: 'monospace', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #0f1116;
+    color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 20px;
 }
 
-#about,
-#projects,
-#contact,
-#resume {
+#hero {
+    margin: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-@media (max-width: 768px) {
-
-    #about,
-    #projects,
-    #contact,
-    #resume {
-        padding: 1rem;
-    }
-}
-
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: flex-end;
-}
-
-ul li {
-    padding: 10px;
-}
-
-#about_button,
-#projects_button,
-#contact_button,
-#resume_button {
-    padding: 10px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    text-align: center;
-    position: relative;
-    color: var(--text-color);
-}
-
-#about_text,
-#projects_text,
-#contact_text,
-#resume_text {
-    margin: 10px;
+#links {
+    width: 400px;
+    text-align: left;
+    font-size: x-large;
     color: white;
-    font-size: medium;
+    display: flex;
+    flex-direction: column;
 }
 
-#buttons {
+#links a {
+    color: white;
+    text-decoration: none;
+    margin-top: 20px;
+    margin: 10px 0px;
+    border: white 1px solid;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+#links a:hover {
+    background-color: #1f1f1f;
+    cursor: pointer;
+}
+
+#header {
+    max-width: 1200px;
+}
+
+/* Navbar */
+#navbar {
     display: flex;
     flex-direction: row;
-    text-align: right;
-    gap: 30px;
-    justify-content: flex-end;
+  }
+  
+#navbar a {
+    color: #ffffff;
+    margin-right: 20px;
+    text-decoration: none;
+    transition: color 0.2s ease;
 }
 
-#about_button:hover,
-#projects_button:hover,
-#contact_button:hover,
-#resume_button:hover {
-    text-decoration: underline;
+#navbar a:hover {
+    cursor: pointer;
+    color: #91a4d2;
 }
 
-#myname {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 50vh;
+/* Blog page */
+#blog {
+    margin-top: 50px;
+  }
+  
+#blog a {
+    color: #ffffff;
+    margin-top: 50px;
 }
 
-#myname h1 {
-    font-size: 500%;
-    margin: 0;
-}
