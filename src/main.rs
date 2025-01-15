@@ -1,7 +1,5 @@
-use dioxus::events::*;
 use dioxus::prelude::*;
 use dioxus_router::prelude::*;
-use global_attributes::class;
 
 const FAVICON: Asset = asset!("/assets/favicon.ico");
 const MAIN_CSS: Asset = asset!("/assets/main.css");
@@ -37,6 +35,7 @@ fn App() -> Element {
 fn NavBar() -> Element {
     rsx! {
         div { id: "navbar", class: "flex justify-between items-center p-4",
+            Link { to: Route::Home {}, "Home" }
             Link { to: Route::About {}, "About" }
             Link { to: Route::Projects {}, "Project" }
             Link { to: Route::Contact {}, "Contact" }
@@ -63,7 +62,8 @@ fn Home() -> Element {
 #[component]
 fn About() -> Element {
     rsx! {
-        section { id: "about",
+        section {
+            id: "about",
             class: "flex flex-col items-center justify-center text-xl h-screen",
             h2 { "About Me" }
             p { "I am an AI engineer with a passion for Rust." }
@@ -74,7 +74,8 @@ fn About() -> Element {
 #[component]
 fn Projects() -> Element {
     rsx! {
-        section { id: "projects",
+        section {
+            id: "projects",
             class: "flex flex-col items-center justify-center text-xl h-screen",
             h2 { "Projects" }
             p { "Here are some of my projects." }
@@ -85,11 +86,14 @@ fn Projects() -> Element {
 #[component]
 fn Contact() -> Element {
     rsx! {
-        section { id: "contact",
+        section {
+            id: "contact",
             class: "flex flex-col items-center justify-center text-xl h-screen",
-            h2 {class:"m-4", "Contact" }
+            h2 { class: "m-4", "Contact" }
             p { "Email: " }
-            Link {to: "mailto:mohamed.hisham.abdelzaher@gmail.com", "mohamed.hisham.abdelzaher@gmail.com"}
+            Link { to: "mailto:mohamed.hisham.abdelzaher@gmail.com",
+                "mohamed.hisham.abdelzaher@gmail.com"
+            }
         }
     }
 }

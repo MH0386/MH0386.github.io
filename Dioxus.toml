@@ -10,7 +10,7 @@ asset_dir = "assets"
 [web.app]
 
 # HTML title tag content
-title = "my_website"
+title = "Mohamed Hisham"
 
 [web.watcher]
 
