@@ -100,19 +100,35 @@ fn Contact() -> Element {
             br {}
             Link { to: "https://github.com/MH0386", page: "_blank",
                 img {
-                    src: "https://media.licdn.com/dms/image/v2/C560BAQFmuLSyL1nlPA/company-logo_200_200/company-logo_200_200/0/1678231359043/github_logo?e=1744848000&v=beta&t=qW6Tnwirtj4LeqIVdJcdehHqLSUWbn5XzdP0Dr3fog0",
+                    src: "https://pbs.twimg.com/profile_images/1633247750010830848/8zfRrYjA_400x400.png",
                     alt: "GitHub",
                     class: "inline-block w-4 h-4 mr-2",
                 }
-                "MH0386"
+                "GitHub @MH0386"
+            }
+            Link { to: "https://gitlab.com/MH0386", page: "_blank",
+                img {
+                    src: "https://pbs.twimg.com/profile_images/1526219998741647362/8KKDKESj_400x400.jpg",
+                    alt: "GitLab",
+                    class: "inline-block w-4 h-4 mr-2",
+                }
+                "GitLab @MH0386"
             }
             Link { to: "https://www.linkedin.com/in/MH0386", page: "_blank",
                 img {
-                    src: "https://media.licdn.com/dms/image/v2/C560BAQHaVYd13rRz3A/company-logo_200_200/company-logo_200_200/0/1638831590218/linkedin_logo?e=1744848000&v=beta&t=YzSWtVgDjOjlkQ8WhICYnhJZYSpSBszznZUaAs-Alac",
+                    src: "https://pbs.twimg.com/profile_images/1661161645857710081/6WtDIesg_400x400.png",
                     alt: "LinkedIn",
                     class: "inline-block w-4 h-4 mr-2",
                 }
-                "MH0386"
+                "LinkedIn @MH0386"
+            }
+            Link { to: "https://www.hf.co/MH0386", page: "_blank",
+                img {
+                    src: "https://pbs.twimg.com/profile_images/1348748676282388482/nr8ZuLBE_400x400.jpg",
+                    alt: "Hugging Face",
+                    class: "inline-block w-4 h-4 mr-2",
+                }
+                "HuggingFace @MH0386"
             }
         }
     }
