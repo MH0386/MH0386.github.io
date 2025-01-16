@@ -1,9 +1,7 @@
 use dioxus::prelude::*;
 use dioxus_router::prelude::*;
 
-const FAVICON: Asset = asset!("/assets/favicon.ico");
 const MAIN_CSS: Asset = asset!("/assets/main.css");
-const HEADER_SVG: Asset = asset!("/assets/header.svg");
 const TAILWIND_CSS: Asset = asset!("/assets/tailwind.css");
 
 #[derive(Debug, Clone, Routable, PartialEq)]
@@ -24,7 +22,10 @@ enum Route {
 #[component]
 fn App() -> Element {
     rsx! {
-        document::Link { rel: "icon", href: FAVICON }
+        document::Link {
+            rel: "icon",
+            href: "https://avatars.githubusercontent.com/u/77013511?v=4",
+        }
         document::Link { rel: "stylesheet", href: MAIN_CSS }
         document::Link { rel: "stylesheet", href: TAILWIND_CSS }
         Router::<Route> {}
@@ -51,9 +52,9 @@ fn Home() -> Element {
         section {
             id: "myname",
             class: "flex flex-col items-center justify-center text-xl h-screen",
-            p { "Hi, My name is" }
-            h1 { class: "font-bold text-5xl", "Mohamed Hisham Abdelzaher" }
-            p { "Welcome to my personal website!" }
+            p { class: "animate-fadeIn", "Hi, My name is" }
+            h1 { class: "font-black text-5xl animate-fadeIn", "Mohamed Hisham Abdelzaher" }
+            p { class: "animate-fadeIn", "Welcome to my personal website!" }
         }
     }
 }
@@ -89,10 +90,29 @@ fn Contact() -> Element {
         section {
             id: "contact",
             class: "flex flex-col items-center justify-center text-xl h-screen",
-            h2 { class: "m-4", "Contact" }
-            p { "Email: " }
-            Link { to: "mailto:mohamed.hisham.abdelzaher@gmail.com",
-                "mohamed.hisham.abdelzaher@gmail.com"
+            h2 { class: "font-black text-5xl m-4", "Contact" }
+            p {
+                "Email: "
+                Link { to: "mailto:mohamed.hisham.abdelzaher@gmail.com",
+                    "mohamed.hisham.abdelzaher@gmail.com"
+                }
+            }
+            br {}
+            Link { to: "https://github.com/MH0386", page: "_blank",
+                img {
+                    src: "https://media.licdn.com/dms/image/v2/C560BAQFmuLSyL1nlPA/company-logo_200_200/company-logo_200_200/0/1678231359043/github_logo?e=1744848000&v=beta&t=qW6Tnwirtj4LeqIVdJcdehHqLSUWbn5XzdP0Dr3fog0",
+                    alt: "GitHub",
+                    class: "inline-block w-4 h-4 mr-2",
+                }
+                "MH0386"
+            }
+            Link { to: "https://www.linkedin.com/in/MH0386", page: "_blank",
+                img {
+                    src: "https://media.licdn.com/dms/image/v2/C560BAQHaVYd13rRz3A/company-logo_200_200/company-logo_200_200/0/1638831590218/linkedin_logo?e=1744848000&v=beta&t=YzSWtVgDjOjlkQ8WhICYnhJZYSpSBszznZUaAs-Alac",
+                    alt: "LinkedIn",
+                    class: "inline-block w-4 h-4 mr-2",
+                }
+                "MH0386"
             }
         }
     }

@@ -558,28 +558,12 @@ video {
   margin: 1rem;
 }
 
-.m-5 {
-  margin: 1.25rem;
+.mr-2 {
+  margin-right: 0.5rem;
 }
 
-.m-1 {
-  margin: 0.25rem;
-}
-
-.m-10 {
-  margin: 2.5rem;
-}
-
-.m-12 {
-  margin: 3rem;
-}
-
-.m-14 {
-  margin: 3.5rem;
-}
-
-.m-16 {
-  margin: 4rem;
+.inline-block {
+  display: inline-block;
 }
 
 .flex {
@@ -588,6 +572,28 @@ video {
 
 .h-screen {
   height: 100vh;
+}
+
+.h-4 {
+  height: 1rem;
+}
+
+.w-4 {
+  width: 1rem;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 2s ease-in-out;
 }
 
 .flex-col {
@@ -610,18 +616,9 @@ video {
   padding: 1rem;
 }
 
-.text-center {
-  text-align: center;
-}
-
 .text-5xl {
   font-size: 3rem;
   line-height: 1;
-}
-
-.text-lg {
-  font-size: 1.125rem;
-  line-height: 1.75rem;
 }
 
 .text-xl {
@@ -633,34 +630,6 @@ video {
   font-weight: 700;
 }
 
-.underline {
-  text-decoration-line: underline;
-}
-
-@media (min-width: 640px) {
-  .sm\:m-6 {
-    margin: 1.5rem;
-  }
-}
-
-@media (min-width: 768px) {
-  .md\:m-8 {
-    margin: 2rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .lg\:m-10 {
-    margin: 2.5rem;
-  }
-}
-
-@media (min-width: 1280px) {
-  .xl\:m-12 {
-    margin: 3rem;
-  }
-
-  .xl\:m-10 {
-    margin: 2.5rem;
-  }
+.font-black {
+  font-weight: 900;
 }
