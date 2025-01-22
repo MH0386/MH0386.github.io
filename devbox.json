@@ -6,7 +6,7 @@
   ],
   "shell": {
     "init_hook": [
-      "echo 'Welcome to devbox!' > /dev/null"
+      "npx tailwindcss -i ./input.css -o ./assets/tailwind.css --watch"
     ],
     "scripts": {
       "test": [
