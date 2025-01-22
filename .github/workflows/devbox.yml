@@ -6,11 +6,13 @@ on:
         branches:
             - main
 jobs:
-    test:
+    devbox:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v4
             - name: Install devbox
               uses: jetify-com/devbox-install-action@v0.11.0
+              with:
+                enable-cache: 'true'
             - name: Update Package
               run: devbox update
