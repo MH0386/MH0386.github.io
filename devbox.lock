@@ -1,0 +1,102 @@
+{
+  "lockfile_version": "1",
+  "packages": {
+    "nodePackages.npm@latest": {
+      "last_modified": "2024-09-10T15:01:03Z",
+      "resolved": "github:NixOS/nixpkgs/5ed627539ac84809c78b2dd6d26a5cebeb5ae269#nodePackages.npm",
+      "source": "devbox-search",
+      "version": "10.8.3",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/d8iyr5aq1fs900ml37zqz0n1081642jp-npm-10.8.3",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/d8iyr5aq1fs900ml37zqz0n1081642jp-npm-10.8.3"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/iy2pv3h924cf4mqbyz4a05hwq0da1jcj-npm-10.8.3",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/iy2pv3h924cf4mqbyz4a05hwq0da1jcj-npm-10.8.3"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/66mg53a857hmdc418dj6fyq28bdfa6pc-npm-10.8.3",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/66mg53a857hmdc418dj6fyq28bdfa6pc-npm-10.8.3"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/91rs8y4165pm8gnh1xhc0hrhlnmbkvgy-npm-10.8.3",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/91rs8y4165pm8gnh1xhc0hrhlnmbkvgy-npm-10.8.3"
+        }
+      }
+    },
+    "rustup@latest": {
+      "last_modified": "2025-01-11T15:21:40Z",
+      "plugin_version": "0.0.1",
+      "resolved": "github:NixOS/nixpkgs/590cc22eefd616c8f90608870d28afe25d37e8b8#rustup",
+      "source": "devbox-search",
+      "version": "1.27.1",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/f577am7fddddky4gfsfbzvy22n5qqanh-rustup-1.27.1",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/f577am7fddddky4gfsfbzvy22n5qqanh-rustup-1.27.1"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/88ngn7j1pgljmi74ldlbnk4mm8mfw3a5-rustup-1.27.1",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/88ngn7j1pgljmi74ldlbnk4mm8mfw3a5-rustup-1.27.1"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/94viny8yipljwgxvyz1xljcg3mpgnyfp-rustup-1.27.1",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/94viny8yipljwgxvyz1xljcg3mpgnyfp-rustup-1.27.1"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/61mams7q42fvaxh33s5vmnb8mljhasw2-rustup-1.27.1",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/61mams7q42fvaxh33s5vmnb8mljhasw2-rustup-1.27.1"
+        }
+      }
+    }
+  }
+}
