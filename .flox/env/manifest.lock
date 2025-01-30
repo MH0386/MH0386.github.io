@@ -11,6 +11,9 @@
       },
       "rustc": {
         "pkg-path": "rustc"
+      },
+      "rustfmt": {
+        "pkg-path": "rustfmt"
       }
     },
     "hook": {
@@ -390,6 +393,122 @@
         "doc": "/nix/store/s6h6741lig77473q77jg5a3jh8991a6k-rustc-wrapper-1.83.0-doc",
         "man": "/nix/store/szr3wmmrcdzf59n1y9x7ry6ncqb93s69-rustc-wrapper-1.83.0-man",
         "out": "/nix/store/f10frz81pb9j2bxx3vc394cgq0y9dnyd-rustc-wrapper-1.83.0"
+      },
+      "system": "x86_64-linux",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "rustfmt",
+      "broken": false,
+      "derivation": "/nix/store/la2pazqrlb5gajx5kxijgbarvm9vgf2d-rustfmt-1.83.0.drv",
+      "description": "Tool for formatting Rust code according to style guidelines",
+      "install_id": "rustfmt",
+      "license": "[ MIT, Apache-2.0 ]",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=9d3ae807ebd2981d593cddd0080856873139aa40",
+      "name": "rustfmt-1.83.0",
+      "pname": "rustfmt",
+      "rev": "9d3ae807ebd2981d593cddd0080856873139aa40",
+      "rev_count": 745286,
+      "rev_date": "2025-01-29T09:16:47Z",
+      "scrape_date": "2025-01-30T03:28:02Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "1.83.0",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/flml6db7rdfb3y57zm63kqpy6g65k9aq-rustfmt-1.83.0"
+      },
+      "system": "aarch64-darwin",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "rustfmt",
+      "broken": false,
+      "derivation": "/nix/store/1zk8akkl5qmbah9rn30vli6p6hv5isaz-rustfmt-1.83.0.drv",
+      "description": "Tool for formatting Rust code according to style guidelines",
+      "install_id": "rustfmt",
+      "license": "[ MIT, Apache-2.0 ]",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=9d3ae807ebd2981d593cddd0080856873139aa40",
+      "name": "rustfmt-1.83.0",
+      "pname": "rustfmt",
+      "rev": "9d3ae807ebd2981d593cddd0080856873139aa40",
+      "rev_count": 745286,
+      "rev_date": "2025-01-29T09:16:47Z",
+      "scrape_date": "2025-01-30T03:28:02Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "1.83.0",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/kl5rj9ian2ag6b0rsiwry4bijkha7pcb-rustfmt-1.83.0"
+      },
+      "system": "aarch64-linux",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "rustfmt",
+      "broken": false,
+      "derivation": "/nix/store/nyc43x7hvbj10qk42g6cafiq1hf87ck3-rustfmt-1.83.0.drv",
+      "description": "Tool for formatting Rust code according to style guidelines",
+      "install_id": "rustfmt",
+      "license": "[ MIT, Apache-2.0 ]",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=9d3ae807ebd2981d593cddd0080856873139aa40",
+      "name": "rustfmt-1.83.0",
+      "pname": "rustfmt",
+      "rev": "9d3ae807ebd2981d593cddd0080856873139aa40",
+      "rev_count": 745286,
+      "rev_date": "2025-01-29T09:16:47Z",
+      "scrape_date": "2025-01-30T03:28:02Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "1.83.0",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/sicy5f8fdndangnbx17w2v34ldlrwykf-rustfmt-1.83.0"
+      },
+      "system": "x86_64-darwin",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "rustfmt",
+      "broken": false,
+      "derivation": "/nix/store/jl1s2wm925rk06v47614ly3l20rx4by6-rustfmt-1.83.0.drv",
+      "description": "Tool for formatting Rust code according to style guidelines",
+      "install_id": "rustfmt",
+      "license": "[ MIT, Apache-2.0 ]",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=9d3ae807ebd2981d593cddd0080856873139aa40",
+      "name": "rustfmt-1.83.0",
+      "pname": "rustfmt",
+      "rev": "9d3ae807ebd2981d593cddd0080856873139aa40",
+      "rev_count": 745286,
+      "rev_date": "2025-01-29T09:16:47Z",
+      "scrape_date": "2025-01-30T03:28:02Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "1.83.0",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/00h51vwbfcylzx6rl2p8dh6dq3yz9nlv-rustfmt-1.83.0"
       },
       "system": "x86_64-linux",
       "group": "toplevel",
