@@ -122,6 +122,14 @@ fn Contact() -> Element {
                 }
                 "LinkedIn @MH0386"
             }
+            Link { to: "https://qabilah.com/profile/MH0386", page: "_blank",
+                img {
+                    src: "https://x.com/QabilahSocial/photo",
+                    alt: "Qabilah",
+                    class: "inline-block w-4 h-4 mr-2",
+                }
+                "LinkedIn @MH0386"
+            }
             Link { to: "https://www.hf.co/MH0386", page: "_blank",
                 img {
                     src: "https://pbs.twimg.com/profile_images/1348748676282388482/nr8ZuLBE_400x400.jpg",
