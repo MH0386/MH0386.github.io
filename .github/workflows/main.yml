@@ -10,13 +10,13 @@ jobs:
               uses: DioxusLabs/deploy-action@4f933485ec8f37a9dc1beec181f4eba58789523e
               with:
                   outDirectory: "target/dx/my_website/release/web/public"
-              id: deployment
-              continue-on-error: true
-            - name: Check Deployment Status
-              if: steps.deployment.outcome != 'success'
-              run: |
-                  echo "Deployment failed"
-                  exit 1
+              # id: deployment
+              # continue-on-error: true
+            # - name: Check Deployment Status
+            #   if: steps.deployment.outcome != 'success'
+            #   run: |
+            #       echo "Deployment failed"
+            #       exit 1
     deploy-resume:
         # needs: build
         runs-on: ubuntu-latest
