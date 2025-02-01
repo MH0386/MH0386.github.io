@@ -122,7 +122,9 @@ fn Contact() -> Element {
                 }
                 "LinkedIn @MH0386"
             }
-            Link { to: "https://qabilah.com/profile/MH0386/professional-profile", page: "_blank",
+            Link {
+                to: "https://qabilah.com/profile/MH0386/professional-profile",
+                page: "_blank",
                 img {
                     src: "https://pbs.twimg.com/profile_images/1807856405522583552/1_rr1lKY_400x400.jpg",
                     alt: "Qabilah",
@@ -148,9 +150,8 @@ fn Resume() -> Element {
         div {
             embed {
                 id: "resume",
+                class: "flex flex-col items-center justify-center text-xl h-screen",
                 src: "https://mh0386.github.io/resume.pdf",
-                width: "100%",
-                height: "1500vh",
                 r#type: "application/pdf",
                 p {
                     "Your browser does not support PDF embedding. "

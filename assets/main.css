@@ -3,7 +3,20 @@ body {
     background-color: #000000;
     color: #ffffff;
     font-family: 'jetbrains mono', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 20px;
+    /* margin: 20px; */
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+#resume {
+    overflow: auto;
+}
+
+embed {
+    width: 100%;
+    height: 100%;
+    border: none;
 }
 
 #hero {
