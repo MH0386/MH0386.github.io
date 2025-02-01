@@ -19,8 +19,8 @@ jobs:
             #       exit 1
     deploy-resume:
         # needs: build
-        runs-on: ubuntu-latest
         # if: success()
+        runs-on: ubuntu-latest
         steps:
             - name: Checkout
               uses: actions/checkout@v4
