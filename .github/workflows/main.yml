@@ -38,9 +38,9 @@ jobs:
                   repository: "MH0386/MH0386"
             - name: Move Resume
               run: |
-                  mv ./resume.pdf ./data/docs/resume.pdf
+                  mv resume.pdf data/docs/resume.pdf
             - name: Commit and Push Resume
               run: |
-                  git add ./data/docs/resume.pdf
+                  git add data/docs/resume.pdf
                   git commit -m "Add My Resume" || echo "No changes to commit"
                   git push || (echo "Failed to push changes" && exit 1)
