@@ -91,11 +91,13 @@ fn Contact() -> Element {
             id: "contact",
             class: "flex flex-col items-center justify-center text-xl h-screen",
             h2 { class: "font-black text-5xl m-4", "Contact" }
-            p {
-                "Email: "
-                Link { to: "mailto:mohamed.hisham.abdelzaher@gmail.com",
-                    "mohamed.hisham.abdelzaher@gmail.com"
+            Link { to: "mailto:mohamed.hisham.abdelzaher@gmail.com",
+                img {
+                    src: "https://pbs.twimg.com/profile_images/1313394640393957378/L0W5hykJ_400x400.jpg",
+                    alt: "Gmail",
+                    class: "inline-block w-4 h-4 mr-2",
                 }
+                "mohamed.hisham.abdelzaher@gmail.com"
             }
             br {}
             Link { to: "https://github.com/MH0386", page: "_blank",
