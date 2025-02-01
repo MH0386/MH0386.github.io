@@ -31,14 +31,16 @@ jobs:
                   git fetch
                   git checkout gh-pages || (echo "Failed to checkout gh-pages branch" && exit 1)
             - name: Download Resume
+              uses: robinraju/release-downloader@v1.11
+              with:
+                  latest: true
+                  fileName: "resume.pdf"
+                  repository: "MH0386/MH0386"
+            - name: Move Resume
               run: |
-                  curl -sSL -o resume.pdf https://raw.githubusercontent.com/MH0386/MH0386/main/resume.pdf 
-                  if [ ! -f resume.pdf ]; then  
-                    echo "Failed to download resume"  
-                    exit 1  
-                  fi
+                  mv ./resume.pdf ./data/docs/resume.pdf
             - name: Commit and Push Resume
               run: |
-                  git add resume.pdf
+                  git add ./data/docs/resume.pdf
                   git commit -m "Add My Resume" || echo "No changes to commit"
                   git push || (echo "Failed to push changes" && exit 1)
