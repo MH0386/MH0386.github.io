@@ -54,7 +54,7 @@ fn Home() -> Element {
             class: "flex flex-col items-center justify-center text-xl h-screen",
             p { class: "animate-fadeIn", "Hi, My name is" }
             h1 { class: "font-black text-5xl animate-fadeIn", "Mohamed Hisham Abdelzaher" }
-            p { class: "animate-fadeIn", "Welcome to my personal website!" }
+            p { class: "animate-fadeIn", "Welcome to my personal website! (Alpha)" }
         }
     }
 }
