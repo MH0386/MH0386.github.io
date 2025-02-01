@@ -35,10 +35,8 @@ jobs:
               with:
                   latest: true
                   fileName: "resume.pdf"
+                  out-file-path: 'data/docs/'
                   repository: "MH0386/MH0386"
-            - name: Move Resume
-              run: |
-                  mv resume.pdf data/docs/resume.pdf
             - name: Commit and Push Resume
               run: |
                   git add data/docs/resume.pdf
