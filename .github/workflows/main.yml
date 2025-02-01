@@ -24,6 +24,18 @@ jobs:
         steps:
             - name: Checkout
               uses: actions/checkout@v4
+            - name: Download Resume
+              uses: robinraju/release-downloader@v1.11
+              with:
+                  latest: true
+                  fileName: "resume.pdf"
+                  out-file-path: 'data/docs/'
+                  repository: "MH0386/MH0386"
+            - name: Commit and Push Resume
+              run: |
+                  git add data/docs/resume.pdf
+                  git commit -m "Update Resume" || echo "No changes to commit"
+                  git push || (echo "Failed to push changes" && exit 1)
             - name: Fetch gh-pages
               run: |
                   git config --global user.name "GitHub Actions"
@@ -35,7 +47,6 @@ jobs:
               with:
                   latest: true
                   fileName: "resume.pdf"
-                  # out-file-path: 'data/docs/'
                   repository: "MH0386/MH0386"
             - name: Commit and Push Resume
               run: |
