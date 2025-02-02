@@ -13,6 +13,8 @@ enum Route {
     About {},
     #[route("/projects")]
     Projects {},
+    #[route("/certificates")]
+    Certificates {},
     #[route("/contact")]
     Contact {},
     #[route("/resume")]
@@ -39,6 +41,7 @@ fn NavBar() -> Element {
             Link { to: Route::Home {}, "Home" }
             Link { to: Route::About {}, "About" }
             Link { to: Route::Projects {}, "Project" }
+            Link { to: Route::Certificates {}, "Certificates" }
             Link { to: Route::Contact {}, "Contact" }
             Link { to: Route::Resume {}, "Resume" }
         }
@@ -80,6 +83,18 @@ fn Projects() -> Element {
             class: "flex flex-col items-center justify-center text-xl h-screen",
             h2 { "Projects" }
             p { "Here are some of my projects." }
+        }
+    }
+}
+
+#[component]
+fn Certificates() -> Element {
+    rsx! {
+        section {
+            id: "certificates",
+            class: "flex flex-col items-center justify-center text-xl h-screen",
+            h2 { "Certificates" }
+            p { "Here are some of my certificates." }
         }
     }
 }
