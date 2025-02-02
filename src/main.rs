@@ -142,6 +142,48 @@ fn Contact() -> Element {
                 }
                 "HuggingFace @MH0386"
             }
+            Link { to: "https://www.x.com/MH0386", page: "_blank",
+                img {
+                    src: "https://pbs.twimg.com/profile_images/1683899100922511378/5lY42eHs_400x400.jpg",
+                    alt: "X",
+                    class: "inline-block w-4 h-4 mr-2",
+                }
+                "X @MH0386"
+            }
+            Link { to: "https://www.kaggle.com/MH0386", page: "_blank",
+                img {
+                    src: "https://pbs.twimg.com/profile_images/1573129499343978498/03a7wgfE_400x400.jpg",
+                    alt: "kaggle",
+                    class: "inline-block w-4 h-4 mr-2",
+                }
+                "Kaggle @MH0386"
+            }
+            Link {
+                to: "https://ollama.com/mohamedhishamabdelzaher",
+                page: "_blank",
+                img {
+                    src: "https://pbs.twimg.com/profile_images/1874043413466931204/BRau4SQI_400x400.jpg",
+                    alt: "ollama",
+                    class: "inline-block w-4 h-4 mr-2",
+                }
+                "Ollama @mohamedhishamabdelzaher"
+            }
+            Link { to: "https://app.opensauced.pizza/u/MH0386", page: "_blank",
+                img {
+                    src: "https://pbs.twimg.com/profile_images/1588597214141509632/uo5sqfVs_400x400.png",
+                    alt: "OpenSauced",
+                    class: "inline-block w-4 h-4 mr-2",
+                }
+                "OpenSauced @MH0386"
+            }
+            Link { to: "https://www.freelancer.com/u/MH0386", page: "_blank",
+                img {
+                    src: "https://pbs.twimg.com/profile_images/1838452019700600833/TmFzf9uW_400x400.jpg",
+                    alt: "Freelancer",
+                    class: "inline-block w-4 h-4 mr-2",
+                }
+                "Freelancer @MH0386"
+            }
         }
     }
 }
