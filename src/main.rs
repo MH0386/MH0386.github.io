@@ -95,68 +95,68 @@ fn Certificates() -> Element {
             class: "flex flex-col items-center justify-center text-xl h-screen",
             h2 { "Certificates" }
             p { "Here are some of my certificates." }
-                // section { class: "cards flex justify-center items-center",
-        //     div { class: "card",
-        //         div { class: "card-container",
-        //             Link {
-        //                 to: "https://coursera.org/verify/specialization/3BRYQRFUD5C6",
-        //                 page: "_blank",
-        //                 h4 {
-        //                     b { "Machine Learning Specialization" }
-        //                 }
-        //                 p { "Issued by Stanford University & DeepLearning.AI" }
-        //             }
-        //         }
-        //         div { class: "card",
-        //             div { class: "card-container",
-        //                 Link {
-        //                     to: "https://coursera.org/verify/XX8THJA26UTS",
-        //                     page: "_blank",
-        //                     h4 {
-        //                         b { "Supervised Machine Learning: Regression and Classification" }
-        //                     }
-        //                     p { "Issued by Stanford University & DeepLearning.AI" }
-        //                 }
-        //             }
-        //         }
-        //         div { class: "card",
-        //             div { class: "card-container",
-        //                 Link {
-        //                     to: "https://coursera.org/verify/HM55XWLDYPA3",
-        //                     page: "_blank",
-        //                     h4 {
-        //                         b { "Advanced Learning Algorithms" }
-        //                     }
-        //                     p { "Issued by Stanford University & DeepLearning.AI" }
-        //                 }
-        //             }
-        //         }
-        //         div { class: "card",
-        //             div { class: "card-container",
-        //                 Link {
-        //                     to: "https://coursera.org/verify/B4NKPXD9UN9Z",
-        //                     page: "_blank",
-        //                     h4 {
-        //                         b { "Unsupervised Learning, Recommenders, Reinforcement Learning" }
-        //                     }
-        //                     p { "Issued by Stanford University & DeepLearning.AI" }
-        //                 }
-        //             }
-        //         }
-        //     }
-        //     div { class: "card",
-        //         div { class: "card-container",
-        //             Link {
-        //                 to: "https://www.kaggle.com/learn/certification/mh0386/python",
-        //                 page: "_blank",
-        //                 h4 {
-        //                     b { "Python" }
-        //                 }
-        //                 p { "Issued by Kaggle" }
-        //             }
-        //         }
-        //     }
-        // }
+            div { class: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6",
+                div { class: "card",
+                    div { class: "card-container",
+                        Link {
+                            to: "https://coursera.org/verify/specialization/3BRYQRFUD5C6",
+                            page: "_blank",
+                            h4 {
+                                b { "Machine Learning Specialization" }
+                            }
+                            p { "Issued by Stanford University & DeepLearning.AI" }
+                        }
+                    }
+                    div { class: "max-w-sm rounded overflow-hidden shadow-lg bg-white",
+                        div { class: "px-6 py-4",
+                            Link {
+                                to: "https://coursera.org/verify/XX8THJA26UTS",
+                                page: "_blank",
+                                h4 {
+                                    b { "Supervised Machine Learning: Regression and Classification" }
+                                }
+                                p { "Issued by Stanford University & DeepLearning.AI" }
+                            }
+                        }
+                    }
+                    div { class: "card",
+                        div { class: "card-container",
+                            Link {
+                                to: "https://coursera.org/verify/HM55XWLDYPA3",
+                                page: "_blank",
+                                h4 {
+                                    b { "Advanced Learning Algorithms" }
+                                }
+                                p { "Issued by Stanford University & DeepLearning.AI" }
+                            }
+                        }
+                    }
+                    div { class: "card",
+                        div { class: "card-container",
+                            Link {
+                                to: "https://coursera.org/verify/B4NKPXD9UN9Z",
+                                page: "_blank",
+                                h4 {
+                                    b { "Unsupervised Learning, Recommenders, Reinforcement Learning" }
+                                }
+                                p { "Issued by Stanford University & DeepLearning.AI" }
+                            }
+                        }
+                    }
+                }
+                div { class: "card",
+                    div { class: "card-container",
+                        Link {
+                            to: "https://www.kaggle.com/learn/certification/mh0386/python",
+                            page: "_blank",
+                            h4 {
+                                b { "Python" }
+                            }
+                            p { "Issued by Kaggle" }
+                        }
+                    }
+                }
+            }
         }
     }
 }
