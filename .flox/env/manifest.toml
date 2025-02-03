@@ -27,7 +27,6 @@ rustup.pkg-path = "rustup"
 ## -------------------------------------------------------------------
 [vars]
 # INTRO_MESSAGE = "It's gettin' Flox in here"
-RUST_SRC_PATH = "$(rustc --print sysroot)/lib/rustlib/src/rust/src"
 
 ## Activation Hook ---------------------------------------------------
 ##  ... run by _bash_ shell when you run 'flox activate'.
