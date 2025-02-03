@@ -2,68 +2,86 @@
 .visible {
   visibility: visible;
 }
+
 .flex {
   display: flex;
 }
+
 .grid {
   display: grid;
 }
+
 .inline-block {
   display: inline-block;
 }
+
 .h-screen {
   height: 100vh;
 }
+
 .transform {
   transform: var(--tw-rotate-x) var(--tw-rotate-y) var(--tw-rotate-z) var(--tw-skew-x) var(--tw-skew-y);
 }
+
 .grid-cols-1 {
   grid-template-columns: repeat(1, minmax(0, 1fr));
 }
+
 .flex-col {
   flex-direction: column;
 }
+
 .items-center {
   align-items: center;
 }
+
 .justify-between {
   justify-content: space-between;
 }
+
 .justify-center {
   justify-content: center;
 }
+
 .overflow-hidden {
   overflow: hidden;
 }
+
 .border-2 {
   border-style: var(--tw-border-style);
   border-width: 2px;
 }
+
 @property --tw-rotate-x {
   syntax: "*";
   inherits: false;
   initial-value: rotateX(0);
 }
+
 @property --tw-rotate-y {
   syntax: "*";
   inherits: false;
   initial-value: rotateY(0);
 }
+
 @property --tw-rotate-z {
   syntax: "*";
   inherits: false;
   initial-value: rotateZ(0);
 }
+
 @property --tw-skew-x {
   syntax: "*";
   inherits: false;
   initial-value: skewX(0);
 }
+
 @property --tw-skew-y {
   syntax: "*";
   inherits: false;
   initial-value: skewY(0);
 }
+
 @property --tw-border-style {
   syntax: "*";
   inherits: false;

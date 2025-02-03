@@ -12,7 +12,7 @@
     },
     "hook": {},
     "profile": {
-      "common": "  npm install tailwindcss @tailwindcss/cli &\n  npx @tailwindcss/cli -i ./input.css -o ./assets/tailwind.css --watch &\n#   gum style \\\n#   --foreground 212 --border-foreground 212 --border double \\\n#   --align center --width 50 --margin \"1 2\" --padding \"2 4\" \\\n#     $INTRO_MESSAGE\n"
+      "common": "  npm install tailwindcss @tailwindcss/cli &\n  npx @tailwindcss/cli -i ./input.css -o ./assets/tailwind.css --watch --optimize &\n  dx serve\n#   gum style \\\n#   --foreground 212 --border-foreground 212 --border double \\\n#   --align center --width 50 --margin \"1 2\" --padding \"2 4\" \\\n#     $INTRO_MESSAGE\n"
     },
     "options": {
       "systems": [
