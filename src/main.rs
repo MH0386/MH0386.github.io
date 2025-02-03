@@ -95,6 +95,66 @@ fn Certificates() -> Element {
             class: "flex flex-col items-center justify-center text-xl h-screen",
             h2 { "Certificates" }
             p { "Here are some of my certificates." }
+            div { class: "card",
+                div { class: "card-container",
+                    Link {
+                        to: "https://coursera.org/verify/specialization/3BRYQRFUD5C6",
+                        page: "_blank",
+                        h4 {
+                            b { "Machine Learning Specialization" }
+                        }
+                        p { "Issued by Stanford University & DeepLearning.AI" }
+                    }
+                }
+                div { class: "card",
+                    div { class: "card-container",
+                        Link {
+                            to: "https://coursera.org/verify/XX8THJA26UTS",
+                            page: "_blank",
+                            h4 {
+                                b { "Supervised Machine Learning: Regression and Classification" }
+                            }
+                            p { "Issued by Stanford University & DeepLearning.AI" }
+                        }
+                    }
+                }
+                div { class: "card",
+                    div { class: "card-container",
+                        Link {
+                            to: "https://coursera.org/verify/HM55XWLDYPA3",
+                            page: "_blank",
+                            h4 {
+                                b { "Advanced Learning Algorithms" }
+                            }
+                            p { "Issued by Stanford University & DeepLearning.AI" }
+                        }
+                    }
+                }
+                div { class: "card",
+                    div { class: "card-container",
+                        Link {
+                            to: "https://coursera.org/verify/B4NKPXD9UN9Z",
+                            page: "_blank",
+                            h4 {
+                                b { "Unsupervised Learning, Recommenders, Reinforcement Learning" }
+                            }
+                            p { "Issued by Stanford University & DeepLearning.AI" }
+                        }
+                    }
+                }
+            }
+            div { class: "card",
+                div { class: "card-container",
+                    Link {
+                        to: "https://www.kaggle.com/learn/certification/mh0386/python",
+                        page: "_blank",
+                        h4 {
+                            b { "Python" }
+                        }
+                        p { "Issued by Kaggle" }
+                    }
+                }
+            }
         }
     }
 }
@@ -106,7 +166,9 @@ fn Contact() -> Element {
             id: "contact",
             class: "flex flex-col items-center justify-center text-xl h-screen",
             h2 { class: "font-black text-5xl m-4", "Contact" }
-            Link { to: "mailto:mohamed.hisham.abdelzaher@gmail.com",
+            Link {
+                to: "mailto:mohamed.hisham.abdelzaher@gmail.com",
+                page: "_blank",
                 img {
                     src: "https://pbs.twimg.com/profile_images/1313394640393957378/L0W5hykJ_400x400.jpg",
                     alt: "Gmail",
