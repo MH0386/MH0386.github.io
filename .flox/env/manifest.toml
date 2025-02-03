@@ -47,7 +47,8 @@ RUST_SRC_PATH = "$(rustc --print sysroot)/lib/rustlib/src/rust/src"
 ## -------------------------------------------------------------------
 [profile]
 common = '''
-  npx tailwindcss -i ./input.css -o ./assets/tailwind.css --watch
+  npm install tailwindcss @tailwindcss/cli
+  npx @tailwindcss/cli -i ./input.css -o ./assets/tailwind/output.css --watch
 #   gum style \
 #   --foreground 212 --border-foreground 212 --border double \
 #   --align center --width 50 --margin "1 2" --padding "2 4" \
