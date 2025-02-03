@@ -92,7 +92,7 @@ fn Certificates() -> Element {
     rsx! {
         section {
             id: "certificates",
-            class: "flex flex-col items-center justify-center text-xl h-screen",
+            class: "flex flex-col items-center justify-center text-xl", // h-screen",
             h2 { "Certificates" }
             p { "Here are some of my certificates." }
             br {}
