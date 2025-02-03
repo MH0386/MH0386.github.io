@@ -8,9 +8,7 @@
       }
     },
     "hook": {},
-    "profile": {
-      "common": "#   gum style \\\n#   --foreground 212 --border-foreground 212 --border double \\\n#   --align center --width 50 --margin \"1 2\" --padding \"2 4\" \\\n#     $INTRO_MESSAGE\n"
-    },
+    "profile": {},
     "options": {
       "systems": [
         "aarch64-darwin",
