@@ -59,6 +59,9 @@
 .isolation-auto {
   isolation: auto;
 }
+.z-4 {
+  z-index: 4;
+}
 .z-auto {
   z-index: auto;
 }
