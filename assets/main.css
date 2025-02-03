@@ -4,15 +4,9 @@ body {
     color: #ffffff;
     font-family: 'jetbrains mono', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     /* margin: 20px; */
-    /* overflow: hidden; */
+    overflow: hidden;
     width: 100%;
     height: 100%;
-}
-
-#resume,
-#projects,
-#certificates {
-    overflow: scroll;
 }
 
 embed {

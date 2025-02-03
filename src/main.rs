@@ -66,9 +66,9 @@ fn Home() -> Element {
 #[component]
 fn About() -> Element {
     rsx! {
-        section {
+        div {
             id: "about",
-            class: "flex flex-col items-center justify-center text-xl h-screen overflow-hidden",
+            class: "flex flex-col items-center justify-center text-xl h-screen",
             h2 { "About Me" }
             p { "I am an AI engineer with a passion for Rust." }
         }
