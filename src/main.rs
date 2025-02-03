@@ -68,7 +68,7 @@ fn About() -> Element {
     rsx! {
         section {
             id: "about",
-            class: "flex flex-col items-center justify-center text-xl h-screen",
+            class: "flex flex-col items-center justify-center text-xl h-screen overflow-hidden",
             h2 { "About Me" }
             p { "I am an AI engineer with a passion for Rust." }
         }
@@ -95,64 +95,63 @@ fn Certificates() -> Element {
             class: "flex flex-col items-center justify-center text-xl h-screen",
             h2 { "Certificates" }
             p { "Here are some of my certificates." }
-            div {
-                // div { class: "card",
-                //     div { class: "card-container",
-                //         Link {
-                //             to: "https://coursera.org/verify/specialization/3BRYQRFUD5C6",
-                //             page: "_blank",
-                //             h4 {
-                //                 b { "Machine Learning Specialization" }
-                //             }
-                //             p { "Issued by Stanford University & DeepLearning.AI" }
-                //         }
-                //     }
-                //     div { class: "max-w-sm rounded overflow-hidden shadow-lg bg-white",
-                //         div { class: "px-6 py-4",
-                //             Link {
-                //                 to: "https://coursera.org/verify/XX8THJA26UTS",
-                //                 page: "_blank",
-                //                 h4 {
-                //                     b { "Supervised Machine Learning: Regression and Classification" }
-                //                 }
-                //                 p { "Issued by Stanford University & DeepLearning.AI" }
-                //             }
-                //         }
-                //     }
-                //     div { class: "card",
-                //         div { class: "card-container",
-                //             Link {
-                //                 to: "https://coursera.org/verify/HM55XWLDYPA3",
-                //                 page: "_blank",
-                //                 h4 {
-                //                     b { "Advanced Learning Algorithms" }
-                //                 }
-                //                 p { "Issued by Stanford University & DeepLearning.AI" }
-                //             }
-                //         }
-                //     }
-                //     div { class: "card",
-                //         div { class: "card-container",
-                //             Link {
-                //                 to: "https://coursera.org/verify/B4NKPXD9UN9Z",
-                //                 page: "_blank",
-                //                 h4 {
-                //                     b { "Unsupervised Learning, Recommenders, Reinforcement Learning" }
-                //                 }
-                //                 p { "Issued by Stanford University & DeepLearning.AI" }
-                //             }
-                //         }
-                //     }
-                // }
-                div { class: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6",
-                    div { class: "max-w-sm rounded overflow-hidden shadow-lg bg-white",
+            br {}
+            div { class: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6",
+                div { class: "max-w-sm rounded-lg overflow-hidden shadow-lg p-4 bg-grey-100 border-2 border-gray-700",
+                    Link {
+                        to: "https://kaggle.com/learn/certification/mh0386/python",
+                        page: "_blank",
+                        h4 { class: "text-white font-bold text-xl mb-2", "Python" }
+                        p { class: "text-white text-base", "Issuing Organization: Kaggle" }
+                        p { class: "text-white text-base", "Issue Date: March, 2023" }
+                    }
+                }
+                div { class: "max-w-sm rounded-lg overflow-hidden shadow-lg p-4 bg-grey-100 border-2 border-gray-700",
+                    Link {
+                        to: "https://coursera.org/verify/specialization/3BRYQRFUD5C6",
+                        page: "_blank",
+                        h4 { class: "text-white font-bold text-xl mb-2",
+                            "Machine Learning Specialization"
+                        }
+                        p { class: "text-white text-base",
+                            "Issuing Organization: Stanford University, DeepLearning.AI"
+                        }
+                        p { class: "text-white text-base", "Issue Date: June, 2023" }
+                    }
+                    br {}
+                    div { class: "max-w-sm rounded-lg overflow-hidden shadow-lg p-4 bg-grey-100 border-2 border-gray-700",
                         Link {
-                            to: "https://www.kaggle.com/learn/certification/mh0386/python",
+                            to: "https://coursera.org/verify/XX8THJA26UTS",
                             page: "_blank",
-                            h4 { class: "font-bold text-xl mb-2",
-                                b { "Python" }
+                            h4 { class: "text-white font-bold text-xl mb-2",
+                                "Supervised Machine Learning: Regression and Classification"
                             }
-                            p { class: "text-gray-700 text-base", "Issued by Kaggle" }
+                            // p { class: "text-white text-base", "Issuing Organization: Kaggle" }
+                            p { class: "text-white text-base", "Issue Date: February, 2023" }
+                        }
+                    }
+                    br {}
+                    div { class: "max-w-sm rounded-lg overflow-hidden shadow-lg p-4 bg-grey-100 border-2 border-gray-700",
+                        Link {
+                            to: "https://coursera.org/verify/HM55XWLDYPA3",
+                            page: "_blank",
+                            h4 { class: "text-white font-bold text-xl mb-2",
+                                "Advanced Learning Algorithms"
+                            }
+                            // p { class: "text-white text-base", "Issuing Organization: Kaggle" }
+                            p { class: "text-white text-base", "Issue Date: March, 2023" }
+                        }
+                    }
+                    br {}
+                    div { class: "max-w-sm rounded-lg overflow-hidden shadow-lg p-4 bg-grey-100 border-2 border-gray-700",
+                        Link {
+                            to: "https://coursera.org/verify/B4NKPXD9UN9Z",
+                            page: "_blank",
+                            h4 { class: "text-white font-bold text-xl mb-2",
+                                "Unsupervised Learning, Recommenders, Reinforcement Learning"
+                            }
+                            // p { class: "text-white text-base", "Issuing Organization: Kaggle" }
+                            p { class: "text-white text-base", "Issue Date: June, 2023" }
                         }
                     }
                 }
