@@ -15,7 +15,6 @@ version = 1
 ##  $ flox show gum     <- show all versions of a package
 ## -------------------------------------------------------------------
 [install]
-npm.pkg-path = "nodePackages.npm"
 rustup.pkg-path = "rustup"
 # gum.pkg-path = "gum"
 # gum.version = "^0.14.5"
@@ -46,8 +45,6 @@ rustup.pkg-path = "rustup"
 ## -------------------------------------------------------------------
 [profile]
 common = '''
-  npm install tailwindcss @tailwindcss/cli &
-  npx @tailwindcss/cli -i ./input.css -o ./assets/tailwind.css --watch --optimize &
 #   gum style \
 #   --foreground 212 --border-foreground 212 --border double \
 #   --align center --width 50 --margin "1 2" --padding "2 4" \

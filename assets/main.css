@@ -2,22 +2,20 @@
 body {
     background-color: #000000;
     color: #ffffff;
-    font-family: 'jetbrains mono', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Jetbrains Mono', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     overflow: hidden;
     width: 100%;
     height: 100%;
-}
-
-embed {
-    width: 100%;
-    height: 100%;
-    border: none;
 }
 
 /* Navbar */
 #navbar {
     display: flex;
     flex-direction: row;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
 }
 
 #navbar a {
@@ -30,4 +28,161 @@ embed {
 #navbar a:hover {
     cursor: pointer;
     color: #91a4d2;
+}
+
+#myname_section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    height: 100vh;
+}
+
+#myname_section h1 {
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+#myname_section p {
+    font-size: 1.25rem;
+}
+
+#about {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    height: 100vh;
+}
+
+#about h2 {
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+#projects {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    height: 100vh;
+}
+
+#projects h2 {
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+#certificates {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    /* height: 100vh; */
+}
+
+#certificates h2 {
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+#certificates_list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+
+    @media (min-width: 640px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: 1024px) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+#certificates_item {
+    max-width: 20rem;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    background-color: #f7fafc;
+    border: 2px solid #4a5568;
+}
+
+#certificates_item:hover {
+    transform: translateY(-5px);
+    transition: transform 0.2s ease;
+}
+
+#certificates_item h4 {
+    font-size: 1.5rem;
+    margin: 0;
+    color: #2d3748;
+
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+#certificates_item p {
+    font-size: 1rem;
+    margin: 0;
+    color: #4a5568;
+}
+
+#contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    height: 100vh;
+}
+
+#contact h2 {
+    font-weight: 900;
+    font-size: 3rem;
+    margin: 1rem;
+}
+
+#contact_icon {
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    margin-right: 0.5rem;
+}
+
+#contact_icon:hover {
+    transform: scale(1.1);
+    transition: transform 0.2s ease;
+}
+
+#contact_item {
+    color: #ffffff;
+    margin: 0.5vh;
+}
+
+#contact_item:hover {
+    transform: translateY(-5px);
+    transition: transform 0.2s ease;
+    background-color: #4a5568;
+}
+
+#resume {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    height: 100vh;
+}
+
+embed {
+    width: 100%;
+    height: 100%;
+    border: none;
 }
