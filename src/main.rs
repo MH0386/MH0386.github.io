@@ -74,7 +74,48 @@ fn Projects() -> Element {
     rsx! {
         section { id: "projects",
             h2 { "Projects" }
-            p { "Here are some of my projects." }
+            br {}
+            div { id: "projects_list",
+                div { id: "projects_item",
+                    h4 { "Toys Images" }
+                    p { "Images of Panda and Rabbit Toys" }
+                    p { "Type: Dataset" }
+                    br {}
+                    a {
+                        href: "https://kaggle.com/datasets/mh0386/toys-images",
+                        page: "_blank",
+                        img {
+                            src: "https://pbs.twimg.com/profile_images/1573129499343978498/03a7wgfE_400x400.jpg",
+                            alt: "kaggle",
+                            id: "projects_item_icon",
+                        }
+                        "Kaggle"
+                    }
+                    br {}
+                    a {
+                        href: "https://github.com/MH0386/toys_dataset",
+                        page: "_blank",
+                        img {
+                            src: "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
+                            alt: "github",
+                            id: "projects_item_icon",
+                        }
+                        "GitHub"
+                    }
+                    br {}
+                    a {
+                        href: "https://hf.co/datasets/MH0386/toys_images",
+                        page: "_blank",
+                        img {
+                            src: "https://huggingface.co/front/assets/huggingface_logo-noborder.svg",
+                            alt: "huggingface",
+                            id: "projects_item_icon",
+                        }
+                        "HuggingFace"
+                    }
+                }
+            
+            }
         }
     }
 }
@@ -84,7 +125,6 @@ fn Certificates() -> Element {
     rsx! {
         section { id: "certificates",
             h2 { "Certificates" }
-            p { "Here are some of my certificates." }
             br {}
             div { id: "certificates_list",
                 div { id: "certificates_item",

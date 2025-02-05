@@ -75,6 +75,57 @@ body {
     margin: 0;
 }
 
+#projects_list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+
+    @media (min-width: 640px) {
+        grid-template-columns: repeat(2, auto);
+    }
+
+    @media (min-width: 1024px) {
+        grid-template-columns: repeat(3, auto);
+    }
+}
+
+#projects_item {
+    display: inline-block;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    background-color: #f7fafc;
+    border: 2px solid #4a5568;
+}
+
+#projects_item:hover {
+    transform: translateY(-5px);
+    transition: transform 0.2s ease;
+}
+
+#projects_item h4 {
+    font-size: 1.5rem;
+    margin: 0;
+    color: #2d3748;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+#projects_item p {
+    font-size: 1rem;
+    margin: 0;
+    color: #4a5568;
+    /* margin-bottom: 1rem; */
+}
+
+#projects_item_icon {
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    margin-right: 0.5rem;
+}
+
 #certificates {
     display: flex;
     flex-direction: column;
@@ -85,7 +136,6 @@ body {
 
 #certificates h2 {
     font-size: 2.5rem;
-    margin: 0;
 }
 
 #certificates_list {
@@ -94,16 +144,16 @@ body {
     gap: 1.5rem;
 
     @media (min-width: 640px) {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, auto);
     }
 
     @media (min-width: 1024px) {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(3, auto);
     }
 }
 
 #certificates_item {
-    max-width: 20rem;
+    display: inline-block;
     border-radius: 0.5rem;
     overflow: hidden;
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
@@ -121,7 +171,6 @@ body {
     font-size: 1.5rem;
     margin: 0;
     color: #2d3748;
-
     font-weight: bold;
     margin-bottom: 0.5rem;
 }
