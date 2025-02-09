@@ -31,14 +31,17 @@ rustup.pkg-path = "rustup"
 ##  ... run by _bash_ shell when you run 'flox activate'.
 ## -------------------------------------------------------------------
 [hook]
-# on-activate = '''
+on-activate = '''
 #   # -> Set variables, create files and directories
 #   # -> Perform initialization steps, e.g. create a python venv
 #   # -> Useful environment variables:
 #   #      - FLOX_ENV_PROJECT=/home/user/example
 #   #      - FLOX_ENV=/home/user/example/.flox/run
 #   #      - FLOX_ENV_CACHE=/home/user/example/.flox/cache
-# '''
+rustup default stable
+cargo install cargo-binstall
+cargo binstall dioxus-cli
+'''
 
 ## Profile script ----------------------------------------------------
 ## ... sourced by _your shell_ when you run 'flox activate'.
