@@ -2,8 +2,6 @@ use dioxus::prelude::*;
 use dioxus_i18n::{prelude::*, t, unic_langid::langid};
 use dioxus_router::prelude::*;
 
-const MAIN_CSS: Asset = asset!("/assets/main.css");
-
 #[derive(Debug, Clone, Routable, PartialEq)]
 enum Route {
     #[layout(NavBar)]
@@ -28,7 +26,7 @@ fn App() -> Element {
             rel: "icon",
             href: "https://avatars.githubusercontent.com/u/77013511?v=4",
         }
-        document::Link { rel: "stylesheet", href: MAIN_CSS }
+        document::Link { rel: "stylesheet", href: asset!("/assets/main.css") }
         Router::<Route> {}
     }
 }
@@ -43,14 +41,15 @@ fn NavBar() -> Element {
     let mut i18n: I18n = i18n();
     let change_to_english = move |_| i18n.set_language(langid!("en-US"));
     let change_to_arabic = move |_| i18n.set_language(langid!("ar-EG"));
+    // let locale = i18n.language().to_string();
     rsx! {
         div { id: "navbar",
-            Link { to: Route::Home {}, "Home" }
-            Link { to: Route::About {}, "About" }
-            Link { to: Route::Projects {}, "Projects" }
-            Link { to: Route::Certificates {}, "Certificates" }
-            Link { to: Route::Contact {}, "Contact" }
-            Link { to: Route::Resume {}, "Resume" }
+            Link { to: Route::Home {}, {t!("home_title")} }
+            Link { to: Route::About {}, {t!("about_title")} }
+            Link { to: Route::Projects {}, {t!("projects_title")} }
+            Link { to: Route::Certificates {}, {t!("certificates_title")} }
+            Link { to: Route::Contact {}, {t!("contact_title")} }
+            Link { to: Route::Resume {}, {t!("resume_title")} }
             if i18n.language() != langid!("en-US") {
                 button { onclick: change_to_english,
                     label { "English" }
@@ -91,7 +90,7 @@ fn About() -> Element {
 fn Projects() -> Element {
     rsx! {
         section { id: "projects",
-            h2 { "Projects" }
+            h2 { {t!("projects_title")} }
             br {}
             div { id: "projects_list",
                 div { id: "projects_item",
@@ -141,33 +140,33 @@ fn Projects() -> Element {
 fn Certificates() -> Element {
     rsx! {
         section { id: "certificates",
-            h2 { "Certificates" }
+            h2 { {t!("certificates_title")} }
             br {}
             div { id: "certificates_list",
                 div { id: "certificates_item",
                     Link {
                         to: "https://kaggle.com/learn/certification/mh0386/python",
                         page: "_blank",
-                        h4 { "Python" }
-                        p { "Issuing Organization: Kaggle" }
-                        p { "Issue Date: March, 2023" }
+                        h4 { {t!("certificates_title_python")} }
+                        p { {t!("issuing_organization_kaggle")} }
+                        p { {t!("issuing_date_march_2023")} }
                     }
                 }
                 div { id: "certificates_item",
                     Link {
                         to: "https://coursera.org/verify/specialization/3BRYQRFUD5C6",
                         page: "_blank",
-                        h4 { "Machine Learning Specialization" }
-                        p { "Issuing Organization: Stanford University, DeepLearning.AI" }
-                        p { "Issue Date: June, 2023" }
+                        h4 { {t!("certificates_title_machine_learning_specialization")} }
+                        p { {t!("issuing_organization_stanford_deeplearning_ai")} }
+                        p { {t!("issuing_date_june_2023")} }
                     }
                     br {}
                     div { id: "certificates_item",
                         Link {
                             to: "https://coursera.org/verify/XX8THJA26UTS",
                             page: "_blank",
-                            h4 { "Supervised Machine Learning: Regression and Classification" }
-                            p { "Issue Date: February, 2023" }
+                            h4 { {t!("certificates_title_supervised_machine_learning")} }
+                            p { {t!("issuing_date_february_2023")} }
                         }
                     }
                     br {}
@@ -175,8 +174,8 @@ fn Certificates() -> Element {
                         Link {
                             to: "https://coursera.org/verify/HM55XWLDYPA3",
                             page: "_blank",
-                            h4 { "Advanced Learning Algorithms" }
-                            p { "Issue Date: March, 2023" }
+                            h4 { {t!("certificates_title_advanced_learning_algorithms")} }
+                            p { {t!("issuing_date_march_2023")} }
                         }
                     }
                     br {}
@@ -184,8 +183,8 @@ fn Certificates() -> Element {
                         Link {
                             to: "https://coursera.org/verify/B4NKPXD9UN9Z",
                             page: "_blank",
-                            h4 { "Unsupervised Learning, Recommenders, Reinforcement Learning" }
-                            p { "Issue Date: June, 2023" }
+                            h4 { {t!("certificates_title_unsupervised_learning_recommenders_rl")} }
+                            p { {t!("issuing_date_june_2023")} }
                         }
                     }
                 }
@@ -198,7 +197,7 @@ fn Certificates() -> Element {
 fn Contact() -> Element {
     rsx! {
         section { id: "contact",
-            h2 { "Contact" }
+            h2 { {t!("contact_title")} }
             Link {
                 to: "mailto:mohamed.hisham.abdelzaher@gmail.com",
                 page: "_blank",
@@ -334,7 +333,7 @@ fn Resume() -> Element {
                 src: "https://mohamedhisham.is-a.dev/data/docs/resume.pdf",
                 r#type: "application/pdf",
                 p {
-                    "Your browser does not support PDF embedding. "
+                    "Your browser does not support PDF embedding."
                     a { href: "https://mohamedhisham.is-a.dev/data/docs/resume.pdf",
                         "Click here to download the PDF instead."
                     }
