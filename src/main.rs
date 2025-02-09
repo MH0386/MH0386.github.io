@@ -114,7 +114,7 @@ fn Projects() -> Element {
                         "HuggingFace"
                     }
                 }
-            
+
             }
         }
     }
