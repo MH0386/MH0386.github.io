@@ -40,7 +40,7 @@ on-activate = '''
 #   #      - FLOX_ENV_CACHE=/home/user/example/.flox/cache
 rustup default stable
 cargo install cargo-binstall
-cargo binstall dioxus-cli
+cargo install dioxus-cli
 '''
 
 ## Profile script ----------------------------------------------------
