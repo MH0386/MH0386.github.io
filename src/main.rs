@@ -1,4 +1,5 @@
 use dioxus::prelude::*;
+use dioxus_i18n::{prelude::*, t, unic_langid::langid};
 use dioxus_router::prelude::*;
 
 const MAIN_CSS: Asset = asset!("/assets/main.css");
@@ -34,6 +35,14 @@ fn App() -> Element {
 
 #[component]
 fn NavBar() -> Element {
+    use_init_i18n(|| {
+        I18nConfig::new(langid!("en-US"))
+            .with_locale((langid!("en-US"), include_str!("./locale/en-US.ftl")))
+            .with_locale((langid!("ar-EG"), include_str!("./locale/ar-EG.ftl")))
+    });
+    let mut i18n: I18n = i18n();
+    let change_to_english = move |_| i18n.set_language(langid!("en-US"));
+    let change_to_arabic = move |_| i18n.set_language(langid!("ar-EG"));
     rsx! {
         div { id: "navbar",
             Link { to: Route::Home {}, "Home" }
@@ -42,6 +51,16 @@ fn NavBar() -> Element {
             Link { to: Route::Certificates {}, "Certificates" }
             Link { to: Route::Contact {}, "Contact" }
             Link { to: Route::Resume {}, "Resume" }
+            if i18n.language() != langid!("en-US") {
+                button { onclick: change_to_english,
+                    label { "English" }
+                }
+            }
+            if i18n.language() != langid!("ar-EG") {
+                button { onclick: change_to_arabic,
+                    label { "العربية" }
+                }
+            }
         }
         Outlet::<Route> {}
     }
@@ -51,20 +70,19 @@ fn NavBar() -> Element {
 fn Home() -> Element {
     rsx! {
         section { id: "myname_section",
-            p { "Hi, My name is" }
-            h1 { "Mohamed Hisham Abdelzaher" }
-            p { "Welcome to my personal website! (Alpha)" }
+            p { {t!("greeting")} }
+            h1 { {t!("myname")} }
+            p { {t!("description")} }
         }
     }
 }
 
-// Component for each route
 #[component]
 fn About() -> Element {
     rsx! {
         section { id: "about",
-            h2 { "About Me" }
-            p { "I am an AI engineer with a passion for Rust." }
+            h2 { {t!("about_title")} }
+            p { {t!("about_description")} }
         }
     }
 }
@@ -114,7 +132,6 @@ fn Projects() -> Element {
                         "HuggingFace"
                     }
                 }
-
             }
         }
     }
