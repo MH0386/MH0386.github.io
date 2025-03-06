@@ -31,7 +31,7 @@ jobs:
                   git config --global user.email "actions@github.com"
                   git fetch
             - name: Download Resume
-              uses: robinraju/release-downloader@v1.11
+              uses: robinraju/release-downloader@v1.12
               with:
                   latest: true
                   fileName: "resume.pdf"
