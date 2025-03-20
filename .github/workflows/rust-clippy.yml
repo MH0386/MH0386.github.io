@@ -21,12 +21,7 @@ jobs:
         with:
           profile: minimal
           toolchain: stable
-          components: clippy
-          override: true
-
-      - name: Install required cargo
-        run: cargo install clippy-sarif sarif-fmt
-
+          components: rustfmt, clippy
       - uses: actions-rs/clippy-check@v1
         with:
           token: ${{ secrets.TOKEN_GITHUB }}
