@@ -19,6 +19,7 @@ jobs:
       - name: Install Rust toolchain
         uses: actions-rs/toolchain@v1
         with:
+          default: true
           profile: minimal
           toolchain: stable
           components: rustfmt, clippy
