@@ -22,7 +22,8 @@ jobs:
           profile: minimal
           toolchain: stable
           components: rustfmt, clippy
-      - uses: actions-rs/clippy-check@v1
+      - name: Run Clippy
+        uses: actions-rs/clippy-check@v1
         with:
           token: ${{ secrets.TOKEN_GITHUB }}
           args: --all-features
