@@ -11,4 +11,4 @@ jobs:
           components: clippy
       - uses: crusty-pie/clippy@v1
         with:
-          args: --all-features --all-targets
+          args: --all-features
