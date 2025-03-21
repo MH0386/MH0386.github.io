@@ -14,9 +14,6 @@ jobs:
         with:
           toolchain: stable
           components: clippy
-      # - uses: crusty-pie/clippy@v1
-      #   with:
-      #     args: --all-features
-      - uses: auguwu/clippy-action@1.4.0
+      - uses: crusty-pie/clippy@v1
         with:
-            token: ${{secrets.TOKEN_GITHUB}}
+          args: --fix
