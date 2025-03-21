@@ -6,7 +6,7 @@ jobs:
       checks: write
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4.0.0
+      - uses: actions/checkout@v4.2.2
       # - uses: awalsh128/cache-apt-pkgs-action@latest
       #   with:
       #     packages: libglib2.0-dev libgdk-3-dev gcc
