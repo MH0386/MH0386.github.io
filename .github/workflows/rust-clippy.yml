@@ -2,16 +2,21 @@ on: [push, pull_request]
 name: Clippy
 jobs:
   clippy_check:
+    permissions:
+      checks: write
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: awalsh128/cache-apt-pkgs-action@latest
-        with:
-          packages: libglib2.0-dev libgdk-3-dev gcc
+      # - uses: awalsh128/cache-apt-pkgs-action@latest
+      #   with:
+      #     packages: libglib2.0-dev libgdk-3-dev gcc
       - uses: crusty-pie/toolchain@v1
         with:
           toolchain: stable
           components: clippy
-      - uses: crusty-pie/clippy@v1
+      # - uses: crusty-pie/clippy@v1
+      #   with:
+      #     args: --all-features
+      - uses: auguwu/clippy-action@1.4.0
         with:
-          args: --all-features
+            token: ${{secrets.TOKEN_GITHUB}}
