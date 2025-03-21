@@ -5,6 +5,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: awalsh128/cache-apt-pkgs-action@latest
+        with:
+          packages: libglib2.0-dev
       - uses: crusty-pie/toolchain@v1
         with:
           toolchain: stable
