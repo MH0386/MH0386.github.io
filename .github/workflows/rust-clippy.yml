@@ -6,14 +6,14 @@ jobs:
       checks: write
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4.0.0
       # - uses: awalsh128/cache-apt-pkgs-action@latest
       #   with:
       #     packages: libglib2.0-dev libgdk-3-dev gcc
-      - uses: crusty-pie/toolchain@v1
+      - uses: crusty-pie/toolchain@v1.0.8
         with:
           toolchain: stable
           components: clippy
-      - uses: crusty-pie/clippy@v1
+      - uses: crusty-pie/clippy@v1.0.0
         with:
           args: --all-targets #--fix
