@@ -7,24 +7,22 @@ jobs:
     build:
         runs-on: ubuntu-latest
         steps:
-            - name: Dioxus Deploy
-              uses: DioxusLabs/deploy-action@4f933485ec8f37a9dc1beec181f4eba58789523e
+            - name: Checkout
+              uses: actions/checkout@v4.0.0
+            - name: UV
+              uses: astral-sh/setup-uv@v5
               with:
-                  outDirectory: "target/dx/my_website/release/web/public"
-              # id: deployment
-              # continue-on-error: true
-            # - name: Check Deployment Status
-            #   if: steps.deployment.outcome != 'success'
-            #   run: |
-            #       echo "Deployment failed"
-            #       exit 1
+                  enable-cache: true
+                  cache-dependency-glob: "uv.lock"
+            - name: Build
+              run: uv run flet build web -v --skip-flutter-doctor
     deploy-resume:
         # needs: build
         # if: success()
         runs-on: ubuntu-latest
         steps:
             - name: Checkout
-              uses: actions/checkout@v4
+              uses: actions/checkout@v4.0.0
             - name: Fetch main
               run: |
                   git config --global user.name "GitHub Actions"
