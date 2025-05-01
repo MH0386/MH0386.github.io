@@ -8,6 +8,14 @@ jobs:
         steps:
             - name: Checkout
               uses: actions/checkout@v4.0.0
+            - name: Restore cache
+              uses: actions/cache@v4
+              with:
+                path: $HOME/flutter
+                key: uv-${{ runner.os }}-${{ hashFiles('uv.lock') }}
+                restore-keys: |
+                  uv-${{ runner.os }}-${{ hashFiles('uv.lock') }}
+                  uv-${{ runner.os }}
             - name: UV
               uses: astral-sh/setup-uv@v5
               with:
