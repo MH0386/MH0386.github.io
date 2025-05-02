@@ -1,26 +1,19 @@
 import flet as ft  # type: ignore
 from pages.home import home
-
+from pages.projects import projects
 
 def main(page: ft.Page):
     page.title = "Mohamed Hisham Abdelzaher"
-
+    page.vertical_alignment = ft.MainAxisAlignment.CENTER
+    page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
+    
     def route_change(route: ft.RouteChangeEvent):
         page.views.clear()
-        page.views.append(home(page))
-        if page.route == "/store":
-            page.views.append(
-                ft.View(
-                    "/store",
-                    [
-                        ft.AppBar(
-                            title=ft.Text("Store"),
-                            bgcolor=ft.Colors.SURFACE_CONTAINER_HIGHEST,
-                        ),
-                        ft.ElevatedButton("Go Home", on_click=lambda _: page.go("/")),
-                    ],
-                )
-            )
+        match page.route:
+            case "/":
+                page.views.append(home(page))
+            case "/projects":
+                page.views.append(projects(page))
         page.update()
         print(route)
 
@@ -34,5 +27,8 @@ def main(page: ft.Page):
     page.on_view_pop = view_pop
     page.go(page.route)
 
+ft.app(
+    main,
+    view=ft.AppView.WEB_BROWSER,
+)
 
-ft.app(main, view=ft.AppView.WEB_BROWSER)

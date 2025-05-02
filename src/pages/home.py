@@ -1,17 +1,36 @@
-import flet as ft  # type: ignore
+from flet import (
+    Page,
+    View,
+    Container,
+    AppBar,
+    ElevatedButton,
+    Colors,
+    Text,
+    Column,
+    Row,
+    MainAxisAlignment,
+    CrossAxisAlignment,
+)
 
 
-def home(page: ft.Page) -> ft.View:
-    return ft.View(
+def home(page: Page) -> View:
+    return View(
         "/",
         [
-            ft.AppBar(
-                title=ft.Text("Flet app"),
-                bgcolor=ft.Colors.SURFACE_CONTAINER_HIGHEST,
-            ),
-            ft.ElevatedButton(
-                "Visit Store",
-                on_click=lambda _: page.go("/store"),
+            Row(
+                controls=[
+                    Column(
+                        alignment=MainAxisAlignment.CENTER,
+                        horizontal_alignment=CrossAxisAlignment.CENTER,
+                        expand=True,
+                        controls=[
+                            Text("Hi, My name is"),
+                            Text("Mohamed Hisham Abdelzaher"),
+                        ],
+                    ),
+                ],
+                alignment=MainAxisAlignment.CENTER,
+                expand=True,
             ),
         ],
     )
