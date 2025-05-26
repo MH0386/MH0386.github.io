@@ -2,6 +2,10 @@ name: Deploy to GitHub Pages
 on:
   workflow_dispatch:
   push:
+permissions:
+  contents: write
+  pages: write
+  id-token: write
 jobs:
   build_web:
     name: Build Web
@@ -15,5 +19,7 @@ jobs:
           enable-cache: true
           cache-dependency-glob: "uv.lock"
           activate-environment: true
+      - name: Install the project
+        run: uv sync --frozen
       - name: Build
         run: flet build web -v --skip-flutter-doctor
