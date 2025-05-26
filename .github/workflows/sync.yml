@@ -1,0 +1,48 @@
+name: Sync Docs
+on:
+  workflow_dispatch:
+  push:
+  schedule:
+    - cron: 0 8 * * 1-5
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+jobs:
+  sync_docs:
+    name: Sync Docs
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Fetch main
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git fetch
+      - name: Download Docs
+        uses: robinraju/release-downloader@v1.12
+        with:
+          latest: true
+          fileName: "resume.pdf"
+          out-file-path: "data/docs/"
+          repository: "MH0386/MH0386"
+      - name: Commit and Push Docs
+        continue-on-error: true
+        run: |
+          git add data/docs/
+          git commit -m "Update Docs"
+          git pull
+          git push
+      - name: Fetch gh-pages
+        continue-on-error: true
+        run: |
+          git fetch
+          git checkout gh-pages
+      - name: Commit and Push Docs
+        continue-on-error: true
+        run: |
+          git checkout main -- data/docs/
+          git add data/docs/
+          git commit -m "Update Docs"
+          git push
