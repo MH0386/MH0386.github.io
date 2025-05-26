@@ -2,7 +2,7 @@
   authors=[
     { name="Mohamed Hisham Abdelzaher", email="mohamed.hisham.abdelzaher@gmail.com" },
   ]
-  dependencies=["flet-webview>=0.1.0", "flet==0.27.6", "loguru>=0.7.3"]
+  dependencies=["flet-webview>=0.1.0", "flet==0.28.3", "loguru>=0.7.3"]
   description=""
   name="mh0386githubio"
   readme="README.md"
