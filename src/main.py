@@ -35,7 +35,7 @@ def main(page: Page) -> None:
         logger.info(view)
 
     page.on_route_change = route_change
-    page.on_view_pop = view_pop  # type: ignore
+    page.on_view_pop = view_pop
     page.go(route=page.route)
 
 

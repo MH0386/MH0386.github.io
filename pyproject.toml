@@ -22,4 +22,5 @@
   dev=["flet[all]>=0.27.6", "ruff>=0.11.11", "ty>=0.0.1a6"]
 
 [tool.pyright]
+  reportAttributeAccessIssue=false
   reportUnknownMemberType=false
