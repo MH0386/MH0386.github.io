@@ -30,3 +30,18 @@ jobs:
         run: uv sync --frozen
       - name: Build
         run: flet build web -v --skip-flutter-doctor
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: build/web
+  deploy_web:
+    name: Deploy Web
+    runs-on: ubuntu-latest
+    needs: build_web
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
