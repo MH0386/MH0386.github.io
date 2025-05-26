@@ -1,13 +1,19 @@
-version = 1
+version=1
 
 [[analyzers]]
-name = "rust"
+  dependency_file_paths=["pyproject.toml"]
+  name="python"
 
 [analyzers.meta]
-msrv = "stable"
+  additional_builtins=["_", "pretty_output"]
+  runtime_version="3.x.x"
+  type_checker="mypy"
 
 [[analyzers]]
-name = "secrets"
+  name="docker"
+
+[[analyzers]]
+  name="secrets"
 
 [[transformers]]
-name = "rustfmt"
+  name="ruff"
