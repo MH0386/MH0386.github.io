@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - main
-    paths-ignore:
-      - .github/workflows/sync.yml
   schedule:
     - cron: "0 8 * * 1-5"
 permissions:
@@ -13,19 +11,11 @@ permissions:
   pages: write
 jobs:
   sync_docs:
-    name: Sync Docs to ${{ matrix.branch }}
+    name: Sync Docs
     runs-on: ubuntu-latest
-    if: github.ref_name == 'main'
-    strategy:
-      fail-fast: false
-      matrix:
-        branch: [main, gh-pages]
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          ref: ${{ matrix.branch }}
-          fetch-depth: 0
       - name: Git Config
         run: |
           git config --global user.name "github-actions[bot]"
@@ -37,7 +27,7 @@ jobs:
           fileName: "resume.pdf"
           out-file-path: "data/docs/"
           repository: "MH0386/MH0386"
-      - name: Commit & Push to ${{ matrix.branch }}
+      - name: Commit & Push
         continue-on-error: true
         run: |
           git add data/docs/

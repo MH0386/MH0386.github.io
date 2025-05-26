@@ -9,8 +9,7 @@ from flet import (
 )
 from loguru import logger
 
-from pages.home import home
-from pages.projects import projects
+from pages import contact, home, projects, resume
 
 
 def main(page: Page) -> None:
@@ -25,6 +24,12 @@ def main(page: Page) -> None:
                 page.views.append(home(page=page))
             case "/projects":
                 page.views.append(projects(page=page))
+            case "/resume":
+                page.views.append(resume(page=page))
+            case "/contact":
+                page.views.append(contact(page=page))
+            case "/certificates":
+                page.views.append(contact(page=page))
         page.update()
         logger.info(route)
 
