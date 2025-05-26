@@ -12,11 +12,16 @@ plugins:
 # Many linters and tools depend on runtimes - configure them here. (https://docs.trunk.io/runtimes)
 runtimes:
   enabled:
+    - go@1.21.0
     - node@18.20.5
     - python@3.10.8
 # This is the section where you manage your linters. (https://docs.trunk.io/check/configuration)
 lint:
   enabled:
+    - snyk@1.1295.0
+    - trivy@0.62.1
+    - markdown-link-check@3.13.7
+    - pyright@1.1.400
     - actionlint@1.7.7
     - bandit@1.8.3
     - black@25.1.0
