@@ -1,34 +1,45 @@
-import flet as ft  # type: ignore
+from flet import (
+    AppView,
+    CrossAxisAlignment,
+    MainAxisAlignment,
+    Page,
+    RouteChangeEvent,
+    View,
+    app,
+)
+from loguru import logger
+
 from pages.home import home
 from pages.projects import projects
 
-def main(page: ft.Page):
+
+def main(page: Page) -> None:
     page.title = "Mohamed Hisham Abdelzaher"
-    page.vertical_alignment = ft.MainAxisAlignment.CENTER
-    page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
-    
-    def route_change(route: ft.RouteChangeEvent):
+    page.vertical_alignment = MainAxisAlignment.CENTER
+    page.horizontal_alignment = CrossAxisAlignment.CENTER
+
+    def route_change(route: RouteChangeEvent) -> None:
         page.views.clear()
         match page.route:
             case "/":
-                page.views.append(home(page))
+                page.views.append(home(page=page))
             case "/projects":
-                page.views.append(projects(page))
+                page.views.append(projects(page=page))
         page.update()
-        print(route)
+        logger.info(route)
 
-    def view_pop(view: ft.RouteChangeEvent):
+    def view_pop(view: RouteChangeEvent) -> None:
         page.views.pop()
-        top_view = page.views[-1]
-        page.go(route=top_view.route)
-        print(view)
+        top_view: View = page.views[-1]
+        page.go(route=str(object=top_view.route))
+        logger.info(view)
 
     page.on_route_change = route_change
-    page.on_view_pop = view_pop
-    page.go(page.route)
+    page.on_view_pop = view_pop  # type: ignore
+    page.go(route=page.route)
 
-ft.app(
-    main,
-    view=ft.AppView.WEB_BROWSER,
+
+app(
+    target=main,
+    view=AppView.WEB_BROWSER,
 )
-

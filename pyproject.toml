@@ -7,7 +7,7 @@ requires-python = ">=3.11"
 authors = [
   { name = "Mohamed Hisham Abdelzaher", email = "mohamed.hisham.abdelzaher@gmail.com" },
 ]
-dependencies = ["flet==0.27.6", "flet-webview>=0.1.0"]
+dependencies = ["flet==0.27.6", "flet-webview>=0.1.0", "loguru>=0.7.3"]
 
 [tool.flet]
 org = "com.mh0386"
@@ -20,3 +20,6 @@ path = "src"
 
 [dependency-groups]
 dev = ["flet[all]>=0.27.6", "ruff>=0.11.11", "ty>=0.0.1a6"]
+
+[tool.pyright]
+reportUnknownMemberType = false

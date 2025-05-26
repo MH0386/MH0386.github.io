@@ -1,22 +1,19 @@
 from flet import (
-    Page,
-    View,
-    Container,
-    AppBar,
-    ElevatedButton,
-    Colors,
-    Text,
     Column,
-    Row,
-    MainAxisAlignment,
     CrossAxisAlignment,
+    ElevatedButton,
+    MainAxisAlignment,
+    Page,
+    Row,
+    Text,
+    View,
 )
 
 
 def home(page: Page) -> View:
     return View(
-        "/",
-        [
+        route="/",
+        controls=[
             Row(
                 controls=[
                     Column(
@@ -24,8 +21,26 @@ def home(page: Page) -> View:
                         horizontal_alignment=CrossAxisAlignment.CENTER,
                         expand=True,
                         controls=[
-                            Text("Hi, My name is"),
-                            Text("Mohamed Hisham Abdelzaher"),
+                            Text(value="Hi, My name is"),
+                            Text(value="Mohamed Hisham Abdelzaher"),
+                            Row(
+                                controls=[
+                                    ElevatedButton(
+                                        text="Projects",
+                                        on_click=lambda _: page.go(route="/projects"),
+                                    ),
+                                    ElevatedButton(
+                                        text="Resume",
+                                        on_click=lambda _: page.go(route="/resume"),
+                                    ),
+                                    ElevatedButton(
+                                        text="Contact",
+                                        on_click=lambda _: page.go(route="/contact"),
+                                    ),
+                                ],
+                                spacing=10,
+                                alignment=MainAxisAlignment.CENTER,
+                            ),
                         ],
                     ),
                 ],

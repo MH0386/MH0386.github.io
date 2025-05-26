@@ -1,17 +1,17 @@
-from flet import Page, View, AppBar, ElevatedButton, Colors, Text
+from flet import AppBar, Colors, ElevatedButton, Page, Text, View
 
 
-def projects(page: Page) -> View:
+def resume(page: Page) -> View:
     return View(
-        "/projects",
-        [
+        route="/resume",
+        controls=[
             AppBar(
-                title=Text("Projects"),
+                title=Text(value="Resume"),
                 bgcolor=Colors.SURFACE_CONTAINER_HIGHEST,
             ),
             ElevatedButton(
-                "Home",
-                on_click=lambda _: page.go("/"),
+                text="Home",
+                on_click=lambda _: page.go(route="/"),
             ),
         ],
     )
