@@ -14,6 +14,7 @@ from flet import (
     Text,
     View,
 )
+from flet_webview import WebView
 
 
 def certificates(page: Page) -> View:
@@ -83,6 +84,13 @@ def resume(page: Page) -> View:
             ElevatedButton(
                 text="Home",
                 on_click=lambda _: page.go(route="/"),
+            ),
+            WebView(
+                url="https://mohamedhisham.is-a.dev/data/docs/resume.pdf",
+                on_page_started=lambda _: print("Page started"),
+                on_page_ended=lambda _: print("Page ended"),
+                on_web_resource_error=lambda e: print("Page error:", e.data),
+                expand=True,
             ),
         ],
     )
