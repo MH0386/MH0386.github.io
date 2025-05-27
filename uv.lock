@@ -431,7 +431,7 @@ wheels = [
 ]
 
 [[package]]
-name = "mh0386githubio"
+name = "mh0386"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
