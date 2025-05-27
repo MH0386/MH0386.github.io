@@ -11,6 +11,7 @@ from flet import (
     MainAxisAlignment,
     Page,
     Row,
+    SnackBar,
     Text,
     View,
 )
@@ -87,9 +88,18 @@ def resume(page: Page) -> View:
             ),
             WebView(
                 url="https://mohamedhisham.is-a.dev/data/docs/resume.pdf",
-                on_page_started=lambda _: print("Page started"),
-                on_page_ended=lambda _: print("Page ended"),
-                on_web_resource_error=lambda e: print("Page error:", e.data),
+                on_page_started=lambda _: page.show_snack_bar(
+                    SnackBar(content=Text(value="Loading resume..."))
+                ),
+                on_page_ended=lambda _: page.show_snack_bar(
+                    SnackBar(content=Text(value="Resume loaded successfully"))
+                ),
+                on_web_resource_error=lambda e: page.show_snack_bar(
+                    SnackBar(
+                        content=Text(value=f"Failed to load resume: {e.data}"),
+                        bgcolor=Colors.ERROR,
+                    )
+                ),
                 expand=True,
             ),
         ],
