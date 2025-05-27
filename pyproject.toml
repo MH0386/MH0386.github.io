@@ -4,7 +4,7 @@
   ]
   dependencies=["flet-webview>=0.1.0", "flet==0.28.3", "loguru>=0.7.3"]
   description=""
-  name="mh0386githubio"
+  name="mh0386"
   readme="README.md"
   requires-python=">=3.11"
   version="0.1.0"
@@ -13,7 +13,7 @@
   company="MH0386"
   copyright="Copyright (C) 2025 by MH0386"
   org="com.mh0386"
-  product="mh0386githubio"
+  product="mh0386"
 
 [tool.flet.app]
   path="src"
