@@ -107,7 +107,6 @@ def resume(page: Page) -> View:
 
 
 def home(page: Page) -> View:
-
     return View(
         route="/",
         appbar=AppBar(
