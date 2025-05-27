@@ -5,6 +5,9 @@ from flet import (
     CrossAxisAlignment,
     ElevatedButton,
     FontWeight,
+    Icon,
+    IconButton,
+    Icons,
     MainAxisAlignment,
     Page,
     Row,
@@ -16,11 +19,11 @@ from flet import (
 def certificates(page: Page) -> View:
     return View(
         route="/certificates",
+        appbar=AppBar(
+            title=Text(value="Certificates"),
+            bgcolor=Colors.SURFACE_CONTAINER_HIGHEST,
+        ),
         controls=[
-            AppBar(
-                title=Text(value="Certificates"),
-                bgcolor=Colors.SURFACE_CONTAINER_HIGHEST,
-            ),
             ElevatedButton(
                 text="Home",
                 on_click=lambda _: page.go(route="/"),
@@ -32,11 +35,11 @@ def certificates(page: Page) -> View:
 def contact(page: Page) -> View:
     return View(
         route="/contact",
+        appbar=AppBar(
+            title=Text(value="Contact"),
+            bgcolor=Colors.SURFACE_CONTAINER_HIGHEST,
+        ),
         controls=[
-            AppBar(
-                title=Text(value="Contact"),
-                bgcolor=Colors.SURFACE_CONTAINER_HIGHEST,
-            ),
             ElevatedButton(
                 text="Home",
                 on_click=lambda _: page.go(route="/"),
@@ -48,11 +51,11 @@ def contact(page: Page) -> View:
 def projects(page: Page) -> View:
     return View(
         route="/projects",
+        appbar=AppBar(
+            title=Text(value="Projects"),
+            bgcolor=Colors.SURFACE_CONTAINER_HIGHEST,
+        ),
         controls=[
-            AppBar(
-                title=Text(value="Projects"),
-                bgcolor=Colors.SURFACE_CONTAINER_HIGHEST,
-            ),
             ElevatedButton(
                 text="Home",
                 on_click=lambda _: page.go(route="/"),
@@ -72,11 +75,11 @@ def projects(page: Page) -> View:
 def resume(page: Page) -> View:
     return View(
         route="/resume",
+        appbar=AppBar(
+            title=Text(value="Resume"),
+            bgcolor=Colors.SURFACE_CONTAINER_HIGHEST,
+        ),
         controls=[
-            AppBar(
-                title=Text(value="Resume"),
-                bgcolor=Colors.SURFACE_CONTAINER_HIGHEST,
-            ),
             ElevatedButton(
                 text="Home",
                 on_click=lambda _: page.go(route="/"),
@@ -86,8 +89,20 @@ def resume(page: Page) -> View:
 
 
 def home(page: Page) -> View:
+
     return View(
         route="/",
+        appbar=AppBar(
+            leading=Icon(name=Icons.PALETTE),
+            leading_width=40,
+            title=Text(value="AppBar Example"),
+            center_title=False,
+            bgcolor=Colors.SURFACE_CONTAINER_HIGHEST,
+            actions=[
+                IconButton(icon=Icons.WB_SUNNY_OUTLINED),
+                IconButton(icon=Icons.FILTER_3),
+            ],
+        ),
         controls=[
             Row(
                 controls=[
