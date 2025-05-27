@@ -3,14 +3,14 @@ on:
   workflow_dispatch:
   schedule:
     - cron: 0 8 * * 1-5
-permissions: read-all
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
 jobs:
   trunk_upgrade:
     name: Upgrade Trunk
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      pull-requests: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
