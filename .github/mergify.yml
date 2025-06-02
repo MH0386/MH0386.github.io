@@ -50,7 +50,6 @@ merge_protections:
           - author = github-actions[bot]
       - and:
           - check-success = Trunk Check
-          - check-success = Trunk Code Quality
           - check-success = CodeQL
           - check-success = SonarCloud
       - "title ~=
