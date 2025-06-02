@@ -38,3 +38,21 @@ queue_rules:
     allow_queue_branch_edit: true
     update_method: merge
     name: default
+merge_protections:
+  - name: Automatically merge valid PRs
+    if:
+      - base = main
+    success_conditions:
+      - or:
+          - author = MH0386
+          - author = renovate[bot]
+          - author = dependabot[bot]
+          - author = github-actions[bot]
+      - and:
+          - check-success = Trunk Check
+          - check-success = Trunk Code Quality
+          - check-success = CodeQL
+          - check-success = SonarCloud
+      - "title ~=
+        ^(fix|feat|docs|style|refactor|perf|test|build|ci|chore|revert)(?:(.+))\
+        ?:"
