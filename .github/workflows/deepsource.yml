@@ -22,6 +22,10 @@ jobs:
           channel: stable
           flutter-version-file: pubspec.yaml
           cache: true
+      - name: Install Dependencies
+        run: flutter pub get
+      - name: Enable Web
+        run: flutter config --enable-web
       - name: Run Dart Analyze
         continue-on-error: true
         run: dart analyze > dart_analyze.txt
