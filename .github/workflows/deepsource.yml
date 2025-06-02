@@ -22,9 +22,8 @@ jobs:
           channel: stable
           flutter-version-file: pubspec.yaml
           cache: true
-      - name: Dart version
-        run: dart --version
       - name: Run Dart Analyze
+        continue-on-error: true
         run: dart analyze > dart_analyze.txt
       - name: Dart Analyze to SARIF
         uses: advanced-security/dart-analyzer-sarif@v1
