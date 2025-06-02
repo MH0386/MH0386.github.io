@@ -1,19 +1,8 @@
-version=1
+version = 1
 
 [[analyzers]]
-  dependency_file_paths=["pyproject.toml"]
-  name="python"
-
-[analyzers.meta]
-  additional_builtins=["_", "pretty_output"]
-  runtime_version="3.x.x"
-  type_checker="mypy"
+name = "dart-analyze"
+type = "community"
 
 [[analyzers]]
-  name="docker"
-
-[[analyzers]]
-  name="secrets"
-
-[[transformers]]
-  name="ruff"
+name = "secrets"

@@ -5,6 +5,7 @@ on:
   pull_request:
 jobs:
   scan:
+    name: DeepSource Dart Analyze
     runs-on: ubuntu-latest
     permissions:
       contents: read
