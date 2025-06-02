@@ -10,7 +10,7 @@ class Resume extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final pdfPinchController = PdfControllerPinch(
-      document: PdfDocument.openAsset('assets/sample.pdf'),
+      document: PdfDocument.openAsset('assets/docs/resume.pdf'),
     );
     return MaterialApp(
       debugShowCheckedModeBanner: false,
