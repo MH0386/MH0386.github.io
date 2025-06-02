@@ -14,3 +14,10 @@ queue_rules:
     allow_queue_branch_edit: true
     update_method: merge
     name: default
+merge_protections:
+  - name: Do not merge outdated PRs
+    description: Make sure PRs are almost up to date before merging
+    if:
+      - base = main
+    success_conditions:
+      - "#commits-behind <= 10"
