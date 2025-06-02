@@ -21,6 +21,7 @@ lint:
     - checkov@3.2.436
     - git-diff-check
     - markdownlint@0.45.0
+    - osv-scanner@2.0.2
     - gitleaks@8.26.0
     - oxipng@9.1.5
     - prettier@3.5.3
