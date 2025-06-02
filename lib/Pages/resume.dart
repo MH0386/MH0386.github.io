@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
-import 'package:pdfx/pdfx.dart';
+import 'package:pdfrx/pdfrx.dart';
 import 'package:url_launcher/link.dart';
 import 'package:internet_file/internet_file.dart';
 
@@ -16,7 +16,7 @@ class Resume extends StatelessWidget {
           'https://raw.githubusercontent.com/MH0386/MH0386/main/resume.pdf',
         ),
       ),
-      viewportFraction: 0.1,
+      viewportFraction: 1.5,
     );
     return MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -59,7 +59,7 @@ class Resume extends StatelessWidget {
             ),
           ],
         ),
-        body: PdfViewPinch(controller: pdfPinchController),
+        body: PdfViewPinch(controller: pdfPinchController, minScale: 0.5),
       ),
     );
   }
