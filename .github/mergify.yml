@@ -1,4 +1,27 @@
 pull_request_rules:
+  - name: Add a queue label when PR is queued
+    description: Toggle the queue label when a pull request is (un)queued.
+    conditions:
+      - queue-position > 0
+    actions:
+      label:
+        toggle:
+          - merge-queued
+  - name: Notify when a PR is removed from the queue
+    description:
+      Notify the PR author when its pull request is removed from the merge
+      queue.
+    conditions:
+      - queue-dequeue-reason != none
+      - queue-dequeue-reason != pr-merged
+    actions:
+      comment:
+        message: >
+          Hey @{{author}}, your pull request has been dequeued due to the
+          following reason: {{queue_dequeue_reason}}.
+
+          Sorry about that, but you can requeue the PR by using `@mergifyio
+          requeue` if you think this was a mistake.
   - name: Automatically merge Dependabot PRs
     conditions:
       - author = dependabot[bot]
@@ -7,6 +30,11 @@ pull_request_rules:
   - name: Automatically merge Renovate PRs
     conditions:
       - author = renovate[bot]
+    actions:
+      queue:
+  - name: Automatically merge my PRs
+    conditions:
+      - author = MH0386
     actions:
       queue:
 queue_rules:
