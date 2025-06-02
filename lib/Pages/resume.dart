@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
-import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
+import 'package:pdfx/pdfx.dart';
 import 'package:url_launcher/link.dart';
 
 class Resume extends StatelessWidget {
@@ -9,7 +9,9 @@ class Resume extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final pdfViewerController = PdfViewerController();
+    final pdfPinchController = PdfControllerPinch(
+      document: PdfDocument.openAsset('assets/sample.pdf'),
+    );
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(scaffoldBackgroundColor: Colors.black),
@@ -20,31 +22,9 @@ class Resume extends StatelessWidget {
           title: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              IconButton(
-                icon: const Icon(
-                  Icons.zoom_in,
-                  color: Colors.white,
-                ),
-                onPressed: () {
-                  pdfViewerController.zoomLevel += 0.5;
-                },
-              ),
-              SizedBox(
-                width: MediaQuery.of(context).size.width * 0.1,
-              ),
+              SizedBox(width: MediaQuery.of(context).size.width * 0.1),
               const Text('Resume'),
-              SizedBox(
-                width: MediaQuery.of(context).size.width * 0.1,
-              ),
-              IconButton(
-                icon: const Icon(
-                  Icons.zoom_out,
-                  color: Colors.white,
-                ),
-                onPressed: () {
-                  pdfViewerController.zoomLevel -= 0.5;
-                },
-              ),
+              SizedBox(width: MediaQuery.of(context).size.width * 0.1),
             ],
           ),
           centerTitle: true,
@@ -55,9 +35,7 @@ class Resume extends StatelessWidget {
           actions: [
             Link(
               target: LinkTarget.blank,
-              uri: Uri.parse(
-                'https://mh0386.github.io/resume.pdf',
-              ),
+              uri: Uri.parse('https://mh0386.github.io/resume.pdf'),
               builder: (context, followLink) => IconButton(
                 icon: const FaIcon(FontAwesomeIcons.eye),
                 onPressed: followLink,
@@ -75,16 +53,7 @@ class Resume extends StatelessWidget {
             ),
           ],
         ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () => pdfViewerController.zoomLevel = 1.5,
-          child: const Icon(Icons.refresh),
-        ),
-        body: SfPdfViewer.network(
-          'https://mh0386.github.io/resume.pdf',
-          pageLayoutMode: PdfPageLayoutMode.single,
-          initialZoomLevel: 1.5,
-          controller: pdfViewerController,
-        ),
+        body: PdfViewPinch(controller: pdfPinchController),
       ),
     );
   }
