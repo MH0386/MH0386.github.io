@@ -25,12 +25,12 @@ jobs:
         with:
           latest: true
           fileName: "resume.pdf"
-          out-file-path: "data/docs/"
+          out-file-path: "assets/docs/"
           repository: "MH0386/MH0386"
       - name: Commit & Push
         continue-on-error: true
         run: |
-          git add data/docs/
+          git add assets/docs/
           git commit -m "Update Docs"
           git pull
           git push

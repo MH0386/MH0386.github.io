@@ -87,7 +87,7 @@ def resume(page: Page) -> View:
                 on_click=lambda _: page.go(route="/"),
             ),
             WebView(
-                url="https://mohamedhisham.is-a.dev/data/docs/resume.pdf",
+                url="https://mohamedhisham.is-a.dev/assets/docs/resume.pdf",
                 on_page_started=lambda _: page.show_snack_bar(
                     SnackBar(content=Text(value="Loading resume..."))
                 ),
