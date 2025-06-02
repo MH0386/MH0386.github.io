@@ -1,14 +1,20 @@
 import 'package:http/http.dart' as http;
+import 'package:logger/logger.dart';
 
-sendAlert() async {
+final Logger logger = Logger();
+Future<void> sendAlert() async {
   try {
-    final response = await http.get(Uri.parse('https://mh0386backend.vercel.app/send?text=Hello_from_Flutter'));
+    final response = await http.get(
+      Uri.parse(
+        'https://mh0386backend.vercel.app/send?text=Hello_from_Flutter',
+      ),
+    );
     if (response.statusCode == 200) {
-      print('Alert Sent');
+      logger.i('Alert Sent');
     } else {
-      print('Failed to send alert: ${response.statusCode}');
+      logger.e('Failed to send alert: ${response.statusCode}');
     }
   } catch (e) {
-    print('Error sending alert: $e');
+    logger.e('Error sending alert: $e');
   }
 }
