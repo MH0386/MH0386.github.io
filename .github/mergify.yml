@@ -12,6 +12,7 @@ pull_request_rules:
     conditions:
       - queue-dequeue-reason != none
       - queue-dequeue-reason != pr-merged
+      - queue-dequeue-reason != requeued
     actions:
       comment:
         message: >
