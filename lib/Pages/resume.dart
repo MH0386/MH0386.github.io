@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:pdfx/pdfx.dart';
 import 'package:url_launcher/link.dart';
+import 'package:internet_file/internet_file.dart';
 
 class Resume extends StatelessWidget {
   const Resume({super.key});
@@ -10,7 +11,12 @@ class Resume extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final pdfPinchController = PdfControllerPinch(
-      document: PdfDocument.openAsset('assets/docs/resume.pdf'),
+      document: PdfDocument.openData(
+        InternetFile.get(
+          'https://raw.githubusercontent.com/MH0386/MH0386/main/resume.pdf',
+        ),
+      ),
+      viewportFraction: 0.1,
     );
     return MaterialApp(
       debugShowCheckedModeBanner: false,
