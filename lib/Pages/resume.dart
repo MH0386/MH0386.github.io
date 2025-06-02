@@ -10,14 +10,14 @@ class Resume extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final pdfPinchController = PdfControllerPinch(
-      document: PdfDocument.openData(
-        InternetFile.get(
-          'https://raw.githubusercontent.com/MH0386/MH0386/main/resume.pdf',
-        ),
-      ),
-      viewportFraction: 1.5,
-    );
+    // final pdfPinchController = PdfControllerPinch(
+    //   document: PdfDocument.openData(
+    //     InternetFile.get(
+    //       'https://raw.githubusercontent.com/MH0386/MH0386/main/resume.pdf',
+    //     ),
+    //   ),
+    //   viewportFraction: 1.5,
+    // );
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(scaffoldBackgroundColor: Colors.black),
@@ -59,7 +59,9 @@ class Resume extends StatelessWidget {
             ),
           ],
         ),
-        body: PdfViewPinch(controller: pdfPinchController, minScale: 0.5),
+        body: PdfViewer.uri(
+          Uri.parse('https://raw.githubusercontent.com/MH0386/MH0386/main/resume.pdf'),
+        ),
       ),
     );
   }
