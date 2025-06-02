@@ -5,11 +5,7 @@
 
 version: 2
 updates:
-  - package-ecosystem: "uv"
-    directory: "/"
-    schedule:
-      interval: "weekly"
-  - package-ecosystem: "pip"
+  - package-ecosystem: "pub"
     directory: "/"
     schedule:
       interval: "weekly"
