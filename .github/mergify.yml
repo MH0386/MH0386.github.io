@@ -32,6 +32,11 @@ pull_request_rules:
       - author = renovate[bot]
     actions:
       queue:
+  - name: Automatically merge my PRs
+    conditions:
+      - author = MH0386
+    actions:
+      queue:
 queue_rules:
   - queue_branch_merge_method: fast-forward
     allow_queue_branch_edit: true
