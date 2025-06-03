@@ -28,12 +28,12 @@ queue_rules:
 merge_protections:
   - name: Automatically merge valid PRs
     if:
-      - base = main
-    success_conditions:
       - or:
           - author = renovate[bot]
           - author = dependabot[bot]
           - author = github-actions[bot]
+      - base = main
+    success_conditions:
       - and:
           - check-success = Trunk Check
           - check-success = SonarCloud
