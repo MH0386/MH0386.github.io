@@ -11,9 +11,12 @@ class TextController extends GetxController {
   ];
 
   @override
+  Timer? _timer;
+
+  @override
   void onInit() {
     super.onInit();
-    Timer.periodic(
+    _timer = Timer.periodic(
       const Duration(seconds: 5),
       (timer) {
         if (currentIndex.value < welcomeTexts.length - 1) {
@@ -23,5 +26,11 @@ class TextController extends GetxController {
         }
       },
     );
+  }
+
+  @override
+  void onClose() {
+    _timer?.cancel();
+    super.onClose();
   }
 }
