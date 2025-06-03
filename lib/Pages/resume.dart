@@ -45,9 +45,14 @@ class Resume extends StatelessWidget {
             enableTextSelection: true,
             enableKeyboardNavigation: true,
             linkHandlerParams: PdfLinkHandlerParams(
-              onLinkTap: (link) {
+              onLinkTap: (link) async {
                 if (link.url != null) {
-                  launchUrl(link.url!);
+                  try {
+                    await launchUrl(link.url!);
+                  } catch (e) {
+                    // Handle error - could show a snackbar or dialog
+                    debugPrint('Failed to launch URL: $e');
+                  }
                 }
               },
             ),
