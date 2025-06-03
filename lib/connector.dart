@@ -1,5 +1,7 @@
+import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:logger/logger.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 final Logger logger = Logger();
 Future<void> sendAlert() async {
@@ -16,5 +18,13 @@ Future<void> sendAlert() async {
     }
   } catch (e) {
     logger.e('Error sending alert: $e');
+  }
+}
+
+dynamic goToUrl(Uri url) async {
+  if (await canLaunchUrl(url)) {
+    await launchUrl(url, mode: LaunchMode.externalApplication);
+  } else {
+    Get.snackbar('Error', 'Could not open $url');
   }
 }

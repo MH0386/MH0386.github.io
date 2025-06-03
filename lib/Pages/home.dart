@@ -4,16 +4,34 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mh0386/Pages/resume.dart';
 import 'package:mh0386/controller.dart';
+import 'package:mh0386/info.dart';
 import 'package:url_launcher/link.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
+
+  List<ElevatedButton> _buildSocialMediaLink() {
+    return Info().socialMediaLinks.map((link) {
+      return ElevatedButton(
+        onPressed: () => launchUrl(Uri.parse(link['url']!)),
+        style: ElevatedButton.styleFrom(
+          foregroundColor: Colors.white,
+          backgroundColor: Colors.black,
+        ),
+        child: Text(
+          link['name']!,
+          style: const TextStyle(fontWeight: FontWeight.bold),
+        ),
+      );
+    }).toList();
+  }
 
   @override
   Widget build(BuildContext context) {
     final textController = Get.find<TextController>();
     return MaterialApp(
-      title: 'Mohamed Hisham Abdelzaher',
+      title: Info().name,
       debugShowCheckedModeBanner: false,
       theme: ThemeData(scaffoldBackgroundColor: Colors.black),
       home: Scaffold(
@@ -29,172 +47,7 @@ class Home extends StatelessWidget {
               onPressed: () => Get.defaultDialog(
                 title: textController.socialMediaTitle.value,
                 titlePadding: const EdgeInsets.all(10),
-                content: Wrap(
-                  // direction: Axis.vertical,
-                  children: [
-                    const SizedBox(height: 10),
-                    Link(
-                      target: LinkTarget.blank,
-                      uri: Uri.parse(
-                        'https://www.facebook.com/Mohamed.Hisham.Abdelzaher',
-                      ),
-                      builder: (context, followLink) => Card(
-                        color: Colors.grey,
-                        child: ElevatedButton(
-                          onPressed: followLink,
-                          child: const Text(
-                            'Facebook',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: 10),
-                    Link(
-                      target: LinkTarget.blank,
-                      uri: Uri.parse(
-                        'https://www.Kaggle.com/MH0386',
-                      ),
-                      builder: (context, followLink) => Card(
-                        color: Colors.grey,
-                        child: ElevatedButton(
-                          onPressed: followLink,
-                          child: const Text(
-                            'Kaggle',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: 10),
-                    Link(
-                      target: LinkTarget.blank,
-                      uri: Uri.parse(
-                        'https://www.GitHub.com/MH0386',
-                      ),
-                      builder: (context, followLink) => Card(
-                        color: Colors.grey,
-                        child: ElevatedButton(
-                          onPressed: followLink,
-                          child: const Text(
-                            'GitHub',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: 10),
-                    Link(
-                      target: LinkTarget.blank,
-                      uri: Uri.parse(
-                        'https://www.LinkedIn.com/in/MH0386',
-                      ),
-                      builder: (context, followLink) => Card(
-                        color: Colors.grey,
-                        child: ElevatedButton(
-                          onPressed: followLink,
-                          child: const Text(
-                            'LinkedIn',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: 10),
-                    Link(
-                      target: LinkTarget.blank,
-                      uri: Uri.parse(
-                        'https://www.x.com/MH0386',
-                      ),
-                      builder: (context, followLink) => Card(
-                        color: Colors.grey,
-                        child: ElevatedButton(
-                          onPressed: followLink,
-                          child: const Text(
-                            'X',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: 10),
-                    Link(
-                      target: LinkTarget.blank,
-                      uri: Uri.parse(
-                        'https://www.Coursera.org/user/985b071f3a43961f7fc46f8061c7377e',
-                      ),
-                      builder: (context, followLink) => Card(
-                        color: Colors.grey,
-                        child: ElevatedButton(
-                          onPressed: followLink,
-                          child: const Text(
-                            'Coursera',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: 10),
-                    Link(
-                      target: LinkTarget.blank,
-                      uri: Uri.parse(
-                        'https://www.datacamp.com/profile/MH0386',
-                      ),
-                      builder: (context, followLink) => Card(
-                        color: Colors.grey,
-                        child: ElevatedButton(
-                          onPressed: followLink,
-                          child: const Text(
-                            'DataCamp',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: 10),
-                    Link(
-                      target: LinkTarget.blank,
-                      uri: Uri.parse(
-                        'https://www.huggingface.co/MH0386',
-                      ),
-                      builder: (context, followLink) => Card(
-                        color: Colors.grey,
-                        child: ElevatedButton(
-                          onPressed: followLink,
-                          child: const Text(
-                            'HuggingFace',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: 10),
-                  ],
-                ),
+                content: Column(spacing: 20, children: _buildSocialMediaLink()),
                 actions: [
                   ElevatedButton(
                     onPressed: () => Get.back(),
@@ -274,7 +127,7 @@ class Home extends StatelessWidget {
                 backgroundColor: Colors.black,
               ),
               child: const Text('Email'),
-            )
+            ),
           ],
         ),
         body: Center(
@@ -283,17 +136,14 @@ class Home extends StatelessWidget {
             children: [
               Animate(
                 // onPlay: (controller) => controller.repeat(),
-                effects: const [
-                  FadeEffect(
-                    duration: Duration(seconds: 5),
-                  ),
-                ],
+                effects: const [FadeEffect(duration: Duration(seconds: 5))],
                 child: Text(
                   'Mohamed Hisham Abdelzaher',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
-                    fontSize: (MediaQuery.of(context).size.width * 0.1 <
+                    fontSize:
+                        (MediaQuery.of(context).size.width * 0.1 <
                             MediaQuery.of(context).size.height * 0.1)
                         ? MediaQuery.of(context).size.width * 0.1
                         : MediaQuery.of(context).size.height * 0.1,
@@ -310,12 +160,14 @@ class Home extends StatelessWidget {
                     ),
                   ],
                   child: Text(
-                    textController
-                        .welcomeTexts[textController.currentIndex.value],
+                    textController.welcomeTexts[textController
+                        .currentIndex
+                        .value],
                     key: ValueKey<int>(textController.currentIndex.value),
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: (MediaQuery.of(context).size.width * 0.04 <
+                      fontSize:
+                          (MediaQuery.of(context).size.width * 0.04 <
                               MediaQuery.of(context).size.height * 0.04)
                           ? MediaQuery.of(context).size.width * 0.04
                           : MediaQuery.of(context).size.height * 0.04,
