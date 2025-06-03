@@ -38,3 +38,12 @@ queue_rules:
     allow_queue_branch_edit: true
     update_method: merge
     name: default
+    queue_conditions:
+      - and:
+          - "check-success = DeepSource: Secrets"
+          - "check-success = DeepSource: Dart Analyze"
+          - check-success = CodeRabbit
+          - check-success = CodeFactor
+          - check-success =  GitGuardian Security Checks
+          - check-success = SonarCloud
+          - check-success = Trunk Check
