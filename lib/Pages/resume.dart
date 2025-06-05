@@ -60,6 +60,6 @@ class Resume extends StatelessWidget {
           ),
         ),
       ),
-    );
+    )
   }
 }
