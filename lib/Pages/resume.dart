@@ -10,9 +10,10 @@ class Resume extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(scaffoldBackgroundColor: Colors.black),
+    return Scaffold(
+      backgroundColor: Colors.black,
+      // …other Scaffold properties like appBar, body, etc.
+    );
       home: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.black,
@@ -59,6 +60,6 @@ class Resume extends StatelessWidget {
           ),
         ),
       ),
-    );
+    )
   }
 }
