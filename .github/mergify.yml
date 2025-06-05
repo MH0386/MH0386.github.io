@@ -1,4 +1,20 @@
 pull_request_rules:
+  - name: Automatically queue valid Bot PRs
+    conditions:
+      - author != MH0386
+    actions:
+      queue:
+  - name: Request review from me
+    description: Request review from me when checks are green.
+    conditions:
+      - -closed
+      - "#approved-reviews-by = 0"
+      - "#changes-requested-reviews-by = 0"
+      - "review-requested != MH0386"
+    actions:
+      request_reviews:
+        users:
+          - MH0386
   - name: Add a queue label when PR is queued
     description: Toggle the queue label when a pull request is (un)queued.
     conditions:
@@ -21,31 +37,17 @@ pull_request_rules:
           Sorry about that, but you can requeue the PR by using `@mergifyio
           requeue` if you think this was a mistake.
 queue_rules:
-  - queue_branch_merge_method: fast-forward
+  - name: default
+    queue_branch_merge_method: fast-forward
     allow_queue_branch_edit: true
     update_method: merge
-    name: default
-merge_protections:
-  - name: Automatically merge valid PRs
-    if:
-      - or:
-          - author = renovate[bot]
-          - author = dependabot[bot]
-          - author = github-actions[bot]
-      - base = main
-    success_conditions:
+    queue_conditions:
       - and:
-          - check-success = Trunk Check
-          - check-success = SonarCloud
-          - "title ~=
-            ^(fix|feat|docs|style|refactor|perf|test|build|ci|chore|revert)(?:(\
-            .+))?:"
-  - name: Require a review from code owner
-    if:
-      - author = MH0386
-      - base = main
-    success_conditions:
-      - and:
-          - approved-reviews-by = MH0386
+          - "check-success = DeepSource: Secrets"
+          - "check-success = DeepSource: Dart Analyze"
+          - check-success = CodeRabbit
+          - check-success = CodeFactor
+          - check-success = GitGuardian Security Checks
           - check-success = SonarCloud
           - check-success = Trunk Check
+          - check-success = Flutter Dependency Consistency
