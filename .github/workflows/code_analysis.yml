@@ -1,4 +1,4 @@
-name: Trunk Code Quality
+name: Code Analysis
 on:
   push:
   pull_request:
@@ -29,3 +29,20 @@ jobs:
         uses: trunk-io/trunk-action@v1
         with:
           arguments: --github-annotate-new-only=false
+  flutter:
+    name: Flutter Dependency Consistency
+    runs-on: ubuntu-latest
+    permissions:
+      checks: write
+      contents: read
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Install Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          flutter-version-file: pubspec.yaml
+          cache: true
+      - name: Checking Flutter Dependency Consistency
+        run: flutter pub deps
