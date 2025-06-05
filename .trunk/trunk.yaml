@@ -8,15 +8,19 @@ plugins:
       uri: https://github.com/trunk-io/plugins
 runtimes:
   enabled:
+    - go@1.21.0
     - node@22.16.0
     - python@3.10.8
 lint:
   enabled:
+    - snyk@1.1295.0
+    - trivy@0.63.0
+    - markdown-link-check@3.13.7
     - actionlint@1.7.7
-    - checkov@3.2.436
+    - bandit@1.8.3
+    - checkov@3.2.435
     - git-diff-check
     - markdownlint@0.45.0
-    - osv-scanner@2.0.2
     - gitleaks@8.26.0
     - oxipng@9.1.5
     - renovate@40.36.2
