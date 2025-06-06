@@ -9,8 +9,8 @@ class Info {
 
   // Global variables here
   String name = "Mohamed Hisham Abdelzaher";
-  final email = 'mohamed.hisham.abdelzaher@gmail.com';
   final List<Map<String, String>> socialMediaLinks = [
+    {'name': 'Email', 'url': 'mohamed.hisham.abdelzaher@gmail.com'},
     {
       'name': 'Facebook @Mohamed.Hisham.Abdelzaher',
       'url': 'https://facebook.com/Mohamed.Hisham.Abdelzaher',

@@ -26,7 +26,7 @@ class Home extends StatelessWidget {
             ElevatedButton(
               onPressed: () => Get.to(() => const Contact()),
               style: Style().buttonStyle,
-              child: const Text('Social Media'),
+              child: const Text('Contact'),
             ),
             ElevatedButton(
               onPressed: () => Get.to(() => const Resume()),
