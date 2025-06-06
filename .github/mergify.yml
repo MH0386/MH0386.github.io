@@ -10,7 +10,6 @@ pull_request_rules:
       - author = MH0386
       - -closed
       - "#approved-reviews-by = 0"
-      - "#changes-requested-reviews-by = 0"
       - "review-requested != MH0386"
     actions:
       request_reviews:
