@@ -11,10 +11,9 @@ pull_request_rules:
     actions:
       comment:
         message: Hi @{{author}}, Your PR is in conflict and cannot be merged.
-  - name: Automatic update of pull requests
+  - name: Automatic update the pull requests
     conditions:
       - base = main
-      - "#commits-behind > 0"
     actions:
       update:
   - name: Automatically queue valid Bot PRs
