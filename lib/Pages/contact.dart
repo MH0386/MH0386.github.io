@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mh0386/connector.dart';
 import 'package:mh0386/info.dart';
 import 'package:mh0386/style.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Contact extends StatelessWidget {
   const Contact({super.key});
@@ -10,23 +10,15 @@ class Contact extends StatelessWidget {
   List<ElevatedButton> _buildContactButtons() {
     return Info().socialMediaLinks.map((link) {
       return ElevatedButton(
-        onPressed: goToUrl(Uri.parse(link['url']!)),
         style: Style().buttonStyle,
+        onPressed: () =>
+            launchUrl(link['url'] as Uri, mode: LaunchMode.externalApplication),
         child: Text(
           link['name']!,
           style: const TextStyle(fontWeight: FontWeight.bold),
         ),
       );
-    }).toList()..add(
-      ElevatedButton(
-        onPressed: goToUrl(Uri.parse('mailto:${Info().email}')),
-        style: Style().buttonStyle,
-        child: Text(
-          Info().email,
-          style: const TextStyle(fontWeight: FontWeight.bold),
-        ),
-      ),
-    );
+    }).toList();
   }
 
   @override
