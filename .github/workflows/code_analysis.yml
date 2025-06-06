@@ -36,4 +36,4 @@ jobs:
           flutter-version-file: pubspec.yaml
           cache: true
       - name: Checking Flutter Dependency Consistency
-        run: flutter pub deps
+        run: flutter pub deps -s compact
