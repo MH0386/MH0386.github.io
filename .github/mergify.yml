@@ -1,4 +1,10 @@
 pull_request_rules:
+  - name: automatic update of pull requests where more 5 commits behind
+    conditions:
+      - base = main
+      - "#commits-behind >= 1"
+    actions:
+      update:
   - name: Automatically queue valid Bot PRs
     conditions:
       - author != MH0386
@@ -10,7 +16,6 @@ pull_request_rules:
       - author = MH0386
       - -closed
       - "#approved-reviews-by = 0"
-      - "#changes-requested-reviews-by = 0"
       - "review-requested != MH0386"
     actions:
       request_reviews:
