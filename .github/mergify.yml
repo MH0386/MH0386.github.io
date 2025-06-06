@@ -1,5 +1,5 @@
 pull_request_rules:
-  - name: automatic update of pull requests
+  - name: Automatic update of pull requests
     conditions:
       - base = main
       - "#commits-behind > 0"
@@ -15,8 +15,8 @@ pull_request_rules:
     conditions:
       - author = MH0386
       - -closed
-      - "#approved-reviews-by = 0"
-      - "review-requested != MH0386"
+      - approved-reviews-by != MH0386
+      - review-requested != MH0386
     actions:
       request_reviews:
         users:
