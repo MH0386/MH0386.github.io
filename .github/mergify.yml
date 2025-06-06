@@ -1,4 +1,10 @@
 pull_request_rules:
+  - name: Comment when a pull request is merged
+    conditions:
+      - merged
+    actions:
+      comment:
+        message: Thank you for your contribution @{{author}}! Your pull request has been merged.
   - name: Comment if there is a conflict
     conditions:
       - conflict
