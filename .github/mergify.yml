@@ -1,5 +1,5 @@
 pull_request_rules:
-  - name: Automaticlly queue Mergify Configuration changes
+  - name: Automatically queue Mergify Configuration changes
     conditions:
       - "title = ci(Mergify): configuration update"
     actions:
