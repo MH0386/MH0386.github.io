@@ -1,4 +1,16 @@
 pull_request_rules:
+  - name: Comment when a pull request is merged
+    conditions:
+      - merged
+    actions:
+      comment:
+        message: Thank you for your contribution @{{author}}! Your pull request has been merged.
+  - name: Comment if there is a conflict
+    conditions:
+      - conflict
+    actions:
+      comment:
+        message: @{{author}} Your PR is in conflict and cannot be merged.
   - name: Automatic update of pull requests
     conditions:
       - base = main
@@ -10,17 +22,6 @@ pull_request_rules:
       - author != MH0386
     actions:
       queue:
-  - name: Request review from me
-    description: Request review from me when checks are green.
-    conditions:
-      - author = MH0386
-      - -closed
-      - approved-reviews-by != MH0386
-      - review-requested != MH0386
-    actions:
-      request_reviews:
-        users:
-          - MH0386
   - name: Add a queue label when PR is queued
     description: Toggle the queue label when a pull request is (un)queued.
     conditions:
