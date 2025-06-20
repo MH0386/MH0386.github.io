@@ -16,15 +16,15 @@ lint:
     - trivy@0.63.0
     - markdown-link-check@3.13.7
     - actionlint@1.7.7
-    - bandit@1.8.3
-    - checkov@3.2.440
+    - bandit@1.8.5
+    - checkov@3.2.443
     - git-diff-check
     - markdownlint@0.45.0
     - gitleaks@8.27.2
     - oxipng@9.1.5
-    - renovate@40.51.0
+    - renovate@41.1.0
     - taplo@0.9.3
-    - trufflehog@3.89.1
+    - trufflehog@3.89.2
     - yamllint@1.37.1
 actions:
   enabled:
