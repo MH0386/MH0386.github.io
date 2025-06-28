@@ -12,11 +12,11 @@ jobs:
       actions: read
     steps:
       - name: Code Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
         with:
           ref: ${{ github.event.pull_request.head.sha }}
       - name: Install Flutter
-        uses: subosito/flutter-action@v2
+        uses: subosito/flutter-action@e938fdf56512cc96ef2f93601a5a40bde3801046 # v2
         with:
           channel: stable
           flutter-version-file: pubspec.yaml
@@ -29,7 +29,7 @@ jobs:
         continue-on-error: true
         run: dart analyze > dart_analyze.txt
       - name: Dart Analyze to SARIF
-        uses: advanced-security/dart-analyzer-sarif@v1
+        uses: advanced-security/dart-analyzer-sarif@a6363fdc4614c899321a2373d40b9d1f9809793d # v1
         with:
           input: dart_analyze.txt
           output: dart_analyze.sarif
