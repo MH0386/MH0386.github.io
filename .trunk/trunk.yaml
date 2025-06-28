@@ -15,7 +15,11 @@ runtimes:
     - node@22.16.0
     - python@3.10.8
 lint:
+  disabled:
+    - prettier
   enabled:
+    - gitleaks@8.27.2
+    - dart@3.2.6
     - trivy@0.63.0
     - markdown-link-check@3.13.7
     - pre-commit-hooks@5.0.0
@@ -24,7 +28,6 @@ lint:
     - checkov@3.2.447
     - git-diff-check
     - markdownlint@0.45.0
-    - gitleaks@8.27.2
     - oxipng@9.1.5
     - renovate@41.12.0
     - taplo@0.9.3

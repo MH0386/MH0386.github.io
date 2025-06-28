@@ -1,8 +1,10 @@
 name: DeepSource
 on:
   push:
-    branches: [main]
+    branches:
+      - main
   pull_request:
+permissions: read-all
 jobs:
   scan:
     name: DeepSource Dart Analyze
@@ -33,11 +35,9 @@ jobs:
         with:
           input: dart_analyze.txt
           output: dart_analyze.sarif
+      - name: Setup DeepSource CLI
+        run: curl https://deepsource.io/cli | sh
       - name: Upload SARIF report to DeepSource
-        run: |
-          # Install the CLI
-          curl https://deepsource.io/cli | sh
-          # Send the report to DeepSource
-          ./bin/deepsource report --analyzer dart-analyze --analyzer-type community --value-file ./dart_analyze.sarif
+        run: ./bin/deepsource report --analyzer dart-analyze --analyzer-type community --value-file ./dart_analyze.sarif
         env:
           DEEPSOURCE_DSN: ${{ secrets.DEEPSOURCE_DSN }}

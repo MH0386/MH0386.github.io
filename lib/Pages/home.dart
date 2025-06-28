@@ -47,8 +47,7 @@ class Home extends StatelessWidget {
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
-                    fontSize:
-                        (MediaQuery.of(context).size.width * 0.1 <
+                    fontSize: (MediaQuery.of(context).size.width * 0.1 <
                             MediaQuery.of(context).size.height * 0.1)
                         ? MediaQuery.of(context).size.width * 0.1
                         : MediaQuery.of(context).size.height * 0.1,
@@ -65,14 +64,12 @@ class Home extends StatelessWidget {
                     ),
                   ],
                   child: Text(
-                    textController.welcomeTexts[textController
-                        .currentIndex
-                        .value],
+                    textController
+                        .welcomeTexts[textController.currentIndex.value],
                     key: ValueKey<int>(textController.currentIndex.value),
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize:
-                          (MediaQuery.of(context).size.width * 0.04 <
+                      fontSize: (MediaQuery.of(context).size.width * 0.04 <
                               MediaQuery.of(context).size.height * 0.04)
                           ? MediaQuery.of(context).size.width * 0.04
                           : MediaQuery.of(context).size.height * 0.04,
