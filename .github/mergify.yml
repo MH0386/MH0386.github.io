@@ -1,4 +1,32 @@
 pull_request_rules:
+  - name: Automatically queue Mergify Configuration changes
+    conditions:
+      - "title = ci(Mergify): configuration update"
+    actions:
+      queue:
+  - name: Comment when a pull request is merged
+    conditions:
+      - merged
+    actions:
+      comment:
+        message: >
+          Thank you for your contribution @{{author}}! Your pull request has been merged.
+  - name: Comment if there is a conflict
+    conditions:
+      - conflict
+    actions:
+      comment:
+        message: Hi @{{author}}, Your PR is in conflict and cannot be merged.
+  - name: Automatic update the pull requests
+    conditions:
+      - base = main
+    actions:
+      update:
+  - name: Automatically queue valid Bot PRs
+    conditions:
+      - author != MH0386
+    actions:
+      queue:
   - name: Add a queue label when PR is queued
     description: Toggle the queue label when a pull request is (un)queued.
     conditions:
@@ -8,9 +36,7 @@ pull_request_rules:
         toggle:
           - merge-queued
   - name: Notify when a PR is removed from the queue
-    description:
-      Notify the PR author when its pull request is removed from the merge
-      queue.
+    description: Notify the PR author when its pull request is removed from the merge queue.
     conditions:
       - queue-dequeue-reason != none
       - queue-dequeue-reason != pr-merged
@@ -22,23 +48,18 @@ pull_request_rules:
 
           Sorry about that, but you can requeue the PR by using `@mergifyio
           requeue` if you think this was a mistake.
-  - name: Automatically merge Dependabot PRs
-    conditions:
-      - author = dependabot[bot]
-    actions:
-      queue:
-  - name: Automatically merge Renovate PRs
-    conditions:
-      - author = renovate[bot]
-    actions:
-      queue:
-  - name: Automatically merge my PRs
-    conditions:
-      - author = MH0386
-    actions:
-      queue:
 queue_rules:
-  - queue_branch_merge_method: fast-forward
-    allow_queue_branch_edit: true
+  - name: default
     update_method: merge
-    name: default
+    allow_queue_branch_edit: true
+    queue_branch_merge_method: fast-forward
+    queue_conditions:
+      - and:
+          - "check-success = DeepSource: Secrets"
+          - "check-success = DeepSource: Dart Analyze"
+          - check-success = CodeRabbit
+          - check-success = CodeFactor
+          - check-success = GitGuardian Security Checks
+          - check-success = SonarCloud
+          - check-success = Trunk Check
+          - check-success = Flutter Dependency Consistency

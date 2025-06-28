@@ -1,9 +1,0 @@
-{
-  "analyzeUnannotatedFunctions": true,
-  "reportAttributeAccessIssue": false,
-  "reportMissingParameterType": true,
-  "reportMissingTypeStubs": false,
-  "reportUnknownMemberType": false,
-  "venv": ".venv",
-  "venvPath": "."
-}
