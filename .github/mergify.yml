@@ -1,31 +1,33 @@
 pull_request_rules:
-  - name: Automatically queue Mergify Configuration changes
+  - name: Merge pull request when the configuration of Mergify is valid
     conditions:
+      - author = MH0386
       - "title = ci(Mergify): configuration update"
+      - head = mergify/MH0386/config-update
     actions:
-      queue:
+      merge:
   - name: Comment when a pull request is merged
     conditions:
       - merged
     actions:
       comment:
         message: >
-          Thank you for your contribution @{{author}}! Your pull request has
-          been merged.
+          Thank you for your contribution @{{author}}! Your pull request has been merged.
   - name: Comment if there is a conflict
     conditions:
       - conflict
     actions:
       comment:
         message: Hi @{{author}}, Your PR is in conflict and cannot be merged.
-  - name: Automatic update the pull requests
+  - name: Automatic update of the pull requests
     conditions:
-      - base = main
+      - -merged
     actions:
       update:
   - name: Automatically queue valid Bot PRs
     conditions:
       - author != MH0386
+      - check-success = Check Dependency Compatibility
     actions:
       queue:
   - name: Add a queue label when PR is queued
@@ -38,19 +40,18 @@ pull_request_rules:
           - merge-queued
   - name: Notify when a PR is removed from the queue
     description: >
-      Notify the PR author when its pull request is removed from the merge
-      queue.
+      Notify the PR author when its pull request is removed from the merge queue.
     conditions:
       - queue-dequeue-reason != none
       - queue-dequeue-reason != pr-merged
     actions:
       comment:
         message: >
-          Hey @{{author}}, your pull request has been dequeued due to the
-          following reason: {{queue_dequeue_reason}}.
+          Hey @{{author}}, your pull request has been dequeued due to the following reason:
+          {{queue_dequeue_reason}}.
 
-          Sorry about that, but you can requeue the PR by using `@mergifyio
-          requeue` if you think this was a mistake.
+          Sorry about that, but you can requeue the PR by using `@mergifyio requeue` if you think
+          this was a mistake.
 queue_rules:
   - name: default
     update_method: merge
@@ -59,10 +60,15 @@ queue_rules:
     queue_conditions:
       - and:
           - "check-success = DeepSource: Secrets"
-          - "check-success = DeepSource: Dart Analyze"
-          - check-success = CodeRabbit
+          - "check-success = DeepSource: Python"
           - check-success = CodeFactor
           - check-success = GitGuardian Security Checks
-          - check-success = SonarCloud
+          - check-success = SonarCloud Code Analysis
           - check-success = Trunk Check
-          - check-success = Flutter Dependency Consistency
+          - check-success = Check Dependency Compatibility
+          - check-success = CodeRabbit
+          - check-success = Build and push Docker image
+          - check-success = CodeQL
+      - or:
+          - check-success = pre-commit.ci - push
+          - check-success = pre-commit.ci - pr
