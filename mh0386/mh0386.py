@@ -7,7 +7,6 @@ app = rx.App()
 
 @rx.page(route="/", title="Home Page")
 def index() -> rx.Component:
-    # Welcome, Page (Index)
     return rx.container(
         navbar_icons(),
         rx.vstack(
