@@ -10,9 +10,6 @@ type_checker = "mypy"
 additional_builtins = ["_", "pretty_output"]
 
 [[analyzers]]
-name = "docker"
-
-[[analyzers]]
 name = "secrets"
 
 [[transformers]]
