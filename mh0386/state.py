@@ -1,5 +1,4 @@
-from reflex import State
+import reflex as rx
 
-
-class State(State):
+class State(rx.State):
     """The app state."""
