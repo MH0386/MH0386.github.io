@@ -1,0 +1,9 @@
+[project]
+name = "mh0386-github-io"
+version = "0.1.0"
+description = "Add your description here"
+requires-python = ">=3.13"
+dependencies = ["reflex>=0.7.14"]
+
+[dependency-groups]
+dev = ["ruff>=0.12.1", "ty>=0.0.1a12"]
