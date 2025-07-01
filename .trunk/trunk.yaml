@@ -12,6 +12,7 @@ plugins:
 lint:
   disabled:
     - prettier
+    - pylint
   enabled:
     - gitleaks@8.27.2
     - ty@0.0.1-alpha.12

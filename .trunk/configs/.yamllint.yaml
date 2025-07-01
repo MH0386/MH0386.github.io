@@ -24,4 +24,8 @@ rules:
     level: warning
     allow-non-breakable-inline-mappings: true
     max: 120
+  new-line-at-end-of-file:
+    level: warning
+  new-lines:
+    type: platform
   truthy: disable
