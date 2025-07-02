@@ -1,11 +1,15 @@
 name: Code Analysis
 on:
   push:
+    branches:
+      - main
   pull_request:
-permissions: read-all
 concurrency:
-  group: ${{ github.head_ref || github.run_id }}
+  group: ${{ github.workflow }}-${{ github.ref_name }}
   cancel-in-progress: true
+permissions:
+  contents: write
+  pull-requests: write
 jobs:
   trunk:
     name: Trunk Code Quality
@@ -13,15 +17,24 @@ jobs:
     permissions:
       checks: write
       contents: read
+    needs: compatibility
     steps:
       - name: Checkout repository
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+      - name: Install uv
+        uses: astral-sh/setup-uv@bd01e18f51369d5a26f1651c3cb451d3417e3bba # v6
+        with:
+          enable-cache: true
+          cache-dependency-glob: "uv.lock"
+          activate-environment: true
+      - name: Install the project
+        run: uv sync --frozen
       - name: Trunk Code Quality
         uses: trunk-io/trunk-action@75699af9e26881e564e9d832ef7dc3af25ec031b # v1
         with:
           arguments: --github-annotate-new-only=false
-  flutter:
-    name: Flutter Dependency Consistency
+  compatibility:
+    name: Check Dependency Compatibility
     runs-on: ubuntu-latest
     permissions:
       checks: write
@@ -29,11 +42,11 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
-      - name: Install Flutter
-        uses: subosito/flutter-action@e938fdf56512cc96ef2f93601a5a40bde3801046 # v2
+      - name: Install uv
+        uses: astral-sh/setup-uv@bd01e18f51369d5a26f1651c3cb451d3417e3bba # v6
         with:
-          channel: stable
-          flutter-version-file: pubspec.yaml
-          cache: true
-      - name: Checking Flutter Dependency Consistency
-        run: flutter pub deps -s compact
+          enable-cache: true
+          cache-dependency-glob: "uv.lock"
+          activate-environment: true
+      - name: Install the project
+        run: uv sync --frozen --no-install-project

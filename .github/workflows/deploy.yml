@@ -8,6 +8,9 @@ permissions:
   contents: write
   pages: write
   id-token: write
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref_name }}
+  cancel-in-progress: true
 jobs:
   build_web:
     name: Build Web
@@ -15,22 +18,27 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
-      - name: Install Flutter
-        uses: subosito/flutter-action@e938fdf56512cc96ef2f93601a5a40bde3801046 # v2
+      - name: Cache .web
+        uses: actions/cache@5a3ec84eff668545956fd18022155c47e93e2684 # v4
         with:
-          channel: stable
-          flutter-version-file: pubspec.yaml
-          cache: true
+          path: .web
+          key: ${{ runner.os }}-reflex-${{ hashFiles('**/uv.lock') }}
+          restore-keys: ${{ runner.os }}-reflex-
+      - name: Install uv
+        uses: astral-sh/setup-uv@bd01e18f51369d5a26f1651c3cb451d3417e3bba # v6
+        with:
+          enable-cache: true
+          cache-dependency-glob: "uv.lock"
+          activate-environment: true
       - name: Install Dependencies
-        run: flutter pub get
-      - name: Enable Web
-        run: flutter config --enable-web
+        run: uv sync --frozen
       - name: Build
-        run: flutter build web --release
+        run: uv run reflex export --frontend-only --no-zip --env prod
+      - run: ls -a .web
       - name: Upload artifact
         uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3
         with:
-          path: build/web/
+          path: ./.web/_static/
   deploy_web:
     name: Deploy Web
     runs-on: ubuntu-latest

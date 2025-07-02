@@ -9,28 +9,24 @@ plugins:
     - id: trunk
       ref: v1.7.1
       uri: https://github.com/trunk-io/plugins
-runtimes:
-  enabled:
-    - go@1.21.0
-    - node@22.16.0
-    - python@3.10.8
 lint:
   disabled:
     - prettier
+    - pylint
   enabled:
     - gitleaks@8.27.2
-    - dart@3.2.6
-    - trivy@0.63.0
-    - markdown-link-check@3.13.7
+    - ty@0.0.1-alpha.12
     - pre-commit-hooks@5.0.0
+    - trivy@0.64.0
     - actionlint@1.7.7
     - bandit@1.8.5
     - checkov@3.2.447
     - git-diff-check
+    - hadolint@2.12.1-beta
     - markdownlint@0.45.0
     - oxipng@9.1.5
     - renovate@41.17.2
-    - taplo@0.9.3
+    - ruff@0.12.1
     - trufflehog@3.89.2
     - yamllint@1.37.1
 actions:
