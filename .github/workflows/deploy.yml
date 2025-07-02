@@ -38,7 +38,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3
         with:
-          path: ./.web/_static/
+          path: .web/build/client/
   deploy_web:
     name: Deploy Web
     runs-on: ubuntu-latest
