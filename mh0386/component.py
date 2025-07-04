@@ -38,7 +38,11 @@ def navbar_icons() -> rx.Component:
                 rx.hstack(
                     (
                         rx.hstack(
-                            (rx.heading("Reflex", size="6", weight="bold"),),
+                            (
+                                rx.heading(
+                                    "Mohamed's Portfolio", size="6", weight="bold"
+                                ),
+                            ),
                             align_items="center",
                         ),
                         rx.menu.root(
@@ -75,18 +79,22 @@ def navbar_icons() -> rx.Component:
 
 
 def contact_item(name: str, url: str, username: str = "@MH0386") -> rx.Component:
-    return rx.flex(
-        (
-            rx.text(name, size="4", weight="bold"),
-            rx.text(username, color_scheme="gray"),
-            rx.button(
-                "Profile",
-                color_scheme="indigo",
-                variant="soft",
-                on_click=rx.redirect(url, is_external=True),
+    return rx.card(
+        rx.flex(
+            (
+                rx.heading(name, size="4", weight="bold"),
+                rx.text(username, color_scheme="gray"),
+                rx.button(
+                    (
+                        rx.text("link"),
+                        rx.icon("link", size=16, color="gray"),
+                    ),
+                    variant="soft",
+                    on_click=rx.redirect(url, is_external=True),
+                ),
             ),
-        ),
-        direction="column",
-        spacing="1",
-        align="center",
+            direction="column",
+            spacing="1",
+            align="center",
+        )
     )

@@ -2,7 +2,13 @@ import reflex as rx
 
 from mh0386.component import contact_item, navbar_icons
 
-app = rx.App()
+app = rx.App(
+    theme=rx.theme(
+        has_background=True,
+        radius="large",
+        accent_color="gray",
+    )
+)
 
 
 @rx.page(route="/", title="Home Page")

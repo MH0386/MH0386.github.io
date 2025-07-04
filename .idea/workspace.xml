@@ -5,28 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="26bc249a-1d92-4bcc-b8e5-c815c23da8df" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.github/mergify.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/mergify.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/renovate.json" beforeDir="false" afterPath="$PROJECT_DIR$/.github/renovate.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/workflows/code_analysis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/code_analysis.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/workflows/deepsource.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/workflows/deploy.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/deploy.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/workflows/trunk_upgrade.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/trunk_upgrade.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/MH0386.github.io.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/MH0386.github.io.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/project.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/KotlinJavaRuntime.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/ruff.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/main_dart.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.trunk/configs/.markdownlint.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/.trunk/configs/.markdownlint.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.trunk/configs/.yamllint.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/.trunk/configs/.yamllint.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.trunk/trunk.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/.trunk/trunk.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.sonarlint/connectedMode.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mh0386/component.py" beforeDir="false" afterPath="$PROJECT_DIR$/mh0386/component.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mh0386/mh0386.py" beforeDir="false" afterPath="$PROJECT_DIR$/mh0386/mh0386.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rxconfig.py" beforeDir="false" afterPath="$PROJECT_DIR$/rxconfig.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,23 +19,23 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "MH0386"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;MH0386&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/MH0386/MH0386.github.io.git",
-    "accountId": "a6a8c1a7-aa82-4e96-8030-be8e3e85e57f"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/MH0386/MH0386.github.io.git&quot;,
+    &quot;accountId&quot;: &quot;a6a8c1a7-aa82-4e96-8030-be8e3e85e57f&quot;
   }
-}]]></component>
-  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 1
-}]]></component>
+}</component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="2zIFWuPaiwA68qcV2gv6AwGupgK" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -63,7 +46,7 @@
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "#135 on reflex",
+    "git-widget-placeholder": "main",
     "junie.onboarding.icon.badge.shown": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.stylelint": "true",
@@ -89,5 +72,8 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/MH0386_github_io$main.coverage" NAME="main Coverage Results" MODIFIED="1751638857794" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>
