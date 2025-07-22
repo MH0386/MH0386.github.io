@@ -14,8 +14,8 @@ lint:
     - prettier
     - pylint
   enabled:
-    - gitleaks@8.27.2
-    - ty@0.0.1-alpha.14
+    - gitleaks@8.28.0
+    - ty@0.0.1-alpha.15
     - pre-commit-hooks@5.0.0
     - trivy@0.64.1
     - actionlint@1.7.7
@@ -25,9 +25,9 @@ lint:
     - hadolint@2.12.1-beta
     - markdownlint@0.45.0
     - oxipng@9.1.5
-    - renovate@41.37.9
-    - ruff@0.12.3
-    - trufflehog@3.90.0
+    - renovate@41.40.0
+    - ruff@0.12.4
+    - trufflehog@3.90.1
     - yamllint@1.37.1
 actions:
   enabled:
