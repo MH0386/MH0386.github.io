@@ -20,12 +20,12 @@ lint:
     - trivy@0.64.1
     - actionlint@1.7.7
     - bandit@1.8.6
-    - checkov@3.2.451
+    - checkov@3.2.452
     - git-diff-check
     - hadolint@2.12.1-beta
     - markdownlint@0.45.0
     - oxipng@9.1.5
-    - renovate@41.42.2
+    - renovate@41.42.10
     - ruff@0.12.4
     - trufflehog@3.90.1
     - yamllint@1.37.1
