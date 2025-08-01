@@ -25,8 +25,8 @@ lint:
     - hadolint@2.12.1-beta
     - markdownlint@0.45.0
     - oxipng@9.1.5
-    - renovate@41.43.5
-    - ruff@0.12.5
+    - renovate@41.46.3
+    - ruff@0.12.7
     - trufflehog@3.90.2
     - yamllint@1.37.1
 actions:
