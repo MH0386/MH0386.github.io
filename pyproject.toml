@@ -1,8 +1,12 @@
 [project]
 name = "mh0386-github-io"
-version = "0.1.0"
-description = "Add your description here"
-requires-python = ">=3.13"
+version = "0.0.1"
+description = "MH0386's Personal Website built with Reflex"
+readme = "README.md"
+authors = [
+  { name = "Mohamed Hisham Abdelzaher", email = "mohamed.hisham.abdelzaher@gmail.com" },
+]
+requires-python = ">=3.13,<3.14"
 dependencies = ["reflex>=0.7.14"]
 
 [dependency-groups]
