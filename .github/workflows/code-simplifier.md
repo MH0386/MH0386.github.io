@@ -47,7 +47,7 @@ engine:
   id: codex
   model: "opencode/nemotron-3-super-free"
   env:
-    OPENAI_BASE_URL: "https://opencode.ai/zen/v1/chat/completions"
+    OPENAI_BASE_URL: "https://opencode.ai/zen/v1"
     OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
 ---
 

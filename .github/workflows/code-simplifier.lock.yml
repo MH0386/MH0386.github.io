@@ -30,7 +30,7 @@
 #     - shared/formatting.md
 #     - shared/reporting.md
 #
-# gh-aw-metadata: {"schema_version":"v2","frontmatter_hash":"fba92ee585857e1aa5d5ea1a35919df7171f693116751a80a7559d6265a0af6e","compiler_version":"v0.58.1","strict":true}
+# gh-aw-metadata: {"schema_version":"v2","frontmatter_hash":"2e479313a9287bdbec952145a184c72d51bfae17feae284fbc7aced369c6c099","compiler_version":"v0.58.1","strict":true}
 
 name: "Code Simplifier"
 "on":
@@ -756,7 +756,7 @@ jobs:
           GIT_COMMITTER_EMAIL: github-actions[bot]@users.noreply.github.com
           GIT_COMMITTER_NAME: github-actions[bot]
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          OPENAI_BASE_URL: https://opencode.ai/zen/v1/chat/completions
+          OPENAI_BASE_URL: https://opencode.ai/zen/v1
           RUST_LOG: trace,hyper_util=info,mio=info,reqwest=info,os_info=info,codex_otel=warn,codex_core=debug,ocodex_exec=debug
       - name: Configure Git credentials
         env:
@@ -944,7 +944,7 @@ jobs:
           GIT_COMMITTER_EMAIL: github-actions[bot]@users.noreply.github.com
           GIT_COMMITTER_NAME: github-actions[bot]
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          OPENAI_BASE_URL: https://opencode.ai/zen/v1/chat/completions
+          OPENAI_BASE_URL: https://opencode.ai/zen/v1
           RUST_LOG: trace,hyper_util=info,mio=info,reqwest=info,os_info=info,codex_otel=warn,codex_core=debug,ocodex_exec=debug
       - name: Parse threat detection results
         id: parse_detection_results
