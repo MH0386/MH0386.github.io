@@ -99,7 +99,7 @@ For each merged PR or recent commit:
 
 If **no files were changed in the last 24 hours**, exit gracefully without creating a PR:
 
-```
+```text
 ✅ No code changes detected in the last 24 hours.
 Code simplifier has nothing to process today.
 ```
@@ -240,7 +240,7 @@ Only create a PR if:
 
 If no improvements were made or changes broke tests, exit gracefully:
 
-```
+```text
 ✅ Code analyzed from last 24 hours.
 No simplifications needed - code already meets quality standards.
 ```
