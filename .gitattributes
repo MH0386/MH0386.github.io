@@ -129,3 +129,5 @@
 .gitattributes export-ignore
 .gitignore     export-ignore
 .gitkeep       export-ignore
+
+.github/workflows/*.lock.yml linguist-generated=true merge=ours
