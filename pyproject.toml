@@ -7,7 +7,7 @@ authors = [
   { name = "Mohamed Hisham Abdelzaher", email = "mohamed.hisham.abdelzaher@gmail.com" },
 ]
 requires-python = ">=3.13,<3.14"
-dependencies = ["reflex>=0.7.14"]
+dependencies = ["reflex>=0.8.27"]
 
 [dependency-groups]
 dev = ["ruff>=0.12.1", "ty>=0.0.1a12"]
