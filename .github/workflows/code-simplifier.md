@@ -13,6 +13,7 @@ network:
   - python
   - rust
   - java
+  - opencode.ai
 
 permissions: read-all
 
@@ -36,7 +37,12 @@ tools:
 timeout-minutes: 30
 strict: true
 source: githubnext/agentics/workflows/code-simplifier.md@b897c2f3e43bde9ff7923c8fa9211055b26e27cc
-engine: codex
+engine:
+  id: codex
+  model: "opencode/nemotron-3-super-free"
+  env:
+    OPENAI_BASE_URL: "https://opencode.ai/zen/v1/chat/completions"
+    OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
 ---
 
 <!-- This prompt will be imported in the agentic workflow .github/workflows/code-simplifier.md at runtime. -->
