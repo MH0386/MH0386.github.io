@@ -8,6 +8,8 @@ on:
    types: [opened, synchronize, labeled]
   issues:
     types: [opened, edited, labeled]
+  push:
+    branches: [main]
 
 network:
   allowed:

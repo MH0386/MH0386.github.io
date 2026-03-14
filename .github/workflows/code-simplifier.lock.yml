@@ -30,7 +30,7 @@
 #     - shared/formatting.md
 #     - shared/reporting.md
 #
-# gh-aw-metadata: {"schema_version":"v2","frontmatter_hash":"8d2a5cbc910de417731262d2e5c3e4971df96d3e1465756a93c0af3eebbc75bd","compiler_version":"v0.58.1","strict":true}
+# gh-aw-metadata: {"schema_version":"v2","frontmatter_hash":"fba92ee585857e1aa5d5ea1a35919df7171f693116751a80a7559d6265a0af6e","compiler_version":"v0.58.1","strict":true}
 
 name: "Code Simplifier"
 "on":
@@ -44,6 +44,9 @@ name: "Code Simplifier"
     - opened
     - synchronize
     - labeled
+  push:
+    branches:
+    - main
   schedule:
   - cron: "38 */1 * * *"
     # Friendly format: every 1h (scattered)
