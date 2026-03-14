@@ -4,3 +4,4 @@ __pycache__/
 .states
 assets/external/
 .web
+.github/aw/actions-lock.json
