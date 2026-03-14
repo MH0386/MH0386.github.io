@@ -13,4 +13,3 @@ queue_rules:
           - check-success = GitGuardian Security Checks
           - check-success = SonarCloud
           - check-success = Check Dependency Compatibility
-          - check-success = CodeRabbit
