@@ -256,7 +256,7 @@ requires-dist = [{ name = "reflex", specifier = ">=0.7.14" }]
 
 [package.metadata.requires-dev]
 dev = [
-    { name = "ruff", specifier = ">=0.12.1" },
+    { name = "ruff", specifier = ">=0.15.6" },
     { name = "ty", specifier = ">=0.0.1a12" },
 ]
 
