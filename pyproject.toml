@@ -10,4 +10,4 @@ requires-python = ">=3.13,<3.14"
 dependencies = ["reflex>=0.8.27"]
 
 [dependency-groups]
-dev = ["ruff>=0.15.6", "ty>=0.0.1a12"]
+dev = ["ruff>=0.15.6", "ty>=0.0.23"]
