@@ -15,7 +15,7 @@ lint:
     - pylint
   enabled:
     - gitleaks@8.30.0
-    - ty@0.0.22
+    - ty@0.0.23
     - pre-commit-hooks@5.0.0
     - trivy@0.69.3
     - actionlint@1.7.11
@@ -25,7 +25,7 @@ lint:
     - hadolint@2.14.0
     - markdownlint@0.48.0
     - oxipng@10.1.0
-    - renovate@43.66.4
+    - renovate@43.76.3
     - ruff@0.15.6
     - trufflehog@3.93.8
     - yamllint@1.38.0
