@@ -25,7 +25,7 @@ lint:
     - hadolint@2.14.0
     - markdownlint@0.48.0
     - oxipng@10.1.0
-    - renovate@43.76.3
+    - renovate@43.77.2
     - ruff@0.15.6
     - trufflehog@3.93.8
     - yamllint@1.38.0
