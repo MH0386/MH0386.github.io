@@ -13,3 +13,5 @@ queue_rules:
           - check-success = SonarCloud
           - check-success = Check Dependency Compatibility
     merge_method: fast-forward
+merge_protections_settings:
+  reporting_method: check-runs
