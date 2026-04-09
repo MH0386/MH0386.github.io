@@ -7,7 +7,7 @@ app = rx.App(
         has_background=True,
         radius="large",
         accent_color="gray",
-    )
+    ), enable_state=False,
 )
 
 
