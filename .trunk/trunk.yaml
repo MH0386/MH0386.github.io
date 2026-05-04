@@ -7,7 +7,7 @@ plugins:
       ref: v1.2.1
       uri: https://github.com/trunk-io/configs
     - id: trunk
-      ref: v1.7.6
+      ref: v1.8.0
       uri: https://github.com/trunk-io/plugins
 lint:
   disabled:
@@ -15,19 +15,19 @@ lint:
     - pylint
   enabled:
     - gitleaks@8.30.1
-    - ty@0.0.28
+    - ty@0.0.34
     - pre-commit-hooks@5.0.0
-    - trivy@0.69.3
+    - trivy@0.70.0
     - actionlint@1.7.12
     - bandit@1.9.4
-    - checkov@3.2.513
+    - checkov@3.2.526
     - git-diff-check
     - hadolint@2.14.0
     - markdownlint@0.48.0
-    - oxipng@10.1.0
-    - renovate@43.104.1
-    - ruff@0.15.9
-    - trufflehog@3.94.2
+    - oxipng@10.1.1
+    - renovate@43.150.0
+    - ruff@0.15.12
+    - trufflehog@3.95.2
     - yamllint@1.38.0
 actions:
   enabled:
