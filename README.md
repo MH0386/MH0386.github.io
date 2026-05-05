@@ -13,3 +13,4 @@ skills, and experience, and serves as an interactive resume and contact point.
 [mergify]: https://mergify.com
 [mergify-status]:
   https://img.shields.io/endpoint.svg?url=https://api.mergify.com/v1/badges/MH0386/MH0386.github.io
+
