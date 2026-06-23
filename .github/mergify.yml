@@ -1,7 +1,7 @@
 extends: MH0386
 queue_rules:
   - name: default
-    update_method: merge
+    update_method: rebase
     allow_queue_branch_edit: true
     queue_conditions:
       - and:
