@@ -1,8 +1,9 @@
+# queue rule 'default': `allow_queue_branch_edit` was turned off. It now requires `merge_method: merge-batch` or `merge_method: fast-forward`.
 extends: MH0386
 queue_rules:
   - name: default
     update_method: rebase
-    allow_queue_branch_edit: true
+    allow_queue_branch_edit: false
     queue_conditions:
       - and:
           - "check-success = DeepSource: Secrets"
