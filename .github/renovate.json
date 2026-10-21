@@ -7,19 +7,5 @@
   "lockFileMaintenance": {
     "enabled": true
   },
-  "osvVulnerabilityAlerts": true,
-  "packageRules": [
-    {
-      "matchManagers": [
-        "pep621"
-      ],
-      "matchPackageNames": [
-        "*"
-      ],
-      "rangeStrategy": "bump"
-    }
-  ],
-  "pre-commit": {
-    "enabled": true
-  }
+  "osvVulnerabilityAlerts": true
 }

@@ -1,0 +1,77 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import { slotContent } from "@/utils/slots.ts";
+
+interface Props extends HTMLAttributes<"ol"> {
+  /** Set to `false` to skip rendering this component and its children. */
+  render?: boolean;
+}
+
+const { render = true, class: className, ...rest } = Astro.props;
+
+const content = await slotContent(Astro.slots);
+---
+
+{
+  render && content && (
+    <ol class:list={["timeline_wrap", className]} {...rest}>
+      <Fragment set:html={content} />
+    </ol>
+  )
+}
+
+<style is:global>
+  @layer components {
+    .timeline_wrap {
+      --_marker: 0.75rem;
+      --_marker-offset: var(--space-6);
+      --_gap: var(--space-6);
+      display: flex;
+      flex-direction: column;
+      gap: var(--_gap);
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .timeline_item {
+      position: relative;
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-4);
+      width: 100%;
+    }
+
+    .timeline_item:not(:last-child)::before {
+      content: "";
+      position: absolute;
+      z-index: 0;
+      inset-inline-start: calc(var(--_marker) / 2);
+      translate: -50% 0;
+      top: calc(var(--_marker-offset) + var(--_marker) / 2);
+      bottom: calc(
+        -1 * (var(--_gap) + var(--_marker-offset) + var(--_marker) / 2)
+      );
+      width: var(--border-width);
+      background-color: var(--border);
+    }
+
+    .timeline_marker {
+      flex: none;
+      width: var(--_marker);
+      height: var(--_marker);
+      margin-top: var(--_marker-offset);
+      border-radius: var(--radius-round);
+      background-color: var(--text);
+      box-shadow: 0 0 0 0.25rem var(--background);
+      position: relative;
+      z-index: 1;
+    }
+
+    .timeline_card {
+      flex: 1;
+      min-width: 0;
+    }
+  }
+</style>

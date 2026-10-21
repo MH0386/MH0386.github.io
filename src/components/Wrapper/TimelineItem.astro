@@ -1,0 +1,24 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import { slotContent } from "@/utils/slots.ts";
+
+interface Props extends HTMLAttributes<"li"> {
+  /** Set to `false` to skip rendering this component and its children. */
+  render?: boolean;
+}
+
+const { render = true, class: className, ...rest } = Astro.props;
+
+const content = await slotContent(Astro.slots);
+---
+
+{
+  render && content && (
+    <li class:list={["timeline_item", className]} {...rest}>
+      <span class="timeline_marker" aria-hidden="true" />
+      <div class="timeline_card">
+        <Fragment set:html={content} />
+      </div>
+    </li>
+  )
+}

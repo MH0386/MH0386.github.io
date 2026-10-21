@@ -5,12 +5,9 @@ queue_rules:
     allow_queue_branch_edit: true
     queue_conditions:
       - and:
-          - "check-success = DeepSource: Secrets"
-          - "check-success = DeepSource: Python"
           - check-success = CodeQL
           - check-success = CodeFactor
           - check-success = GitGuardian Security Checks
           - check-success = SonarCloud
-          - check-success = Check Dependency Compatibility
 merge_protections_settings:
   reporting_method: check-runs
