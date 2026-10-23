@@ -1,5 +1,62 @@
+# yaml-language-server: $schema=https://docs.mergify.com/mergify-configuration-schema.json
 extends: MH0386
+
+# `extends: MH0386` still ships seven queue rules with `autoqueue: true`.
+# That key is no longer in the schema (validation: queue_rules item -> autoqueue).
+# A local rule with the same name replaces the extended one. Automatic queueing
+# is now `merge_protections_settings.auto_merge_conditions`: a matching pull
+# request is queued, and it still has to satisfy that rule's queue_conditions.
+# The `default` rule is not included, so it still waits for `@mergifyio queue`.
 queue_rules:
+  - name: pre-commit Updates
+    allow_queue_branch_edit: true
+    queue_conditions:
+      - files ~= .pre-commit-config.yaml
+      - author = renovate[bot]
+  - name: Dockerfile Updates
+    allow_queue_branch_edit: true
+    max_checks_retries: 3
+    queue_conditions:
+      - files ~= Dockerfile$
+      - author = renovate[bot]
+    merge_conditions:
+      - check-success = Test Image / API Test
+  - name: Github Actions Updates
+    allow_queue_branch_edit: true
+    queue_conditions:
+      - files ~= ^.github/workflows
+      - author = renovate[bot]
+  - name: Python Dependency Updates
+    allow_queue_branch_edit: true
+    max_checks_retries: 3
+    queue_conditions:
+      - files ~= ^(uv.lock|pyproject.toml)$
+      - author = renovate[bot]
+      - check-success = Check Dependency Compatibility
+    merge_conditions:
+      - check-success = Test Image / API Test
+  - name: Docker Compose Updates
+    allow_queue_branch_edit: true
+    queue_conditions:
+      - files ~= ^(docker-compose-dev.yaml|docker-compose.yaml)$
+      - author = renovate[bot]
+  - name: AUR Updates
+    allow_queue_branch_edit: true
+    queue_conditions:
+      - author = renovate[bot]
+      - files ~= PKGBUILD$
+      - deployment-success = pre-commit
+    merge_conditions:
+      - deployment-success = AUR
+  - name: Mise Lock
+    allow_queue_branch_edit: true
+    max_checks_retries: 3
+    queue_conditions:
+      - author = renovate[bot]
+      - deployment-success = mise
+      - files ~= ^mise\.lock$
+    merge_conditions:
+      - deployment-success = test
   - name: default
     update_method: rebase
     allow_queue_branch_edit: true
@@ -9,5 +66,32 @@ queue_rules:
           - check-success = CodeFactor
           - check-success = GitGuardian Security Checks
           - check-success = SonarCloud
+
 merge_protections_settings:
   reporting_method: check-runs
+  auto_merge_conditions:
+    - or:
+        - and:
+            - files ~= .pre-commit-config.yaml
+            - author = renovate[bot]
+        - and:
+            - files ~= Dockerfile$
+            - author = renovate[bot]
+        - and:
+            - files ~= ^.github/workflows
+            - author = renovate[bot]
+        - and:
+            - files ~= ^(uv.lock|pyproject.toml)$
+            - author = renovate[bot]
+            - check-success = Check Dependency Compatibility
+        - and:
+            - files ~= ^(docker-compose-dev.yaml|docker-compose.yaml)$
+            - author = renovate[bot]
+        - and:
+            - author = renovate[bot]
+            - files ~= PKGBUILD$
+            - deployment-success = pre-commit
+        - and:
+            - author = renovate[bot]
+            - deployment-success = mise
+            - files ~= ^mise\.lock$
