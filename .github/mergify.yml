@@ -3,6 +3,7 @@ queue_rules:
   - name: default
     update_method: rebase
     allow_queue_branch_edit: true
+    merge_method: fast-forward
     queue_conditions:
       - and:
           - "check-success = DeepSource: Secrets"
