@@ -47,7 +47,12 @@ npm run dev
 | `npm run format`  | Formats the project with Oxfmt  |
 | `npm run lint`    | Lints the project with Oxlint   |
 
-Use the current Node.js LTS. The Pages workflow and `.nvmrc` both request it with `lts/*`, which resolves when you install or deploy.
+Install tools with [mise](https://mise.jdx.dev). `mise.toml` requests the current Node.js LTS (`node = "lts"`), and `mise.lock` records the release that resolved to. Then:
+
+```sh
+mise install
+mise run dev
+```
 
 ## Documentation
 
