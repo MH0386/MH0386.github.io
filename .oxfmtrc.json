@@ -17,11 +17,5 @@
       "language": "astro"
     }
   ],
-  "ignorePatterns": [
-    "dist",
-    ".astro",
-    "node_modules",
-    ".github/workflows/*.lock.yml",
-    ".github/workflows/agentics-maintenance.yml"
-  ]
+  "ignorePatterns": ["dist", ".astro", "node_modules"]
 }
