@@ -26,10 +26,8 @@ jobs:
       - name: Install, build, and upload your site
         uses: withastro/action@3eafd002e65cc31b4f0eae0bb05450d521562247 # v6
         with:
-          # package.json requires Node >=22.12. Pin 22 so CI matches the
-          # version used to verify `npm ci && npm run build` locally.
-          # withastro/action v6 otherwise defaults to Node 24.
-          node-version: 22
+          # Latest LTS is 24 (Krypton). Same floor as package.json engines.
+          node-version: 24
 
   deploy:
     needs: build
