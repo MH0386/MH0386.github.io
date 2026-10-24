@@ -7,5 +7,32 @@
   "lockFileMaintenance": {
     "enabled": true
   },
-  "osvVulnerabilityAlerts": true
+  "osvVulnerabilityAlerts": true,
+  "customManagers": [
+    {
+      "customType": "regex",
+      "description": "Bump the Node.js LTS version in the Pages workflow, engines, and README together.",
+      "managerFilePatterns": [
+        "/(^|/)\\.github/workflows/deploy\\.yml$/",
+        "/(^|/)package\\.json$/",
+        "/(^|/)README\\.md$/"
+      ],
+      "matchStrings": [
+        "node-version:\\s*[\"']?(?<currentValue>\\d+\\.\\d+\\.\\d+)[\"']?",
+        "\"node\"\\s*:\\s*\">=(?<currentValue>\\d+\\.\\d+\\.\\d+)\"",
+        "Node (?<currentValue>\\d+\\.\\d+\\.\\d+)"
+      ],
+      "depNameTemplate": "node",
+      "datasourceTemplate": "node-version",
+      "versioningTemplate": "node"
+    }
+  ],
+  "packageRules": [
+    {
+      "description": "One pull request updates every copy of the Node LTS version. The node-version datasource marks a release unstable until Node lists it as LTS.",
+      "matchDatasources": ["node-version"],
+      "matchPackageNames": ["node"],
+      "groupName": "node"
+    }
+  ]
 }

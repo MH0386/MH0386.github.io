@@ -26,8 +26,8 @@ jobs:
       - name: Install, build, and upload your site
         uses: withastro/action@3eafd002e65cc31b4f0eae0bb05450d521562247 # v6
         with:
-          # Latest LTS is 24 (Krypton). Same floor as package.json engines.
-          node-version: 24
+          # Exact Node LTS release. Renovate bumps this with package.json engines.
+          node-version: 24.22.1
 
   deploy:
     needs: build
