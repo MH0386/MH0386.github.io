@@ -12,7 +12,7 @@ Structure your output with an overview followed by detailed content:
 
 **Example format:**
 
-`````markdown
+```markdown
 Brief overview paragraph 1 introducing the report and its main findings.
 
 Optional overview paragraph 2 with additional context or highlights.
@@ -25,13 +25,15 @@ Optional overview paragraph 2 with additional context or highlights.
 Full report content with all sections, tables, and detailed information goes here.
 
 ### Section 1
+
 [Content]
 
 ### Section 2
+
 [Content]
 
 </details>
-`````
+```
 
 ## Footer Attribution
 

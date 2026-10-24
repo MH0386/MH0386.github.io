@@ -15,12 +15,14 @@ The whole technique is three rules.
 
 ```css
 .graphic {
-  container-type: inline-size;   /* 1cqw now means 1% of this box */
-  aspect-ratio: 16 / 9;          /* height follows width, so it scales as one */
+  container-type: inline-size; /* 1cqw now means 1% of this box */
+  aspect-ratio: 16 / 9; /* height follows width, so it scales as one */
   position: relative;
 }
 
-.graphic_title { font-size: 5cqw; }
+.graphic_title {
+  font-size: 5cqw;
+}
 .graphic_card {
   position: absolute;
   inset: 10cqw 4cqw auto;
@@ -44,7 +46,7 @@ Halve the container and every number halves with it. Verified: at 800px wide a
 ## The three ways this breaks
 
 **A container's own `cqw` does not mean itself.** `cqw` on `.graphic` resolves
-against `.graphic`'s *nearest ancestor* container — and if there is none, the
+against `.graphic`'s _nearest ancestor_ container — and if there is none, the
 viewport. Measured: `border-radius: 5cqw` on the artboard computed to **50px in
 a 1000px window**, not the 40px that 5% of its own 800px width would be. It
 drifts as the window resizes and has nothing to do with the graphic.

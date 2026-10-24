@@ -12,13 +12,11 @@ const { render = true, class: className, ...rest } = Astro.props;
 const content = await slotContent(Astro.slots);
 ---
 
-{
-  render && content && (
-    <ol class:list={["timeline_wrap", className]} {...rest}>
-      <Fragment set:html={content} />
-    </ol>
-  )
-}
+{render && content && (
+  <ol class:list={["timeline_wrap", className]} {...rest}>
+    <Fragment set:html={content} />
+  </ol>
+)}
 
 <style is:global>
   @layer components {

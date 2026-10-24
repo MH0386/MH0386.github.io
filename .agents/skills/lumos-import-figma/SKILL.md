@@ -19,12 +19,12 @@ writing anything.
 Three conversions are always needed, because the file physically cannot hold
 the values this system uses.
 
-| In Figma | In Lumos | Conversion |
-| --- | --- | --- |
-| `32px` | `2rem` | ÷ 16 |
-| line height `70px` on a `64px` size | `1.094` | line height ÷ font size |
-| letter spacing `-2.4px` on an `80px` size | `-0.03em` | letter spacing ÷ font size, or % ÷ 100 |
-| `#FFFFFF` at 60% opacity | `color-mix(in lab, var(--light-100) 60%, transparent)` | alpha becomes the mix percentage |
+| In Figma                                  | In Lumos                                               | Conversion                             |
+| ----------------------------------------- | ------------------------------------------------------ | -------------------------------------- |
+| `32px`                                    | `2rem`                                                 | ÷ 16                                   |
+| line height `70px` on a `64px` size       | `1.094`                                                | line height ÷ font size                |
+| letter spacing `-2.4px` on an `80px` size | `-0.03em`                                              | letter spacing ÷ font size, or % ÷ 100 |
+| `#FFFFFF` at 60% opacity                  | `color-mix(in lab, var(--light-100) 60%, transparent)` | alpha becomes the mix percentage       |
 
 One refinement on the last row. If the faded hex is whatever a theme uses for
 `--text`, the answer is `currentcolor`, not that swatch — otherwise the muted
@@ -64,7 +64,7 @@ the report has to say which is which.
    much of the system the designer actually used.
 
 2. **Inventory before converting.** List every distinct spacing value, type
-   size with its line height, and color with its opacity. Distinct *values*,
+   size with its line height, and color with its opacity. Distinct _values_,
    not distinct layers — the same 24px appearing eleven times is one value.
 
 3. **Convert and match.** Write the inventory to JSON and run the script:
@@ -80,12 +80,12 @@ the report has to say which is which.
 
    ```json
    {
-     "space":  [{ "name": "stack gap", "px": 30 }],
-     "type":   [{ "name": "Section title", "sizePx": 64, "lineHeightPx": 70 }],
+     "space": [{ "name": "stack gap", "px": 30 }],
+     "type": [{ "name": "Section title", "sizePx": 64, "lineHeightPx": 70 }],
      "letter": [{ "name": "Hero tracking", "px": -2.4, "sizePx": 80 }],
      "radius": [{ "name": "Card corner", "px": 16 }],
      "weight": [{ "name": "Heading", "value": "Medium" }],
-     "color":  [{ "name": "Muted label", "hex": "#FFFFFF", "alpha": 0.6 }]
+     "color": [{ "name": "Muted label", "hex": "#FFFFFF", "alpha": 0.6 }]
    }
    ```
 
@@ -119,17 +119,17 @@ the report has to say which is which.
    `TO PLACE BY HAND`; it does not touch `base.css`. Where a token goes says
    what it means, and `:root` is ordered by kind — put each one with its own:
 
-   | Kind | Goes beside |
-   | --- | --- |
-   | spacing | `--space-8`, before the section-space group |
-   | section spacing | `--section-space-large` |
-   | type size | the `h1`–`h6` / `text-*` block, in size order |
-   | line height | the four `--line-height-*` values |
-   | letter spacing | beside `--letter-spacing-tight` / `-normal` |
-   | radius | the `--radius-*` group |
-   | font weight | the `--primary-*` weights |
-   | swatch | the swatch list at the top of `:root` |
-   | themed color | **every** theme block — `:root`, `.theme-dark`, `.theme-brand` — or it breaks on one theme |
+   | Kind            | Goes beside                                                                                |
+   | --------------- | ------------------------------------------------------------------------------------------ |
+   | spacing         | `--space-8`, before the section-space group                                                |
+   | section spacing | `--section-space-large`                                                                    |
+   | type size       | the `h1`–`h6` / `text-*` block, in size order                                              |
+   | line height     | the four `--line-height-*` values                                                          |
+   | letter spacing  | beside `--letter-spacing-tight` / `-normal`                                                |
+   | radius          | the `--radius-*` group                                                                     |
+   | font weight     | the `--primary-*` weights                                                                  |
+   | swatch          | the swatch list at the top of `:root`                                                      |
+   | themed color    | **every** theme block — `:root`, `.theme-dark`, `.theme-brand` — or it breaks on one theme |
 
    A fluid token is three lines (`-min`, `-max`, and the `clamp()`), and the
    `clamp()` the script prints already matches the formula the others use.
@@ -164,7 +164,7 @@ the report has to say which is which.
    ```
 
    Screenshot the built page at the same width as the frame you measured, and
-   check the two side by side. Then check the width you did *not* measure —
+   check the two side by side. Then check the width you did _not_ measure —
    a design given only at 1440px still has to survive 375px, and that is where
    derived mins show up as wrong. Report what does not match rather than
    quietly adjusting tokens until it does: a mismatch is often the design

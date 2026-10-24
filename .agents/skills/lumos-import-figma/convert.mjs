@@ -46,8 +46,6 @@ const flag = (name) => {
   const i = args.indexOf(`--${name}`);
   return i === -1 ? undefined : args[i + 1];
 };
-const has = (name) => args.includes(`--${name}`);
-
 const cssPath = flag("css") ?? "src/styles/base.css";
 
 /* ---------- read what the system already has ---------- */
@@ -89,16 +87,27 @@ function readTokens(css) {
   }
 
   const swatches = {};
-  for (const m of css.matchAll(/--([a-z]+-\d+|brand-text):\s*(#[0-9a-fA-F]{3,8})/g)) {
+  for (const m of css.matchAll(
+    /--([a-z]+-\d+|brand-text):\s*(#[0-9a-fA-F]{3,8})/g,
+  )) {
     swatches[`--${m[1]}`] = m[2].toLowerCase();
   }
 
   /* Swatches that some theme uses as --text. A muted version of one of these
      is nearly always currentcolor in this system, not a fixed colour. */
   const textSwatches = new Set();
-  for (const m of css.matchAll(/--text:\s*var\((--[a-z0-9-]+)\)/g)) textSwatches.add(m[1]);
+  for (const m of css.matchAll(/--text:\s*var\((--[a-z0-9-]+)\)/g))
+    textSwatches.add(m[1]);
 
-  return { scale, lineHeights, letterSpacing, radii, weights, swatches, textSwatches };
+  return {
+    scale,
+    lineHeights,
+    letterSpacing,
+    radii,
+    weights,
+    swatches,
+    textSwatches,
+  };
 }
 
 /* ---------- conversions ---------- */
@@ -117,13 +126,18 @@ function nearest(px, scale, kindFilter) {
     if (kindFilter && !kindFilter(name)) continue;
     const delta = Math.abs(v.max - px);
     const better =
-      !best || delta < best.delta || (delta === best.delta && rank(name) < rank(best.name));
+      !best ||
+      delta < best.delta ||
+      (delta === best.delta && rank(name) < rank(best.name));
     if (better) best = { name, delta, ...v };
   }
   return best;
 }
 
-const isSpace = (n) => n.startsWith("space") || n.startsWith("section-space") || n.startsWith("site-");
+const isSpace = (n) =>
+  n.startsWith("space") ||
+  n.startsWith("section-space") ||
+  n.startsWith("site-");
 const isType = (n) => /^(display|h[1-6]|text-(large|main|small))$/.test(n);
 
 /** Mobile end of a new token, borrowed from whichever token is closest in size. */
@@ -131,7 +145,11 @@ function deriveMin(maxPx, scale, kindFilter) {
   const ref = nearest(maxPx, scale, kindFilter);
   if (!ref) return { min: maxPx, ref: null, ratio: 1 };
   const ratio = ref.min / ref.max;
-  return { min: Math.round(maxPx * ratio), ref: ref.name, ratio: +ratio.toFixed(3) };
+  return {
+    min: Math.round(maxPx * ratio),
+    ref: ref.name,
+    ratio: +ratio.toFixed(3),
+  };
 }
 
 function nearestValue(value, table) {
@@ -145,9 +163,20 @@ function nearestValue(value, table) {
 
 /* Figma names weights, CSS numbers them. */
 const WEIGHT_NAMES = {
-  thin: 100, extralight: 200, ultralight: 200, light: 300, regular: 400,
-  normal: 400, book: 400, medium: 500, semibold: 600, demibold: 600,
-  bold: 700, extrabold: 800, black: 900, heavy: 900,
+  thin: 100,
+  extralight: 200,
+  ultralight: 200,
+  light: 300,
+  regular: 400,
+  normal: 400,
+  book: 400,
+  medium: 500,
+  semibold: 600,
+  demibold: 600,
+  bold: 700,
+  extrabold: 800,
+  black: 900,
+  heavy: 900,
 };
 
 function nearestLineHeight(value, lineHeights) {
@@ -161,7 +190,11 @@ function nearestLineHeight(value, lineHeights) {
 
 const hexToRgb = (hex) => {
   let h = hex.replace("#", "");
-  if (h.length === 3) h = h.split("").map((c) => c + c).join("");
+  if (h.length === 3)
+    h = h
+      .split("")
+      .map((c) => c + c)
+      .join("");
   return [0, 2, 4].map((i) => parseInt(h.slice(i, i + 2), 16));
 };
 
@@ -186,7 +219,8 @@ const luminance = ([r, g, b]) =>
   0.2126 * toLinear(r) + 0.7152 * toLinear(g) + 0.0722 * toLinear(b);
 
 /** Alpha is opacity over a background, so flatten before measuring. */
-const composite = (fg, bg, alpha) => fg.map((c, i) => alpha * c + (1 - alpha) * bg[i]);
+const composite = (fg, bg, alpha) =>
+  fg.map((c, i) => alpha * c + (1 - alpha) * bg[i]);
 
 function contrastRatio(fgHex, bgHex, alpha = 1) {
   const bg = hexToRgb(bgHex);
@@ -202,7 +236,8 @@ const contrastFloor = (sizePx, bold) =>
 /** Alpha in Figma is a stand-in for a mix, so restate it as one. */
 function toColorMix(hex, alphaPct, swatches) {
   const match = nearestSwatch(hex, swatches);
-  const base = match && match.d === 0 ? `var(${match.name})` : hex.toLowerCase();
+  const base =
+    match && match.d === 0 ? `var(${match.name})` : hex.toLowerCase();
   if (alphaPct >= 100) return { css: base, match };
   return { css: `color-mix(in lab, ${base} ${alphaPct}%, transparent)`, match };
 }
@@ -221,8 +256,13 @@ if (flag("px") !== undefined) {
   const near = nearest(px, tokens.scale, isSpace);
   console.log(`${px}px = ${toRem(px)}rem`);
   if (near) {
-    const verdict = near.delta <= SNAP_PX ? `SNAP to --${near.name}` : `no token within ${SNAP_PX}px`;
-    console.log(`nearest: --${near.name} (${near.min}→${near.max}), off by ${near.delta}px — ${verdict}`);
+    const verdict =
+      near.delta <= SNAP_PX
+        ? `SNAP to --${near.name}`
+        : `no token within ${SNAP_PX}px`;
+    console.log(
+      `nearest: --${near.name} (${near.min}→${near.max}), off by ${near.delta}px — ${verdict}`,
+    );
   }
   process.exit(0);
 }
@@ -233,8 +273,11 @@ if (flag("lh")) {
   const near = nearestLineHeight(value, tokens.lineHeights);
   console.log(`${lh}px / ${size}px = ${value}`);
   if (near) {
-    const verdict = near.delta <= SNAP_LH ? `SNAP to ${near.name}` : "no token close enough";
-    console.log(`nearest: ${near.name} (${near.value}), off by ${near.delta.toFixed(3)} — ${verdict}`);
+    const verdict =
+      near.delta <= SNAP_LH ? `SNAP to ${near.name}` : "no token close enough";
+    console.log(
+      `nearest: ${near.name} (${near.value}), off by ${near.delta.toFixed(3)} — ${verdict}`,
+    );
   }
   process.exit(0);
 }
@@ -244,12 +287,18 @@ if (flag("ls")) {
   const raw = flag("ls");
   const em = raw.endsWith("%")
     ? +(Number(raw.slice(0, -1)) / 100).toFixed(4)
-    : (() => { const [px, size] = raw.split("/").map(Number); return +(px / size).toFixed(4); })();
+    : (() => {
+        const [px, size] = raw.split("/").map(Number);
+        return +(px / size).toFixed(4);
+      })();
   const near = nearestValue(em, tokens.letterSpacing);
   console.log(`${raw} = ${em}em`);
   if (near) {
-    const verdict = near.delta <= 0.005 ? `SNAP to ${near.name}` : "no token close enough";
-    console.log(`nearest: ${near.name} (${near.value}em), off by ${near.delta.toFixed(4)} — ${verdict}`);
+    const verdict =
+      near.delta <= 0.005 ? `SNAP to ${near.name}` : "no token close enough";
+    console.log(
+      `nearest: ${near.name} (${near.value}em), off by ${near.delta.toFixed(4)} — ${verdict}`,
+    );
   }
   process.exit(0);
 }
@@ -259,7 +308,10 @@ if (flag("color")) {
   const alpha = pct === undefined ? 100 : Number(pct);
   const { css: out, match } = toColorMix(hex, alpha, tokens.swatches);
   console.log(out);
-  if (match) console.log(`nearest swatch: ${match.name} (${match.value}), distance ${match.d}`);
+  if (match)
+    console.log(
+      `nearest swatch: ${match.name} (${match.value}), distance ${match.d}`,
+    );
   process.exit(0);
 }
 
@@ -276,7 +328,9 @@ const design = JSON.parse(readFileSync(jsonPath, "utf8"));
 const KNOWN = ["space", "type", "color", "letter", "radius", "weight"];
 const unknown = Object.keys(design).filter((k) => !KNOWN.includes(k));
 if (unknown.length) {
-  console.error(`unknown key(s): ${unknown.join(", ")}. Expected any of: ${KNOWN.join(", ")}`);
+  console.error(
+    `unknown key(s): ${unknown.join(", ")}. Expected any of: ${KNOWN.join(", ")}`,
+  );
   process.exit(1);
 }
 if (!KNOWN.some((k) => (design[k] ?? []).length)) {
@@ -293,42 +347,73 @@ for (const item of design.space ?? []) {
   if (near && near.delta === 0) {
     rows.push([item.name, `${item.px}px`, `--${near.name}`, "exact"]);
   } else if (near && near.delta <= SNAP_PX) {
-    rows.push([item.name, `${item.px}px`, `--${near.name}`, `snapped, off by ${near.delta}px`]);
+    rows.push([
+      item.name,
+      `${item.px}px`,
+      `--${near.name}`,
+      `snapped, off by ${near.delta}px`,
+    ]);
   } else {
     const { min, ref, ratio } = deriveMin(item.px, tokens.scale, isSpace);
     const name = item.token ?? `space-${item.name}`;
     additions.push({ name, min, max: item.px, fluid: true });
-    rows.push([item.name, `${item.px}px`, `--${name}`, `NEW — min ${min} guessed from --${ref} (${ratio})`]);
-    questions.push(`--${name}: ${item.px}px is ${near ? `${near.delta}px off --${near.name}` : "unmatched"}. New token, or consolidate?`);
+    rows.push([
+      item.name,
+      `${item.px}px`,
+      `--${name}`,
+      `NEW — min ${min} guessed from --${ref} (${ratio})`,
+    ]);
+    questions.push(
+      `--${name}: ${item.px}px is ${near ? `${near.delta}px off --${near.name}` : "unmatched"}. New token, or consolidate?`,
+    );
   }
 }
 
 for (const item of design.type ?? []) {
   const near = nearest(item.sizePx, tokens.scale, isType);
-  const lh = item.lineHeightPx ? unitless(item.lineHeightPx, item.sizePx) : null;
+  const lh = item.lineHeightPx
+    ? unitless(item.lineHeightPx, item.sizePx)
+    : null;
   const lhNear = lh ? nearestLineHeight(lh, tokens.lineHeights) : null;
   const sizeNote =
-    near && near.delta === 0 ? "exact"
-    : near && near.delta <= SNAP_PX ? `snapped, off by ${near.delta}px`
-    : "NEW";
-  const sizeToken = sizeNote === "NEW" ? `--${item.token ?? item.name}` : `--${near.name}`;
+    near && near.delta === 0
+      ? "exact"
+      : near && near.delta <= SNAP_PX
+        ? `snapped, off by ${near.delta}px`
+        : "NEW";
+  const sizeToken =
+    sizeNote === "NEW" ? `--${item.token ?? item.name}` : `--${near.name}`;
   rows.push([item.name, `${item.sizePx}px`, sizeToken, sizeNote]);
   if (lh) {
     const note =
       lhNear && lhNear.delta <= SNAP_LH
         ? `snapped to ${lhNear.name}`
         : `NEW — no line-height token within ${SNAP_LH}`;
-    rows.push([`${item.name} line-height`, `${item.lineHeightPx}/${item.sizePx}`, String(lh), note]);
+    rows.push([
+      `${item.name} line-height`,
+      `${item.lineHeightPx}/${item.sizePx}`,
+      String(lh),
+      note,
+    ]);
     if (!lhNear || lhNear.delta > SNAP_LH) {
-      questions.push(`${item.name} line-height ${lh} has no token. Add one, or use ${lhNear?.name}?`);
+      questions.push(
+        `${item.name} line-height ${lh} has no token. Add one, or use ${lhNear?.name}?`,
+      );
     }
   }
   if (sizeNote === "NEW") {
     const { min, ref, ratio } = deriveMin(item.sizePx, tokens.scale, isType);
-    additions.push({ name: item.token ?? item.name, min, max: item.sizePx, fluid: true });
+    additions.push({
+      name: item.token ?? item.name,
+      min,
+      max: item.sizePx,
+      fluid: true,
+    });
     rows[rows.length - (item.lineHeightPx ? 2 : 1)][3] =
       `NEW — min ${min} guessed from --${ref} (${ratio})`;
-    questions.push(`${item.name} at ${item.sizePx}px is unmatched (min ${min} guessed from --${ref}, ratio ${ratio}). New size, or consolidate?`);
+    questions.push(
+      `${item.name} at ${item.sizePx}px is unmatched (min ${min} guessed from --${ref}, ratio ${ratio}). New size, or consolidate?`,
+    );
   }
 }
 
@@ -337,10 +422,15 @@ for (const item of design.color ?? []) {
   const { css: value, match } = toColorMix(item.hex, alpha, tokens.swatches);
   const note =
     match && match.d === 0
-      ? alpha < 100 ? "opacity restated as a mix" : "exact swatch"
+      ? alpha < 100
+        ? "opacity restated as a mix"
+        : "exact swatch"
       : `NEW — nearest ${match?.name} is ${match?.d} away`;
   const asText =
-    match && match.d === 0 && alpha < 100 && tokens.textSwatches.has(match.name);
+    match &&
+    match.d === 0 &&
+    alpha < 100 &&
+    tokens.textSwatches.has(match.name);
   rows.push([
     item.name,
     `${item.hex}${alpha < 100 ? ` @${alpha}%` : ""}`,
@@ -360,23 +450,34 @@ for (const item of design.color ?? []) {
 
   if (!match || match.d !== 0) {
     additions.push({ name: item.token ?? item.name, value, fluid: false });
-    questions.push(`${item.name} ${item.hex} matches no swatch (nearest ${match?.name}). New color, or use the existing one?`);
+    questions.push(
+      `${item.name} ${item.hex} matches no swatch (nearest ${match?.name}). New color, or use the existing one?`,
+    );
   }
 }
 
 for (const item of design.letter ?? []) {
-  const em = item.pct !== undefined
-    ? +(item.pct / 100).toFixed(4)
-    : +(item.px / item.sizePx).toFixed(4);
+  const em =
+    item.pct !== undefined
+      ? +(item.pct / 100).toFixed(4)
+      : +(item.px / item.sizePx).toFixed(4);
   const near = nearestValue(em, tokens.letterSpacing);
-  const from = item.pct !== undefined ? `${item.pct}%` : `${item.px}/${item.sizePx}`;
+  const from =
+    item.pct !== undefined ? `${item.pct}%` : `${item.px}/${item.sizePx}`;
   if (near && near.delta <= 0.005) {
     rows.push([item.name, from, `${em}em`, `snapped to ${near.name}`]);
   } else {
     const name = item.token ?? `letter-spacing-${item.name}`;
     additions.push({ name, value: `${em}em`, fluid: false });
-    rows.push([item.name, from, `${em}em`, `NEW — nearest ${near?.name} is ${near?.delta.toFixed(4)} away`]);
-    questions.push(`${item.name} letter-spacing ${em}em has no token. Add one, or use ${near?.name}?`);
+    rows.push([
+      item.name,
+      from,
+      `${em}em`,
+      `NEW — nearest ${near?.name} is ${near?.delta.toFixed(4)} away`,
+    ]);
+    questions.push(
+      `${item.name} letter-spacing ${em}em has no token. Add one, or use ${near?.name}?`,
+    );
   }
 }
 
@@ -385,19 +486,36 @@ for (const item of design.radius ?? []) {
   const near = nearestValue(rem, tokens.radii);
   const offPx = near ? Math.abs(near.value * ROOT_PX - item.px) : Infinity;
   if (near && offPx <= SNAP_PX) {
-    rows.push([item.name, `${item.px}px`, near.name, offPx === 0 ? "exact" : `snapped, off by ${offPx}px`]);
+    rows.push([
+      item.name,
+      `${item.px}px`,
+      near.name,
+      offPx === 0 ? "exact" : `snapped, off by ${offPx}px`,
+    ]);
   } else {
     const name = item.token ?? `radius-${item.name}`;
     additions.push({ name, value: `${rem}rem`, fluid: false });
-    rows.push([item.name, `${item.px}px`, `--${name}`, `NEW — nearest ${near?.name} is ${offPx}px away`]);
-    questions.push(`${item.name} radius ${item.px}px has no token. Add one, or use ${near?.name}?`);
+    rows.push([
+      item.name,
+      `${item.px}px`,
+      `--${name}`,
+      `NEW — nearest ${near?.name} is ${offPx}px away`,
+    ]);
+    questions.push(
+      `${item.name} radius ${item.px}px has no token. Add one, or use ${near?.name}?`,
+    );
   }
 }
 
 for (const item of design.weight ?? []) {
-  const num = typeof item.value === "number"
-    ? item.value
-    : WEIGHT_NAMES[String(item.value).toLowerCase().replace(/[^a-z]/g, "")];
+  const num =
+    typeof item.value === "number"
+      ? item.value
+      : WEIGHT_NAMES[
+          String(item.value)
+            .toLowerCase()
+            .replace(/[^a-z]/g, "")
+        ];
   if (!num) {
     rows.push([item.name, String(item.value), "?", "UNKNOWN weight name"]);
     questions.push(`${item.name}: could not read the weight "${item.value}".`);
@@ -407,8 +525,15 @@ for (const item of design.weight ?? []) {
   if (near && near.delta === 0) {
     rows.push([item.name, String(item.value), near.name, `exact (${num})`]);
   } else {
-    rows.push([item.name, String(item.value), String(num), `NEW — nearest ${near?.name} is ${near?.value}`]);
-    questions.push(`${item.name} is weight ${num}; the system has ${Object.values(tokens.weights).join(", ")}. Add it, or use ${near?.name}?`);
+    rows.push([
+      item.name,
+      String(item.value),
+      String(num),
+      `NEW — nearest ${near?.name} is ${near?.value}`,
+    ]);
+    questions.push(
+      `${item.name} is weight ${num}; the system has ${Object.values(tokens.weights).join(", ")}. Add it, or use ${near?.name}?`,
+    );
   }
 }
 
@@ -420,19 +545,28 @@ try {
 } catch {}
 console.log(`lumos-import-figma ${SKILL_VERSION}  ·  Lumos ${lumosVersion}`);
 const feature = (v) => v.split(".").slice(0, 2).join(".");
-if (lumosVersion !== "unknown" && feature(lumosVersion) !== feature(TESTED_AGAINST)) {
-  console.log(`  note: written against Lumos ${TESTED_AGAINST}; check base.css still matches (patch releases are fine).`);
+if (
+  lumosVersion !== "unknown" &&
+  feature(lumosVersion) !== feature(TESTED_AGAINST)
+) {
+  console.log(
+    `  note: written against Lumos ${TESTED_AGAINST}; check base.css still matches (patch releases are fine).`,
+  );
 }
 console.log("");
 
-const widths = [0, 1, 2, 3].map((i) => Math.max(...rows.map((r) => String(r[i]).length), 4));
+const widths = [0, 1, 2, 3].map((i) =>
+  Math.max(...rows.map((r) => String(r[i]).length), 4),
+);
 const line = (r) => r.map((c, i) => String(c).padEnd(widths[i])).join("  ");
 console.log(line(["FROM", "FIGMA", "LUMOS", "NOTE"]));
 console.log(widths.map((w) => "-".repeat(w)).join("  "));
 for (const r of rows) console.log(line(r));
 
 if (contrastRows.length) {
-  const cw = [0, 1, 2, 3].map((i) => Math.max(...contrastRows.map((r) => String(r[i]).length), 4));
+  const cw = [0, 1, 2, 3].map((i) =>
+    Math.max(...contrastRows.map((r) => String(r[i]).length), 4),
+  );
   console.log("\nCONTRAST (flagged, not blocking):");
   for (const r of contrastRows) {
     console.log("  " + r.map((c, i) => String(c).padEnd(cw[i])).join("  "));
@@ -447,7 +581,9 @@ if (questions.length) {
 /* ---------- handoff ---------- */
 
 if (additions.length) {
-  console.log("\nTO PLACE BY HAND (section matters — put each beside its own kind):");
+  console.log(
+    "\nTO PLACE BY HAND (section matters — put each beside its own kind):",
+  );
   for (const a of additions) {
     if (a.fluid) {
       console.log(`  --${a.name}-min: ${a.min};`);

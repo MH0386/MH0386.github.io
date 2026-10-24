@@ -10,7 +10,10 @@ const month = (date: Date): string => format(date, "MMMM yyyy");
  * A month label, a start–end range, or "Present" while the period is open.
  * Returns undefined when the start date was never recorded.
  */
-export const formatPeriod = (start?: Date, end?: Date | null): string | undefined => {
+export const formatPeriod = (
+  start?: Date,
+  end?: Date | null,
+): string | undefined => {
   if (!start) return undefined;
   if (end === null) return `${month(start)} – Present`;
   if (!end || isSameMonth(start, end)) return month(start);

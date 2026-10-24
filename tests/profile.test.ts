@@ -100,7 +100,10 @@ test("described projects keep the published facts", () => {
   );
   assert.deepEqual(byTitle["Chatacter"].start, new Date(2026, 9, 1));
   assert.equal(byTitle["Chatacter"].end, null);
-  assert.equal(byTitle["Chatacter"].href, "https://github.com/MH0386/Chatacter");
+  assert.equal(
+    byTitle["Chatacter"].href,
+    "https://github.com/MH0386/Chatacter",
+  );
   assert.equal(projects.filter((project) => project.href).length, 1);
 });
 
@@ -116,10 +119,7 @@ test("experience text leads with the organization", () => {
       "February 2023 – April 2023",
     ],
   );
-  assert.equal(
-    experience[0].text,
-    "NASA Space Apps Cairo. Cairo, Egypt.",
-  );
+  assert.equal(experience[0].text, "NASA Space Apps Cairo. Cairo, Egypt.");
   assert.equal(experience[1].text, "DotPy.");
   assert.match(experience[2].text, /^Science Land\. Cairo, Egypt\./);
   assert.match(experience[3].text, /Worked on 3 projects\./);

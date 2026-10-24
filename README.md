@@ -38,13 +38,14 @@ cd portfolio
 npm run dev
 ```
 
-| Script            | What it does                      |
-| ----------------- | --------------------------------- |
-| `npm run dev`     | Starts the dev server             |
-| `npm run build`   | Builds the site to `dist/`        |
-| `npm run preview` | Serves the built site             |
-| `npm run check`   | Type-checks every `.astro` file   |
-| `npm run format`  | Formats the project with Prettier |
+| Script            | What it does                    |
+| ----------------- | ------------------------------- |
+| `npm run dev`     | Starts the dev server           |
+| `npm run build`   | Builds the site to `dist/`      |
+| `npm run preview` | Serves the built site           |
+| `npm run check`   | Type-checks every `.astro` file |
+| `npm run format`  | Formats the project with Oxfmt  |
+| `npm run lint`    | Lints the project with Oxlint   |
 
 Use the current Node.js LTS. The Pages workflow and `.nvmrc` both request it with `lts/*`, which resolves when you install or deploy.
 

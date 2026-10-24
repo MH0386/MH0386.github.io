@@ -83,7 +83,15 @@ const isComponent = (c) => !isFramework(c) && !isUtility(c) && !isState(c);
 const prefixOf = (c) => c.split(/[_-]/)[0].toLowerCase();
 
 /* Third-party CSS arrives in the same stylesheet but is not the site's. */
-const LIBRARY = new Set(["swiper", "lenis", "gsap", "splide", "lottie", "plyr", "fslightbox"]);
+const LIBRARY = new Set([
+  "swiper",
+  "lenis",
+  "gsap",
+  "splide",
+  "lottie",
+  "plyr",
+  "fslightbox",
+]);
 
 if (!wanted) {
   const groups = new Map();
@@ -116,16 +124,24 @@ if (!wanted) {
     .filter(([name]) => !LIBRARY.has(name))
     .sort((a, b) => b[1].rules - a[1].rules);
   const libs = [...groups.entries()].filter(([name]) => LIBRARY.has(name));
-  console.log(`${rules.length} rules · ${sorted.length} component groups · ${global} element-only · ${utilities.length} utility`);
+  console.log(
+    `${rules.length} rules · ${sorted.length} component groups · ${global} element-only · ${utilities.length} utility`,
+  );
   if (utilities.length) {
     const counts = new Map();
     for (const u of utilities) counts.set(u, (counts.get(u) ?? 0) + 1);
     const top = [...counts.entries()].sort((a, b) => b[1] - a[1]).slice(0, 6);
-    console.log(`utilities: ${counts.size} distinct — ${top.map(([c, n]) => `${c} ×${n}`).join(", ")}`);
-    console.log("  (u-* is Lumos for Webflow's convention — these usually map to a Lumos component or utility, not to CSS worth keeping)");
+    console.log(
+      `utilities: ${counts.size} distinct — ${top.map(([c, n]) => `${c} ×${n}`).join(", ")}`,
+    );
+    console.log(
+      "  (u-* is Lumos for Webflow's convention — these usually map to a Lumos component or utility, not to CSS worth keeping)",
+    );
   }
   console.log("");
-  console.log("GROUP".padEnd(22) + "RULES".padStart(6) + "  CLASSES  SHARED SELECTORS");
+  console.log(
+    "GROUP".padEnd(22) + "RULES".padStart(6) + "  CLASSES  SHARED SELECTORS",
+  );
   for (const [name, g] of sorted) {
     console.log(
       name.padEnd(22) +
@@ -135,8 +151,11 @@ if (!wanted) {
     );
   }
   if (libs.length) {
-    console.log("\nLIBRARY CSS — not the site's, do not split into components:");
-    for (const [name, g] of libs) console.log(`  ${name.padEnd(20)} ${g.rules} rules`);
+    console.log(
+      "\nLIBRARY CSS — not the site's, do not split into components:",
+    );
+    for (const [name, g] of libs)
+      console.log(`  ${name.padEnd(20)} ${g.rules} rules`);
   }
   console.log(
     "\nSHARED SELECTORS touch more than one group — those rules cannot move" +
@@ -151,7 +170,9 @@ const shared = [];
 for (const rule of rules) {
   const classes = classesOf(rule.selector).filter(isComponent);
   if (!classes.some((c) => prefixOf(c) === wanted.toLowerCase())) continue;
-  const others = new Set(classes.map(prefixOf).filter((p) => p !== wanted.toLowerCase()));
+  const others = new Set(
+    classes.map(prefixOf).filter((p) => p !== wanted.toLowerCase()),
+  );
   (others.size ? shared : mine).push({ ...rule, others: [...others] });
 }
 
@@ -172,7 +193,10 @@ const emit = (list) => {
     if (key) console.log(`${key} {`);
     for (const r of group) {
       console.log(`${indent}${r.selector} {`);
-      for (const decl of r.body.split(";").map((d) => d.trim()).filter(Boolean)) {
+      for (const decl of r.body
+        .split(";")
+        .map((d) => d.trim())
+        .filter(Boolean)) {
         console.log(`${indent}  ${decl};`);
       }
       console.log(`${indent}}`);
@@ -185,7 +209,11 @@ console.log(`/* ${wanted}: ${mine.length} rule(s) that belong to it alone */`);
 emit(mine);
 
 if (shared.length) {
-  console.log(`\n/* ${shared.length} rule(s) also touch: ${[...new Set(shared.flatMap((r) => r.others))].join(", ")}`);
-  console.log("   Decide for each: move it, duplicate it, or leave it global. */");
+  console.log(
+    `\n/* ${shared.length} rule(s) also touch: ${[...new Set(shared.flatMap((r) => r.others))].join(", ")}`,
+  );
+  console.log(
+    "   Decide for each: move it, duplicate it, or leave it global. */",
+  );
   emit(shared);
 }

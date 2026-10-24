@@ -32,7 +32,9 @@ const arg = (n) => {
 const live = arg("live");
 const local = arg("local");
 if (!live || !local) {
-  console.error("usage: compare-pages.mjs --live <url> --local <url> [--shots]");
+  console.error(
+    "usage: compare-pages.mjs --live <url> --local <url> [--shots]",
+  );
   process.exit(1);
 }
 
@@ -43,9 +45,14 @@ const strip = (html) =>
     .replace(/<!--[\s\S]*?-->/g, "");
 
 const text = (s) =>
-  s.replace(/<[^>]+>/g, " ").replace(/&nbsp;/g, " ").replace(/&amp;/g, "&")
-   .replace(/&#x27;|&#39;/g, "'").replace(/&quot;/g, '"')
-   .replace(/\s+/g, " ").trim();
+  s
+    .replace(/<[^>]+>/g, " ")
+    .replace(/&nbsp;/g, " ")
+    .replace(/&amp;/g, "&")
+    .replace(/&#x27;|&#39;/g, "'")
+    .replace(/&quot;/g, '"')
+    .replace(/\s+/g, " ")
+    .trim();
 
 /** A page reduced to the things that must survive a migration. */
 function fingerprint(html) {
@@ -62,7 +69,9 @@ function fingerprint(html) {
     if (!href || href.startsWith("#")) continue;
     /* Origins differ by definition; compare paths. */
     let path = href;
-    try { path = new URL(href, "https://x.invalid").pathname; } catch {}
+    try {
+      path = new URL(href, "https://x.invalid").pathname;
+    } catch {}
     path = path.replace(/\/$/, "") || "/";
     const label = text(m[2]);
     links.set(`${path}||${label}`, { path, label });
@@ -73,7 +82,12 @@ function fingerprint(html) {
     const alt = (m[1].match(/alt="([^"]*)"/) ?? [])[1] ?? "";
     const src = (m[1].match(/src="([^"]*)"/) ?? [])[1] ?? "";
     /* Filenames survive a migration; hashes and CDN hosts do not. */
-    const base = src.split("/").pop()?.split("?")[0]?.replace(/\.[a-z0-9]+$/i, "") ?? "";
+    const base =
+      src
+        .split("/")
+        .pop()
+        ?.split("?")[0]
+        ?.replace(/\.[a-z0-9]+$/i, "") ?? "";
     images.push({ alt, base });
   }
 
@@ -87,19 +101,30 @@ function fingerprint(html) {
 
   const words = text(clean).split(" ").filter(Boolean);
 
-  return { headings, links, images, fields, words: words.length, body: text(clean) };
+  return {
+    headings,
+    links,
+    images,
+    fields,
+    words: words.length,
+    body: text(clean),
+  };
 }
 
 const get = async (url) => {
-  const res = await fetch(url, { headers: { "user-agent": "lumos-import-webflow" } });
+  const res = await fetch(url, {
+    headers: { "user-agent": "lumos-import-webflow" },
+  });
   if (!res.ok) throw new Error(`${url} → HTTP ${res.status}`);
   return res.text();
 };
 
-const [liveHtml, localHtml] = await Promise.all([get(live), get(local)]).catch((e) => {
-  console.error(`could not fetch: ${e.message}`);
-  process.exit(1);
-});
+const [liveHtml, localHtml] = await Promise.all([get(live), get(local)]).catch(
+  (e) => {
+    console.error(`could not fetch: ${e.message}`);
+    process.exit(1);
+  },
+);
 
 const A = fingerprint(liveHtml);
 const B = fingerprint(localHtml);
@@ -113,19 +138,34 @@ const say = (ok, label, detail) => {
 console.log(`live  ${live}\nlocal ${local}\n${"─".repeat(66)}`);
 
 console.log("\nCONTENT PARITY");
-say(A.headings.length === B.headings.length, "headings",
-    `${A.headings.length} live · ${B.headings.length} local`);
-say(A.links.size === B.links.size, "links",
-    `${A.links.size} live · ${B.links.size} local`);
-say(A.images.length === B.images.length, "images",
-    `${A.images.length} live · ${B.images.length} local`);
-say(A.fields.length === B.fields.length, "form fields",
-    `${A.fields.length} live · ${B.fields.length} local`);
+say(
+  A.headings.length === B.headings.length,
+  "headings",
+  `${A.headings.length} live · ${B.headings.length} local`,
+);
+say(
+  A.links.size === B.links.size,
+  "links",
+  `${A.links.size} live · ${B.links.size} local`,
+);
+say(
+  A.images.length === B.images.length,
+  "images",
+  `${A.images.length} live · ${B.images.length} local`,
+);
+say(
+  A.fields.length === B.fields.length,
+  "form fields",
+  `${A.fields.length} live · ${B.fields.length} local`,
+);
 
 /* Word count drifts with boilerplate, so only a big gap is meaningful. */
 const drift = A.words ? Math.abs(A.words - B.words) / A.words : 0;
-say(drift < 0.1, "word count",
-    `${A.words} live · ${B.words} local (${(drift * 100).toFixed(1)}% apart)`);
+say(
+  drift < 0.1,
+  "word count",
+  `${A.words} live · ${B.words} local (${(drift * 100).toFixed(1)}% apart)`,
+);
 
 /* Counts, not presence: three identical card titles that came back as one
    is a lost card, and a set comparison would call it a match. */
@@ -151,7 +191,9 @@ if (deficits.length) {
   for (const d of deficits) {
     const [level, ...rest] = d.k.split("|");
     const label = rest.join("|");
-    console.log(`  ${level}  ${label}${d.of > 1 ? `  (${d.missing} of ${d.of} missing)` : ""}`);
+    console.log(
+      `  ${level}  ${label}${d.of > 1 ? `  (${d.missing} of ${d.of} missing)` : ""}`,
+    );
     problems += d.missing;
   }
 }
@@ -165,7 +207,9 @@ if (surplus.length) {
   console.log("\nHEADINGS ON THE REBUILD, NOT LIVE");
   for (const s2 of surplus) {
     const [level, ...rest] = s2.k.split("|");
-    console.log(`  ${level}  ${rest.join("|")}${s2.extra > 1 ? `  ×${s2.extra}` : ""}`);
+    console.log(
+      `  ${level}  ${rest.join("|")}${s2.extra > 1 ? `  ×${s2.extra}` : ""}`,
+    );
   }
 }
 
@@ -174,7 +218,8 @@ const missingLinks = [...A.links.values()].filter(
 );
 if (missingLinks.length) {
   console.log("\nLINKS ON THE LIVE SITE, NOT REBUILT");
-  for (const l of missingLinks) console.log(`  ${l.path.padEnd(34)} "${l.label}"`);
+  for (const l of missingLinks)
+    console.log(`  ${l.path.padEnd(34)} "${l.label}"`);
   problems += missingLinks.length;
 }
 
@@ -203,26 +248,50 @@ if (process.argv.includes("--shots")) {
   if (!CHROME) {
     console.log("\n(no Chrome found — skipping screenshots)");
   } else {
-    const slug = new URL(local).pathname.replace(/\//g, "-").replace(/^-|-$/g, "") || "index";
+    const slug =
+      new URL(local).pathname.replace(/\//g, "-").replace(/^-|-$/g, "") ||
+      "index";
     const dir = join(".lumos-webflow", slug);
     mkdirSync(dir, { recursive: true });
-    for (const [label, url] of [["live", live], ["local", local]]) {
-      for (const [name, w] of [["desktop", 1440], ["mobile", 390]]) {
+    for (const [label, url] of [
+      ["live", live],
+      ["local", local],
+    ]) {
+      for (const [name, w] of [
+        ["desktop", 1440],
+        ["mobile", 390],
+      ]) {
         await run(CHROME, [
-          "--headless=new", "--disable-gpu", "--hide-scrollbars",
-          "--force-device-scale-factor=1", `--window-size=${w},3200`,
-          `--screenshot=${join(dir, `${label}--${name}.png`)}`, url,
-        ]).catch((e) => console.log(`  screenshot failed for ${url}: ${e.shortMessage ?? e.message}`));
+          "--headless=new",
+          "--disable-gpu",
+          "--hide-scrollbars",
+          "--force-device-scale-factor=1",
+          `--window-size=${w},3200`,
+          `--screenshot=${join(dir, `${label}--${name}.png`)}`,
+          url,
+        ]).catch((e) =>
+          console.log(
+            `  screenshot failed for ${url}: ${e.shortMessage ?? e.message}`,
+          ),
+        );
       }
     }
-    console.log(`\nScreenshots in ${dir}/ — compare live and local side by side.`);
-    console.log("They will not match exactly: spacing snaps to the token scale by design.");
-    console.log("Look for missing sections and wrong content, not for moved pixels.");
+    console.log(
+      `\nScreenshots in ${dir}/ — compare live and local side by side.`,
+    );
+    console.log(
+      "They will not match exactly: spacing snaps to the token scale by design.",
+    );
+    console.log(
+      "Look for missing sections and wrong content, not for moved pixels.",
+    );
   }
 }
 
 console.log(`\n${"─".repeat(66)}`);
-console.log(problems
-  ? `${problems} parity problem(s). Content missing from a rebuild is a migration bug, not a style choice.`
-  : "Content matches. Compare the screenshots for anything the text cannot show.");
+console.log(
+  problems
+    ? `${problems} parity problem(s). Content missing from a rebuild is a migration bug, not a style choice.`
+    : "Content matches. Compare the screenshots for anything the text cannot show.",
+);
 process.exit(problems ? 1 : 0);

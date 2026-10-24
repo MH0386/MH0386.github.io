@@ -103,7 +103,9 @@ function normalise(value) {
 
 /** A fluid token is its two endpoints; compare those, not the formula. */
 function endpoints(value) {
-  const clamp = /clamp\(\s*([\d.]+)rem[\s\S]*?,\s*([\d.]+)rem\s*\)\s*$/.exec(normalise(value));
+  const clamp = /clamp\(\s*([\d.]+)rem[\s\S]*?,\s*([\d.]+)rem\s*\)\s*$/.exec(
+    normalise(value),
+  );
   return clamp ? [Number(clamp[1]), Number(clamp[2])] : null;
 }
 
@@ -135,7 +137,9 @@ for (const [name, value] of wf) {
   const wfEnds = endpoints(value);
   const ourEnds = lumosEndpoints(target);
   if (wfEnds && ourEnds) {
-    const equal = Math.abs(wfEnds[0] - ourEnds[0]) < 0.001 && Math.abs(wfEnds[1] - ourEnds[1]) < 0.001;
+    const equal =
+      Math.abs(wfEnds[0] - ourEnds[0]) < 0.001 &&
+      Math.abs(wfEnds[1] - ourEnds[1]) < 0.001;
     (equal ? same : differs).push({
       target,
       theirs: `${wfEnds[0]}–${wfEnds[1]}rem`,
@@ -173,9 +177,15 @@ if (asSed) {
   }
   pairs.sort((a, b) => b[0].length - a[0].length); // longest first, so prefixes do not truncate
   console.log("#!/bin/sh");
-  console.log("# Renames Webflow variable references to this framework's names.");
-  console.log("# Run over the CSS carried across in pass 1, then rebuild and diff.");
-  console.log('# usage: sh rename-variables.sh src/components/**/*.astro src/styles/*.css');
+  console.log(
+    "# Renames Webflow variable references to this framework's names.",
+  );
+  console.log(
+    "# Run over the CSS carried across in pass 1, then rebuild and diff.",
+  );
+  console.log(
+    "# usage: sh rename-variables.sh src/components/**/*.astro src/styles/*.css",
+  );
   console.log('for f in "$@"; do');
   for (const [from, to] of pairs) {
     const esc = (v) => v.replace(/[-]/g, "\\-");
@@ -187,11 +197,15 @@ if (asSed) {
 }
 
 const rule = "─".repeat(72);
-console.log(`${wf.size} variables in the Webflow site · ${lumos.size} in ${baseCss}\n${rule}`);
+console.log(
+  `${wf.size} variables in the Webflow site · ${lumos.size} in ${baseCss}\n${rule}`,
+);
 console.log(`\n${same.length} already identical — nothing to do for those.`);
 
 if (differs.length) {
-  console.log(`\nDIFFERENT — port these or the rebuild will not match (${differs.length})`);
+  console.log(
+    `\nDIFFERENT — port these or the rebuild will not match (${differs.length})`,
+  );
   for (const d of differs) {
     console.log(`  ${d.target}`);
     console.log(`      site:  ${String(d.theirs).slice(0, 60)}`);
@@ -210,7 +224,9 @@ if (onlyHere.length) {
 }
 
 if (unmapped.length) {
-  console.log(`\nUNRECOGNISED NAMING — read these by hand (${unmapped.length})`);
+  console.log(
+    `\nUNRECOGNISED NAMING — read these by hand (${unmapped.length})`,
+  );
   for (const [name, value] of unmapped.slice(0, 12)) {
     console.log(`  ${name}: ${value.slice(0, 50)}`);
   }
@@ -218,6 +234,10 @@ if (unmapped.length) {
 }
 
 console.log(`\n${rule}`);
-console.log("Port the DIFFERENT list into base.css and the components render the");
-console.log("site's own design. Anything still off afterwards is a real difference,");
+console.log(
+  "Port the DIFFERENT list into base.css and the components render the",
+);
+console.log(
+  "site's own design. Anything still off afterwards is a real difference,",
+);
 console.log("not a token.");

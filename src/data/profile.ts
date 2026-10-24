@@ -46,14 +46,48 @@ export type Certificate = {
 };
 
 export const projects: Project[] = byNewest([
-  { title: "Chatacter", start: new Date(2026, 9, 1), end: null , href: "https://github.com/MH0386/Chatacter"},
-  { title: "Facial Emotions Detection", start: new Date(2023, 6, 1), end: null },
-  { title: "Seismic Detection", start: new Date(2024, 9, 1), end: new Date(2024, 9, 1) },
-  { title: "Digit Recognizer", start: new Date(2023, 7, 1), end: new Date(2023, 7, 1) },
-  { title: "Titanic Classification", start: new Date(2023, 7, 1), end: new Date(2023, 7, 1), summary: "Titanic - Machine Learning from Disaster" },
-  { title: "Face Recognition", start: new Date(2023, 6, 1), end: new Date(2023, 6, 1) },
-  { title: "Handwritten Recognition", start: new Date(2023, 6, 1), end: new Date(2023, 6, 1) },
-  { title: "Product Recommendation", start: new Date(2023, 6, 1), end: new Date(2023, 6, 1) },
+  {
+    title: "Chatacter",
+    start: new Date(2026, 9, 1),
+    end: null,
+    href: "https://github.com/MH0386/Chatacter",
+  },
+  {
+    title: "Facial Emotions Detection",
+    start: new Date(2023, 6, 1),
+    end: null,
+  },
+  {
+    title: "Seismic Detection",
+    start: new Date(2024, 9, 1),
+    end: new Date(2024, 9, 1),
+  },
+  {
+    title: "Digit Recognizer",
+    start: new Date(2023, 7, 1),
+    end: new Date(2023, 7, 1),
+  },
+  {
+    title: "Titanic Classification",
+    start: new Date(2023, 7, 1),
+    end: new Date(2023, 7, 1),
+    summary: "Titanic - Machine Learning from Disaster",
+  },
+  {
+    title: "Face Recognition",
+    start: new Date(2023, 6, 1),
+    end: new Date(2023, 6, 1),
+  },
+  {
+    title: "Handwritten Recognition",
+    start: new Date(2023, 6, 1),
+    end: new Date(2023, 6, 1),
+  },
+  {
+    title: "Product Recommendation",
+    start: new Date(2023, 6, 1),
+    end: new Date(2023, 6, 1),
+  },
 ]);
 
 export const experience: Experience[] = byNewest([

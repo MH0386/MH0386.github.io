@@ -16,9 +16,10 @@
 import { readdirSync, statSync, readFileSync } from "node:fs";
 import { join, relative, extname } from "node:path";
 
-const root = process.argv[2] && !process.argv[2].startsWith("--")
-  ? process.argv[2]
-  : "src/components";
+const root =
+  process.argv[2] && !process.argv[2].startsWith("--")
+    ? process.argv[2]
+    : "src/components";
 const asJson = process.argv.includes("--json");
 
 const RENDER_DOC =
@@ -54,15 +55,23 @@ function readComponent(file) {
     let started = false;
     for (; i < fm.length; i++) {
       const ch = fm[i];
-      if (ch === "{" || ch === "(") { depth++; started = true; }
-      else if (ch === "}" || ch === ")") {
+      if (ch === "{" || ch === "(") {
+        depth++;
+        started = true;
+      } else if (ch === "}" || ch === ")") {
         depth--;
-        if (started && depth === 0 && decl[1] === "interface") { i++; break; }
-      } else if (ch === ";" && depth === 0) { break; } // also ends a brace-less union
+        if (started && depth === 0 && decl[1] === "interface") {
+          i++;
+          break;
+        }
+      } else if (ch === ";" && depth === 0) {
+        break;
+      } // also ends a brace-less union
     }
     blocks.push(fm.slice(decl.index, i + 1));
   }
-  const re = /(?:\/\*\*([\s\S]*?)\*\/\s*)?^(\s{2,8})([a-zA-Z_]\w*)(\?)?:\s*([^\n]+)$/gm;
+  const re =
+    /(?:\/\*\*([\s\S]*?)\*\/\s*)?^(\s{2,8})([a-zA-Z_]\w*)(\?)?:\s*([^\n]+)$/gm;
   /* Only a declaration that actually holds props counts towards "spans a
      union" — a bare `type Tag = "span" | "p"` is a vocabulary, not a shape. */
   let blocksWithProps = 0;
@@ -78,7 +87,12 @@ function readComponent(file) {
       props.push({
         name,
         type: type.replace(/;$/, "").trim(),
-        doc: doc ? doc.replace(/^\s*\*\s?/gm, "").replace(/\s+/g, " ").trim() : null,
+        doc: doc
+          ? doc
+              .replace(/^\s*\*\s?/gm, "")
+              .replace(/\s+/g, " ")
+              .trim()
+          : null,
       });
     }
     if (props.length > before) blocksWithProps++;
@@ -93,7 +107,9 @@ function readComponent(file) {
   return { file: relative(root, file), props, destructured, multiBlock };
 }
 
-const components = walk(root).map(readComponent).filter((c) => c.props.length);
+const components = walk(root)
+  .map(readComponent)
+  .filter((c) => c.props.length);
 
 /* ---------- 1. render, the one prop every component shares ---------- */
 const renderIssues = [];
@@ -104,9 +120,15 @@ for (const c of components) {
   else if (i !== 0 && !c.multiBlock)
     renderIssues.push([c.file, `render is #${i + 1}, not first`]);
   else if (i !== 0)
-    renderAdvisories.push([c.file, `render is #${i + 1} in file order — props span several type aliases, so read it by hand`]);
+    renderAdvisories.push([
+      c.file,
+      `render is #${i + 1} in file order — props span several type aliases, so read it by hand`,
+    ]);
   else if (c.props[0].doc !== RENDER_DOC)
-    renderIssues.push([c.file, `render's wording differs: "${c.props[0].doc ?? "(none)"}"`]);
+    renderIssues.push([
+      c.file,
+      `render's wording differs: "${c.props[0].doc ?? "(none)"}"`,
+    ]);
 }
 
 /* ---------- 2. relative order of props that co-occur ----------
@@ -118,7 +140,9 @@ const pairOrder = new Map();
    the discriminant leads each branch, and shared props sit in a base type.
    There is no single declaration order to compare, so these are listed for a
    hand read instead of being reported as drift. */
-const unionComponents = components.filter((c) => c.multiBlock).map((c) => c.file);
+const unionComponents = components
+  .filter((c) => c.multiBlock)
+  .map((c) => c.file);
 for (const c of components) {
   if (c.multiBlock) continue;
   const names = c.props.map((p) => p.name);
@@ -151,7 +175,9 @@ for (const [key, { forward, backward }] of pairOrder) {
     offenders: minority,
   });
 }
-orderConflicts.sort((x, y) => y.majority - x.majority || y.offenders.length - x.offenders.length);
+orderConflicts.sort(
+  (x, y) => y.majority - x.majority || y.offenders.length - x.offenders.length,
+);
 
 /* ---------- 3. how docs are written ----------
    The prose differs by necessity — `variant` means a different thing in every
@@ -165,7 +191,10 @@ for (const c of components) {
     if (!p.doc) continue;
     const hasBullets = /- `/.test(p.doc);
     if (p.name === "variant" && !hasBullets) variantNoOptions.push(`${c.file}`);
-    if (/^number$/.test(p.type.replace(/\s/g, "")) && !/@(min|max|int)\b/.test(p.doc)) {
+    if (
+      /^number$/.test(p.type.replace(/\s/g, "")) &&
+      !/@(min|max|int)\b/.test(p.doc)
+    ) {
       numberNoRange.push(`${c.file}:${p.name}`);
     }
   }
@@ -181,8 +210,10 @@ for (const c of components) {
   for (const p of c.props) {
     if (!p.doc) continue;
     const hasBullets = /- `/.test(p.doc);
-    if (hasBullets && /Defaults to `/.test(p.doc)) bulletedWithSentence.push(`${c.file}:${p.name}`);
-    if (!hasBullets && /\(default\)/.test(p.doc)) plainWithInline.push(`${c.file}:${p.name}`);
+    if (hasBullets && /Defaults to `/.test(p.doc))
+      bulletedWithSentence.push(`${c.file}:${p.name}`);
+    if (!hasBullets && /\(default\)/.test(p.doc))
+      plainWithInline.push(`${c.file}:${p.name}`);
   }
 }
 if (bulletedWithSentence.length) {
@@ -195,14 +226,14 @@ if (bulletedWithSentence.length) {
 if (plainWithInline.length) {
   styleFindings.push({
     what: "single-value prop marked `(default)`",
-    detail: "with no options to mark, say \"Defaults to `x`.\"",
+    detail: 'with no options to mark, say "Defaults to `x`."',
     where: plainWithInline,
   });
 }
 if (variantNoOptions.length) {
   styleFindings.push({
     what: "variant documented without listing its options",
-    detail: "elsewhere each option is a `- \`value\` — description` bullet",
+    detail: "elsewhere each option is a `- `value` — description` bullet",
     where: variantNoOptions,
   });
 }
@@ -217,7 +248,9 @@ if (numberNoRange.length) {
 /* ---------- 4. undocumented props ---------- */
 const undocumented = [];
 for (const c of components) {
-  const bare = c.props.filter((p) => !p.doc && p.name !== "class").map((p) => p.name);
+  const bare = c.props
+    .filter((p) => !p.doc && p.name !== "class")
+    .map((p) => p.name);
   if (bare.length) undocumented.push([c.file, bare]);
 }
 
@@ -229,14 +262,27 @@ for (const c of components) {
   const inBoth = c.destructured.filter((n) => declared.includes(n));
   const expected = declared.filter((n) => inBoth.includes(n));
   if (inBoth.join(",") !== expected.join(",")) {
-    destructureIssues.push([c.file, `declared ${expected.join(", ")} · destructured ${inBoth.join(", ")}`]);
+    destructureIssues.push([
+      c.file,
+      `declared ${expected.join(", ")} · destructured ${inBoth.join(", ")}`,
+    ]);
   }
 }
 
 if (asJson) {
-  console.log(JSON.stringify(
-    { renderIssues, orderConflicts, styleFindings, undocumented, destructureIssues },
-    null, 2));
+  console.log(
+    JSON.stringify(
+      {
+        renderIssues,
+        orderConflicts,
+        styleFindings,
+        undocumented,
+        destructureIssues,
+      },
+      null,
+      2,
+    ),
+  );
   process.exit(0);
 }
 
@@ -244,9 +290,12 @@ const rule = "─".repeat(70);
 console.log(`${components.length} components in ${root}\n${rule}`);
 
 console.log("\nRENDER — the prop every component shares");
-if (!renderIssues.length && !renderAdvisories.length) console.log("  consistent everywhere");
-for (const [file, why] of renderIssues) console.log(`  ${file.padEnd(34)} ${why}`);
-for (const [file, why] of renderAdvisories) console.log(`  note  ${file.padEnd(28)} ${why}`);
+if (!renderIssues.length && !renderAdvisories.length)
+  console.log("  consistent everywhere");
+for (const [file, why] of renderIssues)
+  console.log(`  ${file.padEnd(34)} ${why}`);
+for (const [file, why] of renderAdvisories)
+  console.log(`  note  ${file.padEnd(28)} ${why}`);
 
 console.log("\nPROP ORDER — pairs declared in conflicting orders");
 if (unionComponents.length) {
@@ -254,7 +303,9 @@ if (unionComponents.length) {
 }
 if (!orderConflicts.length) console.log("  no conflicts");
 for (const c of orderConflicts) {
-  console.log(`  ${c.convention.padEnd(30)} in ${c.majority} component(s); differs in:`);
+  console.log(
+    `  ${c.convention.padEnd(30)} in ${c.majority} component(s); differs in:`,
+  );
   for (const f of c.offenders) console.log(`      ${f}`);
 }
 
@@ -274,10 +325,16 @@ for (const [file, names] of undocumented) {
 
 console.log("\nDESTRUCTURING — order disagrees with the declaration");
 if (!destructureIssues.length) console.log("  matches everywhere");
-for (const [file, detail] of destructureIssues) console.log(`  ${file}\n      ${detail}`);
+for (const [file, detail] of destructureIssues)
+  console.log(`  ${file}\n      ${detail}`);
 
 const total =
-  renderIssues.length + orderConflicts.length + styleFindings.length +
-  undocumented.length + destructureIssues.length;
-console.log(`\n${rule}\n${total} finding(s)${renderAdvisories.length ? ` and ${renderAdvisories.length} note(s)` : ""}. None break a build; all are felt in autocomplete.`);
+  renderIssues.length +
+  orderConflicts.length +
+  styleFindings.length +
+  undocumented.length +
+  destructureIssues.length;
+console.log(
+  `\n${rule}\n${total} finding(s)${renderAdvisories.length ? ` and ${renderAdvisories.length} note(s)` : ""}. None break a build; all are felt in autocomplete.`,
+);
 process.exit(total ? 1 : 0);

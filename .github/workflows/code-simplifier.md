@@ -4,8 +4,8 @@ description: Analyzes recently modified code and creates pull requests with simp
 on:
   schedule: every 1h
   skip-if-match: 'is:pr is:open in:title "[code-simplifier]"'
-  pull_request:   
-   types: [opened, synchronize, labeled]
+  pull_request:
+    types: [opened, synchronize, labeled]
   issues:
     types: [opened, edited, labeled]
   push:
@@ -13,13 +13,13 @@ on:
 
 network:
   allowed:
-  - defaults
-  - dotnet
-  - node
-  - python
-  - rust
-  - java
-  - openrouter.ai
+    - defaults
+    - dotnet
+    - node
+    - python
+    - rust
+    - java
+    - openrouter.ai
 
 permissions: read-all
 
@@ -276,6 +276,7 @@ This PR simplifies recently modified code to improve clarity, consistency, and m
 ### Changes Based On
 
 Recent changes from:
+
 - #[PR_NUMBER] - [PR title]
 - Commit [SHORT_SHA] - [Commit message]
 
@@ -289,6 +290,7 @@ Recent changes from:
 ### Review Focus
 
 Please verify:
+
 - Functionality is preserved
 - Simplifications improve code quality
 - Changes align with project conventions
@@ -296,7 +298,7 @@ Please verify:
 
 ---
 
-*Automated by Code Simplifier Agent*
+_Automated by Code Simplifier Agent_
 ```
 
 ### 4.3 Use Safe Outputs

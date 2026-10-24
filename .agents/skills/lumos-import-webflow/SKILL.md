@@ -107,7 +107,7 @@ Nothing else starts until the homepage passes all of this:
 - **No `--_theme---`, `--_spacing---`, `--_trigger`, `--_state`,
   `--_responsive`, `data-trigger`, `data-state` or `@container` survive.**
 - **The chrome is in the layout**, not in the page — `grep navbar_wrapper
-src/pages` finds nothing.
+  src/pages` finds nothing.
 - **Sections, headings, buttons and eyebrows are components**, not divs
   wearing Webflow classes.
 - **The person who owns the site has looked at it** and asked for whatever they
@@ -545,7 +545,7 @@ For each component:
 1. **Find its markup and its CSS.** `map-classes` names the families —
    `u-eyebrow-wrapper`, `u-eyebrow-layout`, `u-eyebrow-marker`,
    `u-eyebrow-text` are one component, not four utilities. `split-css --prefix
-eyebrow` prints their rules.
+   eyebrow` prints their rules.
 2. **Move those rules into the Lumos component's `<style is:global>`**, inside
    its `@layer components` and out of the site stylesheet, replacing what is
    there. The two components have the same anatomy — a marker and a text node
@@ -654,7 +654,7 @@ or because Webflow had no other way?
 - **Heading** arrives as `<div class="u-heading" data-wf--typography-heading--variant="h2"><h1>…</h1></div>`.
   Read it before deleting it: the inner tag is the semantics and the attribute
   is the style, which is the pair `Heading` separates — `<Heading tag="h1"
-variant="h2">`. Take both, drop the div. `u-text` is `Typography/Paragraph`
+  variant="h2">`. Take both, drop the div. `u-text` is `Typography/Paragraph`
   the same way.
 - **`clickable`** is pure workaround, and on this site the most-used component
   of all at 1445 instances: an empty, absolutely positioned button laid over

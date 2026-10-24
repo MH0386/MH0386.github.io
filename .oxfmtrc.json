@@ -1,0 +1,27 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "printWidth": 80,
+  "sortPackageJson": false,
+  "astro": {},
+  "overrides": [
+    {
+      "files": ["*.css"],
+      "options": {
+        "printWidth": 320
+      }
+    }
+  ],
+  "associations": [
+    {
+      "files": ["*.astro"],
+      "language": "astro"
+    }
+  ],
+  "ignorePatterns": [
+    "dist",
+    ".astro",
+    "node_modules",
+    ".github/workflows/*.lock.yml",
+    ".github/workflows/agentics-maintenance.yml"
+  ]
+}

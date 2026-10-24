@@ -9,7 +9,10 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "format": "prettier --write .",
+    "format": "oxfmt",
+    "format:check": "oxfmt --check",
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix",
     "test": "node --experimental-strip-types --test tests/profile.test.ts"
   },
   "dependencies": {
@@ -20,8 +23,8 @@
     "typescript": "^6.0.3"
   },
   "devDependencies": {
-    "prettier": "^3.9.10",
-    "prettier-plugin-astro": "^1.1.1",
+    "oxfmt": "^0.74.0",
+    "oxlint": "^1.89.0",
     "wrangler": "^4.123.0"
   },
   "lumos": {

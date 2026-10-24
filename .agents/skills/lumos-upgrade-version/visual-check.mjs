@@ -21,7 +21,6 @@ import { execFile } from "node:child_process";
 import { promisify } from "node:util";
 import { mkdirSync, existsSync, readdirSync, statSync } from "node:fs";
 import { join, relative } from "node:path";
-import { promises as fs } from "node:fs";
 
 const run = promisify(execFile);
 
@@ -63,18 +62,23 @@ function routes(dir = "src/pages", prefix = "") {
   return found;
 }
 
-const slug = (route) => (route === "/" ? "index" : route.replace(/^\//, "").replace(/\//g, "-"));
+const slug = (route) =>
+  route === "/" ? "index" : route.replace(/^\//, "").replace(/\//g, "-");
 
 async function capture(label) {
   if (!CHROME) {
-    console.error("No Chrome/Chromium/Edge found. Install one, or capture by hand.");
+    console.error(
+      "No Chrome/Chromium/Edge found. Install one, or capture by hand.",
+    );
     process.exit(1);
   }
   const dir = join(OUT, label);
   mkdirSync(dir, { recursive: true });
 
   const list = routes();
-  console.log(`capturing ${list.length} route(s) × ${WIDTHS.length} width(s) from ${BASE}`);
+  console.log(
+    `capturing ${list.length} route(s) × ${WIDTHS.length} width(s) from ${BASE}`,
+  );
 
   for (const route of list) {
     for (const { name, w, h } of WIDTHS) {
@@ -88,7 +92,9 @@ async function capture(label) {
         `--screenshot=${file}`,
         `${BASE}${route}`,
       ]).catch((e) => {
-        console.error(`  ${route} @${name}: capture failed — ${e.shortMessage ?? e.message}`);
+        console.error(
+          `  ${route} @${name}: capture failed — ${e.shortMessage ?? e.message}`,
+        );
       });
       console.log(`  ${route} @${name} -> ${relative(process.cwd(), file)}`);
     }
@@ -100,7 +106,9 @@ async function compare() {
   const beforeDir = join(OUT, "before");
   const afterDir = join(OUT, "after");
   if (!existsSync(beforeDir) || !existsSync(afterDir)) {
-    console.error(`need both ${beforeDir} and ${afterDir} — capture before and after first.`);
+    console.error(
+      `need both ${beforeDir} and ${afterDir} — capture before and after first.`,
+    );
     process.exit(1);
   }
   mkdirSync(join(OUT, "diff"), { recursive: true });
@@ -169,17 +177,30 @@ async function compare() {
       await sharp(diff, { raw: { width, height, channels: 3 } })
         .png()
         .toFile(join(OUT, "diff", file));
-      rows.push([file, `${(share * 100).toFixed(3)}%`, `CHANGED — see ${OUT}/diff/${file}`]);
+      rows.push([
+        file,
+        `${(share * 100).toFixed(3)}%`,
+        `CHANGED — see ${OUT}/diff/${file}`,
+      ]);
       worst = Math.max(worst, share);
     } else {
       rows.push([file, `${(share * 100).toFixed(3)}%`, "unchanged"]);
     }
   }
 
-  const w = [0, 1, 2].map((i) => Math.max(...rows.map((r) => String(r[i]).length), 4));
-  console.log(rows.map((r) => r.map((c, i) => String(c).padEnd(w[i])).join("  ")).join("\n"));
+  const w = [0, 1, 2].map((i) =>
+    Math.max(...rows.map((r) => String(r[i]).length), 4),
+  );
+  console.log(
+    rows
+      .map((r) => r.map((c, i) => String(c).padEnd(w[i])).join("  "))
+      .join("\n"),
+  );
 
-  const changed = rows.filter((r) => String(r[2]).startsWith("CHANGED") || String(r[2]).startsWith("MISSING"));
+  const changed = rows.filter(
+    (r) =>
+      String(r[2]).startsWith("CHANGED") || String(r[2]).startsWith("MISSING"),
+  );
   console.log(
     changed.length
       ? `\n${changed.length} of ${rows.length} view(s) changed. An upgrade should not move pixels — explain each one before committing.`
