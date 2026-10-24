@@ -26,8 +26,8 @@ jobs:
       - name: Install, build, and upload your site
         uses: withastro/action@3eafd002e65cc31b4f0eae0bb05450d521562247 # v6
         with:
-          # Exact Node LTS release. Renovate bumps this with package.json engines.
-          node-version: 24.22.1
+          # Current Node.js LTS. setup-node resolves lts/* when the job runs.
+          node-version: "lts/*"
 
   deploy:
     needs: build
