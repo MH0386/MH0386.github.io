@@ -1,0 +1,90 @@
+---
+import Layout from "@/layouts/BaseLayout.astro";
+import Section from "@/components/Wrapper/Section.astro";
+import ContentHero from "@/components/Wrapper/ContentHero.astro";
+import Heading from "@/components/Typography/Heading.astro";
+import Timeline from "@/components/Wrapper/Timeline.astro";
+import TimelineItem from "@/components/Wrapper/TimelineItem.astro";
+import Card from "@/components/Item/Card.astro";
+import {
+  certificates,
+  education,
+  experience,
+  intro,
+  projects,
+} from "@/data/profile.ts";
+import { formatPeriod } from "@/utils/dates.ts";
+---
+
+<Layout theme="dark">
+  <Section>
+    <ContentHero
+      name={intro.name}
+      location={intro.location}
+      summary={intro.summary}
+    />
+  </Section>
+  <Section id="projects">
+    <Heading tag="h2">Projects</Heading>
+    <Timeline>
+      {projects.map((project) => (
+        <TimelineItem>
+          <Card
+            headingTag="h3"
+            eyebrow={formatPeriod(project.start, project.end)}
+            heading={project.title}
+            text={project.summary}
+            buttonLabel={project.href ? "View project" : undefined}
+            buttonHref={project.href}
+          />
+        </TimelineItem>
+      ))}
+    </Timeline>
+  </Section>
+  <Section id="experience">
+    <Heading tag="h2">Experience</Heading>
+    <Timeline>
+      {experience.map((role) => (
+        <TimelineItem>
+          <Card
+            headingTag="h3"
+            eyebrow={formatPeriod(role.start, role.end)}
+            heading={role.role}
+            text={role.text}
+          />
+        </TimelineItem>
+      ))}
+    </Timeline>
+  </Section>
+  <Section id="education">
+    <Heading tag="h2">Education</Heading>
+    <Timeline>
+      {education.map((item) => (
+        <TimelineItem>
+          <Card
+            headingTag="h3"
+            eyebrow={formatPeriod(item.start, item.end)}
+            heading={item.heading}
+            text={item.text}
+          />
+        </TimelineItem>
+      ))}
+    </Timeline>
+  </Section>
+  <Section id="certificates">
+    <Heading tag="h2">Certificates</Heading>
+    <Timeline>
+      {certificates.map((certificate) => (
+        <TimelineItem>
+          <Card
+            headingTag="h3"
+            eyebrow={`${certificate.issuer} · ${formatPeriod(certificate.start, certificate.end)}`}
+            heading={certificate.title}
+            buttonLabel="View certificate"
+            buttonHref={certificate.href}
+          />
+        </TimelineItem>
+      ))}
+    </Timeline>
+  </Section>
+</Layout>
