@@ -63,7 +63,15 @@ queue_rules:
           - check-success = CodeQL
           - check-success = CodeFactor
           - check-success = GitGuardian Security Checks
-          - check-success = SonarCloud
+
+merge_protections:
+  - name: required checks
+    if:
+      - base = main
+    success_conditions:
+      - check-success = CodeQL
+      - check-success = CodeFactor
+      - check-success = GitGuardian Security Checks
 
 merge_protections_settings:
   reporting_method: check-runs
