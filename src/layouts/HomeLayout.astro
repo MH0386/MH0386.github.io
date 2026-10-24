@@ -1,0 +1,38 @@
+---
+import "@/styles/home.css";
+import BaseHead from "@/components/Utility/BaseHead.astro";
+import type { SeoProps } from "@/types.ts";
+
+type Props = SeoProps;
+---
+
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <script is:inline>
+      const stored = localStorage.getItem("theme");
+      const dark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      document.documentElement.dataset.theme =
+        stored === "light" || stored === "dark"
+          ? stored
+          : dark
+            ? "dark"
+            : "light";
+    </script>
+    <BaseHead {...Astro.props} />
+  </head>
+  <body>
+    <div class="home">
+      <slot />
+    </div>
+    <script>
+      const button = document.querySelector("[data-theme-toggle]");
+      button?.addEventListener("click", () => {
+        const next =
+          document.documentElement.dataset.theme === "light" ? "dark" : "light";
+        document.documentElement.dataset.theme = next;
+        localStorage.setItem("theme", next);
+      });
+    </script>
+  </body>
+</html>

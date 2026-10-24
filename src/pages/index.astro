@@ -1,0 +1,103 @@
+---
+import HomeLayout from "@/layouts/HomeLayout.astro";
+import {
+  certificates,
+  education,
+  experience,
+  intro,
+  projects,
+} from "@/data/profile.ts";
+import { formatPeriod } from "@/utils/dates.ts";
+---
+
+<HomeLayout>
+  <header class="home-bar">
+    <a class="home-path" href="/">
+      /home/mohamed
+    </a>
+    <div class="home-nav">
+      <nav aria-label="Main">
+        <a href="/" aria-current="page">
+          Home
+        </a>
+        <a href="/#projects">Projects</a>
+        <a href="/#experience">Experience</a>
+        <a href="/#education">Education</a>
+        <a href="/#certificates">Certificates</a>
+      </nav>
+      <button class="home-theme" type="button" data-theme-toggle>
+        Theme
+      </button>
+    </div>
+  </header>
+  <main class="home-main" id="main">
+    <h1>{intro.name}</h1>
+    <p class="home-links">
+      <a href="https://github.com/MH0386">GitHub</a>
+      <span>{intro.location}</span>
+    </p>
+    <p class="home-summary">{intro.summary}</p>
+
+    <section class="home-section" id="projects">
+      <h2>Projects</h2>
+      <ul class="home-list">
+        {projects.map((project) => (
+          <li class="home-card">
+            <h3>{project.title}</h3>
+            {formatPeriod(project.start, project.end) && (
+              <p class="home-meta">
+                {formatPeriod(project.start, project.end)}
+              </p>
+            )}
+            {project.summary && <p>{project.summary}</p>}
+            {project.href && <a href={project.href}>View project</a>}
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section class="home-section" id="experience">
+      <h2>Experience</h2>
+      <ul class="home-list">
+        {experience.map((role) => (
+          <li class="home-card">
+            <h3>{role.role}</h3>
+            <p class="home-meta">{formatPeriod(role.start, role.end)}</p>
+            <p>{role.text}</p>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section class="home-section" id="education">
+      <h2>Education</h2>
+      <ul class="home-list">
+        {education.map((item) => (
+          <li class="home-card">
+            <h3 set:html={item.heading} />
+            <p class="home-meta">{formatPeriod(item.start, item.end)}</p>
+            <p>{item.text}</p>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section class="home-section" id="certificates">
+      <h2>Certificates</h2>
+      <ul class="home-list">
+        {certificates.map((certificate) => (
+          <li class="home-card">
+            <h3>{certificate.title}</h3>
+            <p class="home-meta">
+              {`${certificate.issuer} · ${formatPeriod(certificate.start, certificate.end)}`}
+            </p>
+            <a href={certificate.href}>View certificate</a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  </main>
+  <p class="home-foot">
+    © {new Date().getFullYear()} {intro.name}
+  </p>
+</HomeLayout>

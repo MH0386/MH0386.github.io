@@ -1,0 +1,35 @@
+{
+  "name": "portfolio",
+  "type": "module",
+  "version": "0.0.1",
+  "license": "MIT",
+  "scripts": {
+    "dev": "astro dev",
+    "check": "astro check",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "format": "oxfmt",
+    "format:check": "oxfmt --check",
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix",
+    "test": "node --experimental-strip-types --test tests/profile.test.ts"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.12",
+    "@astrojs/sitemap": "^3.7.4",
+    "astro": "^7.4.2",
+    "date-fns": "^4.4.0",
+    "typescript": "^6.0.3"
+  },
+  "devDependencies": {
+    "oxfmt": "^0.74.0",
+    "oxlint": "^1.89.0",
+    "wrangler": "^4.123.0"
+  },
+  "lumos": {
+    "version": "0.0.3",
+    "commit": "1a8e1777ff072a3faeaebddcadb6ff80c6951c38",
+    "scaffolded": "2026-09-15"
+  }
+}

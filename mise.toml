@@ -1,0 +1,45 @@
+#:schema https://mise.jdx.dev/schema/mise.json
+
+[tools]
+node = "lts"
+oxfmt = "latest"
+oxlint = "latest"
+
+[tasks.install]
+description = "Install the project dependencies"
+run = "npm install"
+
+[tasks.dev]
+description = "Start the Astro dev server"
+run = "npm run dev"
+depends = ["install"]
+
+[tasks.build]
+description = "Build the site to dist/"
+run = "npm run build"
+depends = ["install"]
+
+[tasks.preview]
+description = "Serve the built site"
+run = "npm run preview"
+depends = ["build"]
+
+[tasks.check]
+description = "Type-check every Astro file"
+run = "npm run check"
+depends = ["install"]
+
+[tasks.format]
+description = "Format the project with Oxfmt"
+run = "npm run format"
+depends = ["install"]
+
+[tasks.lint]
+description = "Lint the project with Oxlint"
+run = "npm run lint"
+depends = ["install"]
+
+[tasks.test]
+description = "Run the test suite"
+run = "npm test"
+depends = ["install"]

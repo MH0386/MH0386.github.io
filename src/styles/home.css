@@ -1,0 +1,187 @@
+:root {
+  --bg: #1e1e2e;
+  --fg: #cdd6f4;
+  --subtle: #a6adc8;
+  --card: #11111b;
+  --card-hover: #181825;
+  --border: #313244;
+  --link: #89b4fa;
+  --link-hover: #74c7ec;
+  --header: #cba6f7;
+  --accent: #b4befe;
+  --footer: #6c7086;
+  --code: #45475a;
+  color-scheme: dark;
+}
+
+:root[data-theme="light"] {
+  --bg: #eff1f5;
+  --fg: #4c4f69;
+  --subtle: #6c6f85;
+  --card: #dce0e8;
+  --card-hover: #e6e9ef;
+  --border: #ccd0da;
+  --link: #1e66f5;
+  --link-hover: #209fb5;
+  --header: #8839ef;
+  --accent: #7287fd;
+  --footer: #9ca0b0;
+  --code: #e6e9ef;
+  color-scheme: light;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  background: var(--bg);
+  color: var(--fg);
+}
+
+body {
+  font-family: ui-monospace, "Cascadia Code", "Source Code Pro", monospace;
+  font-size: 1.125rem;
+  letter-spacing: 0.04em;
+  line-height: 1.7;
+}
+
+a {
+  color: var(--link);
+}
+
+a:hover {
+  color: var(--link-hover);
+}
+
+.home {
+  width: min(800px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 2rem 0 3rem;
+}
+
+.home-bar,
+.home-card {
+  background: var(--card);
+  border: 2px solid var(--border);
+  box-shadow: 0 4px 12px #181825;
+}
+
+.home-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem 1.5rem;
+  padding: 1rem;
+}
+
+.home-path {
+  color: var(--header);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.home-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+}
+
+.home-nav nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.home-nav a {
+  color: var(--fg);
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+}
+
+.home-nav a:hover,
+.home-nav a[aria-current="page"] {
+  color: var(--link-hover);
+  border-bottom-color: var(--link-hover);
+}
+
+.home-theme {
+  cursor: pointer;
+  color: var(--header);
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  letter-spacing: inherit;
+}
+
+.home-main {
+  margin: 1.2rem;
+}
+
+.home-main h1 {
+  margin: 0 0 0.4rem;
+}
+
+.home-links {
+  display: flex;
+  gap: 1rem;
+  margin: 0 0 1rem;
+}
+
+.home-links a {
+  text-decoration: none;
+}
+
+.home-summary {
+  margin: 0;
+}
+
+.home-section {
+  margin-top: 2rem;
+}
+
+.home-section h2 {
+  margin: 0 0 1rem;
+  font-size: 1.25rem;
+}
+
+.home-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.home-card {
+  padding: 0.4rem 0.6rem 0.8rem;
+}
+
+.home-card:hover {
+  background: var(--card-hover);
+}
+
+.home-card h3,
+.home-card p {
+  margin: 0.45rem 0.4rem;
+}
+
+.home-meta {
+  color: var(--subtle);
+  font-size: 0.95rem;
+}
+
+.home-foot {
+  margin: 2rem 0 0;
+  text-align: center;
+  color: var(--footer);
+}
