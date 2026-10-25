@@ -59,3 +59,11 @@ Task-specific procedures live in `.claude/skills/`, one folder each, with a
 In Claude Code these load on their own, or with `/lumos-import-figma`. Any other
 assistant can read the `SKILL.md` directly and follow it — the steps are plain
 markdown and the scripts are plain Node.
+
+## Cursor Cloud specific instructions
+
+The saved Cloud Agent `start` command runs `npm run dev -- --host 0.0.0.0 --port 4321` and keeps that process attached. When `http://127.0.0.1:4321/` already responds, leave it running. `astro dev --background` needs port 4321 free.
+
+Dependencies install with `npm ci` on the image's Node.js 22, which satisfies the lockfile (`>=22.12.0`).
+
+`npm test` runs `tests/profile.test.ts`. `tests/homepage.test.ts` reads `dist/index.html`, so run `npm run build` before that file. Lint with `npm run lint`, check formatting with `npm run format:check`, and type-check with `npm run check`.
