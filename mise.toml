@@ -43,3 +43,7 @@ depends = ["install"]
 description = "Run the test suite"
 run = "npm test"
 depends = ["install"]
+
+[tasks.check-deps]
+description = "Fail when package.json and package-lock.json are out of sync"
+run = "npm ci --dry-run --ignore-scripts --no-audit --no-fund"
