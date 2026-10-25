@@ -37,6 +37,12 @@ queue_rules:
       - check-success = Check Dependency Compatibility
     merge_conditions:
       - check-success = Test Image / API Test
+  - name: Node Dependency Updates
+    max_checks_retries: 3
+    queue_conditions:
+      - files ~= ^(package\.json|package-lock\.json)$
+      - author = renovate[bot]
+      - check-success = Check Dependency Compatibility
   - name: Docker Compose Updates
     queue_conditions:
       - files ~= ^(docker-compose-dev.yaml|docker-compose.yaml)$
@@ -63,6 +69,7 @@ queue_rules:
           - check-success = CodeQL
           - check-success = CodeFactor
           - check-success = GitGuardian Security Checks
+          - check-success = Check Dependency Compatibility
 
 merge_protections:
   - name: required checks
@@ -72,6 +79,7 @@ merge_protections:
       - check-success = CodeQL
       - check-success = CodeFactor
       - check-success = GitGuardian Security Checks
+      - check-success = Check Dependency Compatibility
 
 merge_protections_settings:
   reporting_method: check-runs
@@ -88,6 +96,10 @@ merge_protections_settings:
             - author = renovate[bot]
         - and:
             - files ~= ^(uv.lock|pyproject.toml)$
+            - author = renovate[bot]
+            - check-success = Check Dependency Compatibility
+        - and:
+            - files ~= ^(package\.json|package-lock\.json)$
             - author = renovate[bot]
             - check-success = Check Dependency Compatibility
         - and:
