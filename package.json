@@ -24,7 +24,7 @@
   },
   "devDependencies": {
     "oxfmt": "0.77.0",
-    "oxlint": "1.91.0",
+    "oxlint": "1.92.0",
     "wrangler": "4.158.0"
   },
   "lumos": {
